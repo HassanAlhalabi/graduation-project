@@ -61,13 +61,15 @@ mongoose.connect(
   }
 );
 
-//check for production evinroment
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('../build'));
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-//   });
-// }
+// Server static assets if in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 //Define the Port your will be running your server on.
 //NOTE: Make sure the Port is the same as the proxy.

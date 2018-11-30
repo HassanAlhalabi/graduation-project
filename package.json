@@ -4,7 +4,8 @@
   "description": "a MERN ecommerce full stack application",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Yaser AlAzem",
   "license": "MIT",
