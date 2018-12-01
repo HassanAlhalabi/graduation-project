@@ -46,8 +46,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //*** Routes ***//
+
 require('./routes/indexRoutes')(app);
 require('./routes/authRoutes')(app);
+require('./routes/userRoutes')(app);
 
 //Connecting to mongoDB
 mongoose.connect(
