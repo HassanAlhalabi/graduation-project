@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import Navbar from './components/layout/Navbar';
+import Login from './components/layout/Login';
 import Home from './components/presentational/Home';
 import About from './components/about/About';
 import Cart from './components/cart/Cart';
@@ -40,6 +41,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/cart" component={Cart} />
+              <Route exact path="/login" component={Login} />
             </div>
           </div>
         </Router>

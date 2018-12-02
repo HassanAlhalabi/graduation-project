@@ -15,8 +15,10 @@ const user = new Schema({
     type: String
   },
   googleId: {
-    type: String,
-    required: true
+    type: String
+  },
+  facebookId: {
+    type: String
   },
   avatar: String
 });

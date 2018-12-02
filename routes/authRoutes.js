@@ -17,4 +17,17 @@ module.exports = app => {
     passport.authenticate('google'),
     (req, res) => res.redirect('/')
   );
+
+  // Facebook authentication route
+  app.get(
+    '/auth/facebook',
+    passport.authenticate('facebook', { scope: ['email'] })
+  );
+
+  //Facebook authentication callback route
+  app.get(
+    '/auth/facebook/callback',
+    passport.authenticate('facebook'),
+    (req, res) => res.redirect('/')
+  );
 };

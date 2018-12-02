@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
+import Login from './Login';
 
 import { fetchUser, logout, login } from '../../redux/reducers/reducer';
 
@@ -19,27 +20,50 @@ class Navbar extends Component {
   }
   render() {
     const { user } = this.props;
-    let logLink;
-    logLink = user ? (
-      <div>
-        <Link
-          className="nav-link"
-          to="/logout"
-          onClick={this.onLogoutClicked.bind(this)}
-        >
-          <img
-            className="rounded-circle"
-            src={this.props.user.avatar}
-            alt={this.props.user.name}
-            style={{ width: '25px', marginRight: '5px' }}
-          />
-          Logout
-        </Link>
-      </div>
+    let logLinks;
+
+    logLinks = user ? (
+      <React.Fragment>
+        <li className="nav-item">
+          <Link className="nav-link" to="/my-products">
+            My Products
+          </Link>
+        </li>
+        <li className="nav-item mr-3">
+          <Link
+            className="nav-link px-2 bg-primary text-white rounded"
+            to="/cart"
+          >
+            <i className="fas fa-shopping-cart" />
+          </Link>
+        </li>
+        <li className="nav-item">
+          <span className="nav-link font-weight-normal text-white px-2 bg-secondary rounded">
+            {user.name}
+          </span>
+        </li>
+        <li className="nav-item">
+          <Link
+            className="nav-link"
+            to="/logout"
+            onClick={this.onLogoutClicked.bind(this)}
+          >
+            <img
+              className="rounded-circle"
+              src={this.props.user.avatar}
+              alt={this.props.user.name}
+              style={{ width: '25px', marginRight: '5px' }}
+            />
+            Logout
+          </Link>
+        </li>
+      </React.Fragment>
     ) : (
-      <a className="nav-link" href="/auth/google">
-        Login From Google
-      </a>
+      <React.Fragment>
+        <li className="nav-item">
+          <Login />
+        </li>
+      </React.Fragment>
     );
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
@@ -70,12 +94,7 @@ class Navbar extends Component {
                   About
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/cart">
-                  Cart
-                </Link>
-              </li>
-              <li className="nav-item">{logLink}</li>
+              {logLinks}
             </ul>
           </div>
         </div>

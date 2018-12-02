@@ -1,6 +1,7 @@
 const keys = require('../config/keys');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 
 const User = require('../models/user');
 
@@ -21,18 +22,40 @@ passport.deserializeUser((id, done) => {
 });
 
 //Getting the email from profile object
-let primaryEmail;
+let googleEmail;
 const getGoogleEmail = res => {
   for (var i = 0; i < res.emails.length; i++) {
     if (res.emails[i].type === 'account') {
-      primaryEmail = res.emails[i].value;
+      googleEmail = res.emails[i].value;
     } else {
-      primaryEmail = '';
+      googleEmail = '';
     }
   }
 };
 
-//Setting up users authentication with google oauth20 strategy with passport
+let facebookEmail;
+const getFacebookEmail = res => {
+  for (var i = 0; i < res.emails.length; i++) {
+    if (res.emails[i].value) {
+      facebookEmail = res.emails[i].value;
+    } else {
+      facebookEmail = '';
+    }
+  }
+};
+
+let facebookAvatar;
+const getFacebookAvatar = res => {
+  for (var i = 0; i < res.photos.length; i++) {
+    if (res.photos[i].value) {
+      facebookAvatar = res.photos[i].value;
+    } else {
+      facebookAvatar = '';
+    }
+  }
+};
+
+//Setting up users authentication with Google oauth20 strategy with passport
 passport.use(
   new GoogleStrategy(
     {
@@ -56,12 +79,52 @@ passport.use(
             new User({
               googleId: profile.id,
               name: profile.displayName,
-              email: primaryEmail,
-              avatar: gravatar.url(primaryEmail, {
+              email: googleEmail,
+              avatar: gravatar.url(googleEmail, {
                 s: '200', // Size
                 r: 'pg', // Rating
                 d: 'mm' // Default
               })
+            })
+              .save()
+              .then(user => done(null, user))
+              .catch(err => console.log(err));
+          }
+        })
+        .catch(err => console.log(err));
+    }
+  )
+);
+
+//Setting up users authentication with Facebook strategy with passport
+
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: keys.facebookAppId,
+      clientSecret: keys.facebookSecretId,
+      callbackURL: '/auth/facebook/callback',
+      profileFields: ['id', 'displayName', 'photos', 'emails'],
+      proxy: true
+    },
+    (accessToken, refreshToken, profile, done) => {
+      User.findOne({ facebookId: profile.id })
+        .then(user => {
+          if (user) {
+            // User already exists, no need to create a new user just log the user in
+            console.log(
+              `User with Facebook ID: ${user.facebookId} is already exists`
+            );
+            done(null, user); // null for error object, which is null because the user is fetched from the DB
+          } else {
+            // User does not exists, create a new user and log in
+            getFacebookEmail(profile);
+            getFacebookAvatar(profile);
+            new User({
+              facebookId: profile.id,
+              name: profile.displayName,
+              email: facebookEmail,
+              avatar: facebookAvatar
             })
               .save()
               .then(user => done(null, user))
