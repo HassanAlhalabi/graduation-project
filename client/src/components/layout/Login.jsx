@@ -22,7 +22,7 @@ export class Login extends Component {
       <div>
         <Button color="primary" onClick={this.toggle}>
           {this.props.buttonLabel}
-          Login or Signup
+          Signup or Login
         </Button>
         <Modal
           isOpen={this.state.modal}
@@ -30,7 +30,7 @@ export class Login extends Component {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle} text="center">
-            Sign Up or Login
+            Signup or Login
           </ModalHeader>
           <ModalBody>
             <ul className="list-unstyled text-center">
@@ -40,7 +40,7 @@ export class Login extends Component {
                   id="google-login"
                   href="/auth/google"
                 >
-                  Login With Google <i className="fab fa-google-plus-g fa-lg" />
+                  <i className="fab fa-google-plus-g fa-lg" /> Login With Google
                 </a>
               </li>
               <li>
@@ -49,7 +49,7 @@ export class Login extends Component {
                   href="/auth/facebook"
                   id="facebook-login"
                 >
-                  Login With Facebook <i className="fab fa-facebook-f fa-lg" />
+                  <i className="fab fa-facebook fa-lg" /> Login With Facebook
                 </a>
               </li>
             </ul>

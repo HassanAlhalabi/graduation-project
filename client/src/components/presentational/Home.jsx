@@ -9,14 +9,9 @@ import ProductCard from './Productcard';
 import { getProducts } from '../../redux/reducers/reducer';
 
 class Home extends Component {
-  // componentDidMount() {
-  //   axios
-  //     .get("/api/products")
-  //     .then(res => {
-  //       this.props.getProducts(res);
-  //     })
-  //     .catch(err => console.log("Error fetching products : ", err));
-  // }
+  componentDidMount() {
+    this.props.getProducts();
+  }
 
   render() {
     const { loading, products } = this.props;

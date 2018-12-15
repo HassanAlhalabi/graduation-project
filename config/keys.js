@@ -5,7 +5,7 @@ module.exports = {
   mongoURI: process.env.MONGO_URI,
   sessionSecretKey: process.env.SESSION_SECRET_KEY,
   cloudinaryName: process.env.CLOUDINARY_NAME,
-  cloudinaryAPIKey: process.env.REACT_APP_CLOUDINARY_API_KEY,
+  cloudinaryAPIKey: process.env.CLOUDINARY_API_KEY,
   cloudinaryAPISecret: process.env.CLOUDINARY_API_SECRET,
   cloudinaryUrl: process.env.REACT_APP_CLOUDINARY_URL,
   auth0ClientId: process.env.REACT_APP_AUTH0_CLIENT_ID,

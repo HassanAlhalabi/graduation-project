@@ -5,8 +5,6 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 
 const User = require('../models/user');
 
-const gravatar = require('gravatar');
-
 // serialize user to generate a cookie (token) and store it in the browser after authntication with google
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -44,13 +42,13 @@ const getFacebookEmail = res => {
   }
 };
 
-let facebookAvatar;
-const getFacebookAvatar = res => {
+let avatar;
+const getAvatar = res => {
   for (var i = 0; i < res.photos.length; i++) {
     if (res.photos[i].value) {
-      facebookAvatar = res.photos[i].value;
+      avatar = res.photos[i].value;
     } else {
-      facebookAvatar = '';
+      avatar = '';
     }
   }
 };
@@ -76,15 +74,12 @@ passport.use(
           } else {
             // User does not exists, create a new user and log in
             getGoogleEmail(profile);
+            getAvatar(profile);
             new User({
               googleId: profile.id,
               name: profile.displayName,
               email: googleEmail,
-              avatar: gravatar.url(googleEmail, {
-                s: '200', // Size
-                r: 'pg', // Rating
-                d: 'mm' // Default
-              })
+              avatar: avatar
             })
               .save()
               .then(user => done(null, user))
@@ -119,12 +114,12 @@ passport.use(
           } else {
             // User does not exists, create a new user and log in
             getFacebookEmail(profile);
-            getFacebookAvatar(profile);
+            getAvatar(profile);
             new User({
               facebookId: profile.id,
               name: profile.displayName,
               email: facebookEmail,
-              avatar: facebookAvatar
+              avatar: avatar
             })
               .save()
               .then(user => done(null, user))

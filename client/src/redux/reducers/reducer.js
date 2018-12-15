@@ -93,9 +93,14 @@ export const logout = () => dispatch => {
 };
 
 //Getting products
-export const getProducts = res => dispatch => {
-  dispatch({
-    type: GET_PRODUCTS,
-    payload: res.data
-  });
+export const getProducts = () => dispatch => {
+  axios
+    .get('/api/products')
+    .then(products => {
+      dispatch({
+        type: GET_PRODUCTS,
+        payload: products.data
+      });
+    })
+    .catch(err => console.log(err));
 };
