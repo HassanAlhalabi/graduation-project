@@ -20,20 +20,32 @@ router.get('/', (req, res) => {
     );
 });
 
-//@route    GET /api/products/:id
+//@route    GET /api/products/user/:id
+//@desc     Get a specific user products
+//@access   Public
+router.get('/user/:id', (req, res) => {
+  Product.find({ userId: req.params.id })
+    .sort({ date: -1 })
+    .then(products => res.send(products))
+    .catch(err =>
+      res.status(404).json({ noproductsfoundforthisuser: 'No Products Found' })
+    );
+});
+
+//@route    GET /api/products/product/:id
 //@desc     Get a single product
 //@access   Public
-router.get('/:id', (req, res) => {
+router.get('/product/:id', (req, res) => {
   Product.findById(req.params.id)
     .then(product => res.send(product))
     .catch(err => res.status(404).json({ noproductfound: 'No Product Found' }));
 });
 
-//@route    GET /api/products/:id
+//@route    POST /api/products/product/:id
 //@desc     Edit a product
 //@access   Private
 
-router.post('/:id', (req, res) => {
+router.post('/product/:id', (req, res) => {
   if (!req.user) {
     res
       .status(403) //forbidden
@@ -68,17 +80,17 @@ router.post('/:id', (req, res) => {
   }
 });
 
-//@route    POST /api/products/
+//@route    POST /api/products/product
 //@desc     Create a new product
 //@access   Private
-router.post('/', (req, res) => {
-  uploadImage(req.body, req.user.id);
+router.post('/product', (req, res) => {
+  createProduct(body, userId);
 });
 
-//@route    DELETE  api/products/:id
+//@route    DELETE  api/products/product/:id
 //@desc     Delete product by product id
 //@access   Private
-router.delete('/:id', (req, res) => {
+router.delete('/product/:id', (req, res) => {
   User.findById(req.user.id)
     .then(user => {
       Product.findById(req.params.id)
@@ -98,26 +110,35 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(404).send(err));
 });
 
+//@route    POST /api/products/product/images/upload/:image
+//@desc     Upload product's image to Cloudinary
+//@access   Private
+router.post('/product/images/upload', (req, res) => {
+  //uploadImage(req.params.image);
+  console.log(req.body.image);
+});
+
 let imageUrl = '';
-async function uploadImage(body, userId) {
+const uploadImage = async image => {
   const cloudinary = require('cloudinary');
 
-  await cloudinary.v2.uploader.upload(
-    body.image,
-    { width: 200, height: 400, crop: 'fill' },
-    (err, res) => {
-      imageUrl = res.url;
-    }
-  );
-
-  createProduct(body, userId);
-}
+  await cloudinary.v2.uploader
+    .upload(image, { quality: 'auto:low' }, (err, result) => {
+      if (err) console.log(err);
+      //imageUrl = result.url;
+      console.log(result);
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+};
 
 createProduct = (body, userId) => {
+  const specArr = body.specification.split('-').map(spec => spec.trim());
   const newProduct = new Product({
     userId: userId,
     name: body.name,
     description: body.description,
+    specifications: specArr,
     price: body.price,
     picture: imageUrl,
     date: new Date()

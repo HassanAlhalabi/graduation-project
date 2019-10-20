@@ -5,7 +5,10 @@ const product = new Schema({
   userId: String,
   name: String,
   description: String,
+  specifications: [String],
   price: Number,
+  prevPrice: Number,
+  itemsNumber: Number,
   picture: String,
   date: {
     type: Date,

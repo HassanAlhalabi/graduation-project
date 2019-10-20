@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-//Define your User Collection Objects Structure
-//With datatypes
-//We'll be using Auth0 for authentication in the future.
-//THis is where the user will login
-//For Now we will be inserting test data
+//Define the User collection objects structure with datatypes
 const user = new Schema({
+  isAdmin: {
+    type: Boolean,
+    default: false
+  },
   name: {
     type: String,
     required: true

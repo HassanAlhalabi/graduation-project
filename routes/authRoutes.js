@@ -7,26 +7,26 @@ const passport = require('passport');
 router.get(
   '/google',
   passport.authenticate('google', {
-    scope: ['profile', 'email']
-  })
+    scope: ['profile', 'email'],
+  }),
 );
 
 //Google authentication callback route
 router.get('/google/callback', passport.authenticate('google'), (req, res) =>
-  res.redirect('/')
+  res.redirect('/'),
 );
 
 // Facebook authentication route
 router.get(
   '/facebook',
-  passport.authenticate('facebook', { scope: ['email'] })
+  passport.authenticate('facebook', { scope: ['email'] }),
 );
 
 //Facebook authentication callback route
 router.get(
   '/facebook/callback',
   passport.authenticate('facebook'),
-  (req, res) => res.redirect('/')
+  (req, res) => res.redirect('/'),
 );
 
 module.exports = router;

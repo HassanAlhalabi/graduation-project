@@ -38,8 +38,8 @@ app.use(cors());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
+    keys: [keys.cookieKey],
+  }),
 );
 //Tell passport to use cookies to manage authentication - middlewares
 app.use(passport.initialize());
@@ -55,13 +55,13 @@ app.use('/api/products', require('./routes/productsRoutes'));
 //Connecting to mongoDB
 mongoose.connect(
   keys.mongoURI,
-  { useNewUrlParser: true },
+  { useNewUrlParser: true, useUnifiedTopology: true },
   err => {
     if (err) {
       console.log('Database Error----------------', err);
     }
     console.log('Connected to database');
-  }
+  },
 );
 
 // Server static assets if in production

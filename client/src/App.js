@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from './redux/store';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 //import { login, logout } from './redux/reducers/reducer';
 
@@ -9,28 +9,17 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+import PrivateRoute from './components/common/PrivateRoute';
+
 import Navbar from './components/layout/Navbar';
 import Login from './components/layout/Login';
 import Home from './components/presentational/Home';
+import Dashboard from './components/dashboard/Dashboard';
 import About from './components/about/About';
-import Cart from './components/cart/Cart';
+import Cart from './components/product/Cart';
+import ProductForm from './components/product/ProductForm';
 
 class App extends Component {
-  //In it's componentDidMount  get the session, and if it has data set your intialState user to it.
-  // componentDidMount() {
-  //   axios.get('/api/user-data').then(res => {
-  //     //const { dispatch } = this.props;
-  //     if (res.data.user) {
-  //       console.log('logged in triggered');
-  //       //Dispatch the login function with the user data.
-  //       this.props.login(res.data.user);
-  //     } else {
-  //       console.log('logged out triggered');
-  //       //Dispatch the logout the user by default if there is no data in session.
-  //       this.props.logout();
-  //     }
-  //   });
-  // }
   render() {
     return (
       <Provider store={store}>
@@ -42,6 +31,16 @@ class App extends Component {
               <Route exact path="/about" component={About} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/login" component={Login} />
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/add-product"
+                  component={ProductForm}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
             </div>
           </div>
         </Router>

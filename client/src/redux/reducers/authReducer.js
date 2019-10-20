@@ -4,8 +4,6 @@ import isEmpty from '../../validation/is-empty';
 //Define initial state value
 const initialState = {
   user: null,
-  products: [],
-  loading: true,
   isAuthenticated: false
 };
 
@@ -13,7 +11,7 @@ const initialState = {
 const FETCH_USER = 'FETCH_USER';
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
-const GET_PRODUCTS = 'GET_PRODUCTS';
+const CLEAR_USER_PRODUCTS = 'CLEAR_USER_PRODUCTS';
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -29,13 +27,6 @@ export default (state = initialState, action) => {
         ...state,
         user: action.payload,
         isAuthenticated: !isEmpty(action.payload)
-      };
-    case GET_PRODUCTS:
-      console.log('get products reducer');
-      return {
-        ...state,
-        products: action.payload,
-        loading: false
       };
     case FETCH_USER:
       return {
@@ -81,6 +72,7 @@ export const login = () => dispatch => {
 //logout action
 export const logout = () => dispatch => {
   console.log('user log out action triggered');
+  dispatch(clearUsersProducts());
   axios
     .get('/api/logout')
     .then(res =>
@@ -92,15 +84,9 @@ export const logout = () => dispatch => {
     .catch(err => console.log(err));
 };
 
-//Getting products
-export const getProducts = () => dispatch => {
-  axios
-    .get('/api/products')
-    .then(products => {
-      dispatch({
-        type: GET_PRODUCTS,
-        payload: products.data
-      });
-    })
-    .catch(err => console.log(err));
+//clear users products
+export const clearUsersProducts = () => {
+  return {
+    type: CLEAR_USER_PRODUCTS
+  };
 };
