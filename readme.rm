@@ -1,7 +1,7 @@
 Steps to run the project on local server:
 
-1- Open the terminal in the main project directory and run : `npm install`
-2- Then change to client directory: `cd client`
-3- Run again: `npm install`
-3- Then change the directory back to tthe main directory: `cd ..`
-4- Finally, run the server by running this command: `npm run dev`
+1- Open the terminal in the main project directory and run : npm install
+2- Then change to client directory: cd client
+3- Run again: npm install
+3- Then change the directory back to tthe main directory: cd ..
+4- Finally, run the server by running this command: npm run dev
