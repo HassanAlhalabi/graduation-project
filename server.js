@@ -5,6 +5,8 @@ require('dotenv').config();
 //Require keys file
 const keys = require('./config/keys');
 
+const test_port = require('./config/glob-config');
+
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const path = require('path');
@@ -79,4 +81,4 @@ if (process.env.NODE_ENV === 'production') {
 const PORT = process.env.PORT || 5000;
 
 //Listining on the PORT
-app.listen(PORT, () => console.log('Listening on port: ', PORT));
+app.listen(test_port, () => console.log('Listening on port: ', test_port));
