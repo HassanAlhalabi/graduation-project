@@ -1,3 +1,62 @@
+/* ************* Global Style ************ */
+
+body {
+  height: 100vh;
+}
+
+p { color: #717171;}
+
+a {
+  text-decoration: none !important;
+  transition: .4s !important;
+  color: #333 !important;
+}
+
+/* ************* UpperBar Style ************ */
+
+.upper-bar,.navbar {
+  border-bottom: 1px solid #EEE;
+}
+
+.upper-bar span {
+  font-size: 14px;
+  color:#4A4E5A;
+}
+
+.upper-bar ul li a {
+  color: #4A4E5A;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.upper-bar ul li a:hover {
+  color: #F8694A;
+}
+
+/* ************* UpperBar Style ************ */
+
+.navbar-brand,.navbar-brand:hover {
+  color: #333 !important;
+  font-weight: bold !important;
+  font-size: 50px !important;
+}
+
+.navbar-brand span {
+  color: #F8694A;
+}
+
+.main-navbar .search-box button { 
+  right: 0 ;
+  border-color: transparent;
+  background-color: transparent;
+  color: #999;
+}
+
+.main-navbar .search-box input[type='search']:focus {
+  box-shadow: 0 0 0 0.2rem rgba(248,105,74,.25);
+  border-color: #dd4b39;
+}
+
 #google-login {
   background-color: #dd4b39 !important;
 }
@@ -138,3 +197,27 @@
   justify-content: center;
   min-height: 200px;
 }
+
+/* ************* UpperBar Style ************ */
+
+footer { background-color: #F6F7F8;}
+
+footer p {
+  font-size: .9em;
+}
+
+footer h4 { text-transform: uppercase;font-weight: 700;}
+
+.upper-footer { border-bottom: 1px solid #ced4da}
+
+.footer-social {
+  list-style: none;
+}
+
+.footer-social ul li a:hover {
+  color: #F8694A !important;
+}
+
+
+
+
