@@ -5,7 +5,7 @@ const Footer = () => {
     let year;
     year = 2019
     return(
-        <footer className='pt-4 pb-4'>
+        <footer className='pt-4 pb-4 mt-5'>
             <div className='container'>
                 <div className='upper-footer'>
                     <div className='row'>

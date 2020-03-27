@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 
 const HotDeal = () => 
 
-    <div className='hot-deal'>
+    <div className='hot-deal mb-5 mt-5'>
         <div className='container'>
             <div className='row'>
                  <div className='col-12 col-sm-12 mb-sm-2 mb-md-0 col-md-8'>

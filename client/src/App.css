@@ -16,8 +16,7 @@ a {
   color: #333 !important;
 }
 
-a:hover,
-a:focus {
+a:hover {
   color: #F8694A !important;
 }
 
@@ -103,6 +102,7 @@ footer input[type='email']:focus {
 .categories .row div:first-child {
   background-color: #F8694A;
   font-weight: bold;
+  justify-content: space-between;
 }
 
 /* ************* Category list Style ************ */
@@ -128,11 +128,12 @@ footer input[type='email']:focus {
 }
 
 .newcollection .link-text a {
-  background-color: transparent !important;
+  background-color: #3f3b3b8f !important;
   align-self: center;
   text-align: center;
   width: 100%;
-  font-size: 3vw;
+  font-size: 2.6vw;
+  border-radius: 0 !important;
 }
 
 @media (max-width: 576px) {

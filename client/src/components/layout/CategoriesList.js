@@ -1,47 +1,47 @@
 import React , {Component} from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
-class CategoryList extends Component {
+class CategoriesList extends Component {
     render(){
         return(
             <ul class='list-inline upper-text category-list m-0'>
-                <li>
-                    <Link to='/'>
+                <li className='pl-0 pr-0'>
+                    <Link to='/products'>
                         women's clothing
                     </Link>
                 </li>
-                <li>
-                    <Link to='/'>
+                <li className='pl-0 pr-0'>
+                    <Link to='/products'>
                         men's clothing
                     </Link>
                 </li>
-                <li>
-                    <Link to='/'>
+                <li className='pl-0 pr-0'>
+                    <Link to='/products'>
                         phone's & accessories
                     </Link>
                 </li>
-                <li>
-                    <Link to='/'>
+                <li className='pl-0 pr-0'>
+                    <Link to='/products'>
                         computer & office
                     </Link>
                 </li>
-                <li>
-                    <Link to='/'>
+                <li className='pl-0 pr-0'>
+                    <Link to='/products'>
                         consumer electronics
                     </Link>
                 </li>
-                <li>
-                    <Link to='/'>
+                <li className='pl-0 pr-0'>
+                    <Link to='/products'>
                         jewlery & watches
                     </Link>
                 </li>
-                <li>
-                    <Link to='/'>
+                <li className='pl-0 pr-0'>
+                    <Link to='/products'>
                         bags & shoes
                     </Link>
                 </li>
-                <li>
-                    <Link to='/'>
+                <li className='pl-0 pr-0'>
+                    <Link to='/products'>
                         view all
                     </Link>
                 </li>
@@ -50,4 +50,4 @@ class CategoryList extends Component {
     }
 }
 
-export default CategoryList;
+export default CategoriesList;

@@ -7,9 +7,9 @@ class CategoriesBar extends Component {
             <div className='categories'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-3 pt-3 pb-2 d-none d-xl-block'>
+                        <div className='col-3 pt-3 pb-2 d-none d-xl-flex'>
                             <span>CATEGORIES</span>
-                            <span className=''><i className='fas fa-categories'>|||</i></span>
+                            <span className=''><i className='fas fa-list-alt'></i></span>
                         </div>
                         <div className='col-12 col-xl-9 pt-3 pb-3'>
                             <ul className='list-inline m-0'>
@@ -17,13 +17,13 @@ class CategoriesBar extends Component {
                                     <Link to='/'>HOME</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4'>
-                                    <Link to='/'>SHOP</Link>
+                                    <Link to='/products'>SHOP</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4'>
-                                    <Link to='/'>WOMEN</Link>
+                                    <Link to='/products'>WOMEN</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4'>
-                                    <Link to='/'>MEN</Link>
+                                    <Link to='/products'>MEN</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4'>
                                     <Link to='/'>PAGES <i class='fas fa-caret-down'></i></Link>
