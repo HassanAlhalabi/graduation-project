@@ -4,12 +4,33 @@ body {
   height: 100vh;
 }
 
+.row {
+  width: 100%;
+}
+
 p { color: #717171;}
 
 a {
   text-decoration: none !important;
   transition: .4s !important;
   color: #333 !important;
+}
+
+a:hover,
+a:focus {
+  color: #F8694A !important;
+}
+
+.btn-primary {
+  background-color: #F8694A;
+  border: #F8694A;
+  border-radius: 0;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #30323A;
+  box-shadow: none;
 }
 
 /* ************* UpperBar Style ************ */
@@ -19,7 +40,7 @@ a {
 }
 
 .upper-bar span {
-  font-size: 14px;
+  font-size: 16px;
   color:#4A4E5A;
 }
 
@@ -30,7 +51,7 @@ a {
 }
 
 .upper-bar ul li a:hover {
-  color: #F8694A;
+  color: #F8694A !important;
 }
 
 /* ************* UpperBar Style ************ */
@@ -52,7 +73,8 @@ a {
   color: #999;
 }
 
-.main-navbar .search-box input[type='search']:focus {
+.main-navbar .search-box input[type='search']:focus,
+footer input[type='email']:focus {
   box-shadow: 0 0 0 0.2rem rgba(248,105,74,.25);
   border-color: #dd4b39;
 }
@@ -63,6 +85,113 @@ a {
 #facebook-login {
   background-color: #3b5998 !important;
 }
+
+/* ************* Categories Bar Style ************ */
+
+.categories {
+  background-color: #30323A;
+  color: #EEE;
+}
+
+.categories a { color: #EEE !important; }
+
+.categories a:hover,
+.categories a:focus {
+  color: #F8694A !important
+}
+
+.categories .row div:first-child {
+  background-color: #F8694A;
+  font-weight: bold;
+}
+
+/* ************* Category list Style ************ */
+
+.category-list  li {
+  padding: 15px 0px 10px 15px;
+  border-bottom: 1px solid #dee2e6!important;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* ************* slider Style ************ */
+
+/* ************* Newcollection Style ************ */
+
+.newcollection .link-text{
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: transparent !important;
+  display: flex;
+}
+
+.newcollection .link-text a {
+  background-color: transparent !important;
+  align-self: center;
+  text-align: center;
+  width: 100%;
+  font-size: 3vw;
+}
+
+@media (max-width: 576px) {
+  .newcollection .link-text a {
+    font-size: 6vw;
+  }
+}
+
+
+/* ************* Hotdeal section Style ************ */
+
+.hot-deal .text-content {
+  top: 0;
+  left: 0;
+  background-color: #33333333;
+  width: 100%;
+  height: 100%;
+}
+
+.hot-deal .text-content h3,
+.hot-deal .text-content p {
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.hot-deal .text-content h3 {
+  color: #F8694A;
+  font-weight: bold;
+}
+
+.hot-deal .text-content p {
+  color: #EEE;
+}
+
+.hot-deal .text-content .btn {
+  font-weight: bold;
+}
+
+
+
+/* ************* Section title style ************ */
+
+.sectiontitle .title-container h3 {
+  color: #333333;
+  font-size: 34px;
+  text-transform: uppercase;
+}
+
+.sectiontitle .title-container:after {
+  content: '';
+  width: 90px;
+  height: 3px;
+  background-color: #F8694A;
+  display: block;
+  margin-top: -2px;
+}
+
+
+
 /**
 * Product Card
 **/
@@ -208,15 +337,46 @@ footer p {
 
 footer h4 { text-transform: uppercase;font-weight: 700;}
 
+footer .account ul li,
+footer .services ul li {
+  transition: .8s;
+  overflow: hidden;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+footer .account ul li a,
+footer .services ul li a {
+  margin-left: -13px !important;
+}
+
+footer .account ul li a:hover,
+footer .services ul li a:hover  {
+  margin-left: 0 !important;
+}
+
 .upper-footer { border-bottom: 1px solid #ced4da}
 
 .footer-social {
   list-style: none;
 }
 
-.footer-social ul li a:hover {
-  color: #F8694A !important;
+footer input[type='email'] {
+  font-size: 14px;
 }
+
+footer button {
+  background-color: #F8694A !important;
+  border: none !important;
+  font-weight: 700 !important;
+}
+
+footer button:hover,
+footer button:focus {
+  background-color: #30323A !important;
+  box-shadow: none !important;
+}
+
 
 
 
