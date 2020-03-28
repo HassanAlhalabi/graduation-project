@@ -32,6 +32,15 @@ a:hover {
   box-shadow: none;
 }
 
+.form-control:focus {
+  border: 1px solid #F8694A;
+  box-shadow: 0px 0px 3px #F8694A;
+}
+
+.default-color {
+  color: #777
+}
+
 /* ************* UpperBar Style ************ */
 
 .upper-bar,.navbar {
@@ -192,6 +201,22 @@ footer input[type='email']:focus {
 }
 
 
+/* **************************** Products page Components style ************************** */
+
+/* ************* FilterBox style ************ */
+
+.filter-box .price-filter {
+  color: #777;
+}
+
+.filter-box .price-filter input[type='range'] {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.filter-box .price-filter span {
+  line-height: 35px;
+}
 
 /**
 * Product Card
@@ -378,6 +403,15 @@ footer button:focus {
   box-shadow: none !important;
 }
 
+/* **************************** About us page  style ************************** */
+
+/* Header style */
+
+.about .about-header {
+  font-size: 54px;
+  font-weight: bold;
+  color: #30323A;
+}
 
 
 

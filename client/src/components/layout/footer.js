@@ -17,19 +17,19 @@ const Footer = () => {
                                 <p className='pt-4'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
                             </div>
                             <div>
-                                <ul class="footer-social list-inline">
-                                    <li className='d-inline-block pr-4'><a href="#"><i class="fab fa-facebook"></i></a></li>
-                                    <li className='d-inline-block pr-4'><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li className='d-inline-block pr-4'><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li className='d-inline-block pr-4'><a href="#"><i class="fab fa-google-plus"></i></a></li>
-                                    <li className='d-inline-block pr-4'><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                <ul className="footer-social list-inline">
+                                    <li className='d-inline-block pr-4'><a href="#"><i className="fab fa-facebook"></i></a></li>
+                                    <li className='d-inline-block pr-4'><a href="#"><i className="fab fa-twitter"></i></a></li>
+                                    <li className='d-inline-block pr-4'><a href="#"><i className="fab fa-instagram"></i></a></li>
+                                    <li className='d-inline-block pr-4'><a href="#"><i className="fab fa-google-plus"></i></a></li>
+                                    <li className='d-inline-block pr-4'><a href="#"><i className="fab fa-pinterest"></i></a></li>
                                 </ul> 
                             </div>
                         </div>
                         <div className='col-12 col-sm-6 col-lg-3 account'>
                             <h4 className='pt-4 mb-4'>my account</h4>
                             <div>
-                                <ul class='list-inline'>
+                                <ul className='list-inline'>
                                     <li>
                                         <Link to='/'>
                                             <span>></span> MY ACCOUNT
@@ -46,7 +46,7 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='/'>
+                                        <Link to='/Checkout'>
                                             <span>></span> CHECKOUT
                                         </Link>
                                     </li>
@@ -61,7 +61,7 @@ const Footer = () => {
                         <div className='col-12 col-sm-6 col-lg-3 services'>
                             <h4 className='pt-4 mb-4'>customer services</h4>
                             <div>
-                                <ul class='list-inline'>
+                                <ul className='list-inline'>
                                     <li>
                                         <Link to='/about'>
                                             <span>></span> ABOUT US
@@ -92,13 +92,13 @@ const Footer = () => {
                                 <div className='form-group'>
                                     <input 
                                         type='email' 
-                                        class='form-control form-control-lg rounded-0' 
+                                        className='form-control form-control-lg rounded-0' 
                                         placeholder='Enter Email Address'/>
                                 </div>
                                 <div className='form-group'>
                                     <button
                                         type='submit'
-                                        class='btn btn-primary rounded-0'>
+                                        className='btn btn-primary rounded-0'>
                                             JOIN NEWSLETTERS   
                                     </button>        
                                 </div>

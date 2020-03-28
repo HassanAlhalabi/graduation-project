@@ -16,6 +16,7 @@ import Login from './components/layout/Login';
 import Home from './components/presentational/Home';
 import Dashboard from './components/dashboard/Dashboard';
 import Products from './components/products/Products';
+import Checkout from './components/checkout/Checkout';
 import About from './components/about/About';
 import Cart from './components/product/Cart';
 import ProductForm from './components/product/ProductForm';
@@ -32,6 +33,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/products" component={Products} />
+              <Route exact path="/checkout" component={Checkout} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/login" component={Login} />
               <Switch>

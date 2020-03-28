@@ -1,26 +1,33 @@
 import React,{Component} from 'react';
 
 import Breadcrumb from '../layout/Breadcrumb';
+import CategoriesBar from '../layout/CategoriesBar';
+import FilterBox from '../layout/FilterBox';
+
+import Axios from 'axios';
 
 class Products extends Component {
+
     render(){
         return(
-            <div className='products'>
 
+            <div className='products'>
                 <Breadcrumb page='Products'/>
-                <div className='container'>
+                <CategoriesBar />
+                <div className='container mt-5'>
                     <div className='row'>
                         {/* Filter Box */}
-                        <div className='d-none d-md-block col-md-4'>
-
+                        <div className='col-12 col-md-3'>
+                            <FilterBox />
                         </div>
                         {/* Products Show */}
-                        <div className='col-12 col-sm-6 col-md-4 col-xl-3'>
-
+                        <div className='col-12 col-sm-6 col-md-9'>
+                        
                         </div>
                     </div>    
                 </div>
             </div>
+
         );
     }
 }

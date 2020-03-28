@@ -11,7 +11,7 @@ class SearchBox extends Component {
                         className='form-control rounded-0 w-100 p-3' 
                     />
                     <button type='submit' className='rounded-0 position-absolute'>
-                        <i class='fas fa-search'></i>
+                        <i className='fas fa-search'></i>
                     </button>
                 </form>
             </div>

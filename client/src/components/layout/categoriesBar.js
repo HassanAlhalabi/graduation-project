@@ -26,7 +26,7 @@ class CategoriesBar extends Component {
                                     <Link to='/products'>MEN</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4'>
-                                    <Link to='/'>PAGES <i class='fas fa-caret-down'></i></Link>
+                                    <Link to='/'>PAGES <i className='fas fa-caret-down'></i></Link>
                                 </li>
                             </ul>
                         </div>

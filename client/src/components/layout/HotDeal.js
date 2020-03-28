@@ -19,7 +19,7 @@ const HotDeal = () =>
                                 <h3>Hot Deal</h3>
                                 <p>Up to 50%</p>
                                 <div>
-                                    <Link to='/about'>
+                                    <Link to='/products'>
                                         <button className='btn btn-primary btn-lg'>Shop Now</button>
                                     </Link>
                                 </div>
