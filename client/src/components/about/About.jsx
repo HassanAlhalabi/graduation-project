@@ -10,8 +10,8 @@ const About  = () =>
 
     <div className="about">
 
-    <Breadcrumb page={'About'}/>
     <CategoriesBar />
+    <Breadcrumb page={'About'}/>
 
       <div className="about-info container">
         <h2 className="text-center mt-5 mb-5 about-header">About Our Store</h2>
@@ -31,7 +31,7 @@ const About  = () =>
               </p>
             </div>
             <div className='col-12 col-md-6'>
-              <div className=''>
+              <div className='img-holder'>
                 <img src={AboutImg1} alt="about-img" className='img-fluid'/>
               </div>
             </div>
@@ -39,7 +39,7 @@ const About  = () =>
           </div>
           <div className='row  mb-5'>
           <div className='col-12 col-md-6'>
-              <div className=''>
+              <div className='img-holder'>
                 <img src={AboutImg2} alt="about-img" className='img-fluid'/>
               </div>
             </div>

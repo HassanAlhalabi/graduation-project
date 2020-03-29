@@ -21,6 +21,7 @@ import About from './components/about/About';
 import Cart from './components/product/Cart';
 import ProductForm from './components/product/ProductForm';
 
+import FixedCart from './components/layout/FixedCart';
 import Footer from './components/layout/Footer';
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
+            <FixedCart />
             <Navbar />
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />

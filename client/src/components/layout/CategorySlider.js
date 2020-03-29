@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CategoriesList from './CategoriesList';
-import Slider from './slider';
+import Slider from './Slider';
 
 const CategorySlider = () => 
     <div className='category-slider mb-5'>

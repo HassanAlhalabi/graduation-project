@@ -2,6 +2,7 @@
 
 body {
   height: 100vh;
+  font-family: 'Hind', sans-serif; 
 }
 
 .row {
@@ -21,7 +22,7 @@ a:hover {
 }
 
 .btn-primary {
-  background-color: #F8694A;
+  background-color: #F8694A !important;
   border: #F8694A;
   border-radius: 0;
 }
@@ -38,7 +39,18 @@ a:hover {
 }
 
 .default-color {
-  color: #777
+  color: #777 !important;
+}
+
+.orange-color {
+  color: #F8694A !important;
+}
+
+.alert-orange {
+  background-color: #ffc7bb;
+  color: #9e0000;
+  box-shadow: 0px 0px 7px #f8694a;
+  border: 1px solid #f8694a;
 }
 
 /* ************* UpperBar Style ************ */
@@ -101,7 +113,7 @@ footer input[type='email']:focus {
   color: #EEE;
 }
 
-.categories a { color: #EEE !important; }
+.categories a { color: #EEE !important;font-size: .9rem; }
 
 .categories a:hover,
 .categories a:focus {
@@ -132,12 +144,12 @@ footer input[type='email']:focus {
   left: 0px;
   width: 100%;
   height: 100%;
-  background-color: transparent !important;
+  background-color: #1f1c1c33 !important;
   display: flex;
 }
 
 .newcollection .link-text a {
-  background-color: #3f3b3b8f !important;
+  background-color: transparent !important;
   align-self: center;
   text-align: center;
   width: 100%;
@@ -187,7 +199,7 @@ footer input[type='email']:focus {
 
 .sectiontitle .title-container h3 {
   color: #333333;
-  font-size: 34px;
+  font-size: 32px;
   text-transform: uppercase;
 }
 
@@ -413,6 +425,38 @@ footer button:focus {
   color: #30323A;
 }
 
+.about .img-holder {
+  padding: 2rem 0px;
+}
 
+/* **************************** Checkout page style ************************** */
 
+/* Order review style */
 
+.order-review table thead th {
+  border: none;
+}
+
+/* **************************** FixedCart style ************************** */
+
+.fixed-cart {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  background-color: #F8694A;
+  z-index: 1000;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.fixed-cart .fixed-cart-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.fixed-cart .fixed-cart-inner a {
+  color: #EEE !important;
+  line-height: 63px;
+}
