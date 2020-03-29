@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 
 import CategoriesBar from '../layout/CategoriesBar';
 import CategorySlider from '../layout/CategorySlider';
+import DealsOfTheDay from '../layout/DealsOfTheDay';
 import NewCollection from '../layout/NewCollection';
 import LatestProducts from '../layout/LatestProducts';
 import HotDeal from '../layout/HotDeal';
-import PickedForYou from '../layout/PickedForYou';
+import Pickedforyou from '../layout/PickedForYou';
 
 import Spinner from '../common/Spinner';
 import ProductCard from '../product/ProductCard';
 
 import { getProducts } from '../../redux/reducers/productsReducer';
-import Pickedforyou from '../layout/PickedForYou';
+
 
 class Home extends Component {
 
@@ -31,6 +32,7 @@ class Home extends Component {
 
             <CategoriesBar />
             <CategorySlider />
+            <DealsOfTheDay />
             <NewCollection />
             <LatestProducts />
             <HotDeal />

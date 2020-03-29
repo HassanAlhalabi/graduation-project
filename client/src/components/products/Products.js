@@ -22,7 +22,7 @@ class Products extends Component {
                         </div>
                         {/* Products Show */}
                         <div className='col-12 col-sm-6 col-md-9'>
-                        
+                            <h2>Products In Here</h2>
                         </div>
                     </div>    
                 </div>

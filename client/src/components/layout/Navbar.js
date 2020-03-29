@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import Login from './Login';
-import SearchBox from './searchBox';
+import SearchBox from './SearchBox';
 
 import { fetchUser, logout, login } from '../../redux/reducers/authReducer';
 
@@ -80,14 +80,17 @@ class Navbar extends Component {
         </li>
       </React.Fragment>
     );
+
     return (
       <nav className="navbar navbar-expand-sm navbar-dark main-navbar p-2">
         <div className="container">
           <div className='row'>
+
             <Link className="navbar-brand col-12 col-md-5 col-lg-3 m-0" to="/">
               <span>E</span>-SHOP
             </Link>
-            <div className='col-12 col-md-7 col-lg-5'>
+
+            <div className='col-12 col-md-7 col-lg-5 pl-lg-0'>
               <SearchBox />
             </div>
             
@@ -105,17 +108,7 @@ class Navbar extends Component {
             </button>
             
             <div className="collapse navbar-collapse col-12 col-lg-4" id="navbarNav">
-              <ul className="navbar-nav ml-auto ml-sm-0 mt-sm-3 ml-lg-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/">
-                    Home <span className="sr-only">(current)</span>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/about">
-                    About
-                  </Link>
-                </li>
+              <ul className="navbar-nav ml-auto ml-sm-0 mt-sm-3 ml-lg-auto mt-lg-0">
                 {logLinks}
               </ul>
             </div>

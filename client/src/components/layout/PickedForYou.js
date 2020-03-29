@@ -12,7 +12,7 @@ class Pickedforyou extends Component {
                 <div className='container'>
                     <SectionTitle title={"picked for you"}/>
                      <div className='row'>
-                        picked
+                        <h2>Products In Here</h2>
                      </div>
                 </div>
             </div>

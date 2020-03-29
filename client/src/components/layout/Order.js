@@ -1,12 +1,20 @@
 import React from 'react';
 
+import Product from '../layout/img/product01.jpg';
+
 const Order = ({name,size,color,price,pre_price,quantity,removeProduct,updateQuantity}) => 
 
     <tr className='order'>
         <td className='p_details'>
-            <h4 className='p_name'>{name}</h4>
-            <p className='size default-color m-0 pt-1'>{size}</p>
-            <p className='color default-color m-0 pt-1'>{color}</p>
+            <div className='float-left'>
+                <img src={Product} alt='Order Image' />
+            </div>
+            <div>
+                <h4 className='p_name'>{name}</h4>
+                <p className='size default-color m-0 pt-1'>{size}</p>
+                <p className='color default-color m-0 pt-1'>{color}</p>
+            </div>
+            <div className='clearfix'></div>
         </td>
         <td className='pricing'>
             <h5 className='price'>$ {price.toFixed(2)}</h5>

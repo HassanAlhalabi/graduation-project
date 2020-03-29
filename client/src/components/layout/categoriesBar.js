@@ -1,7 +1,12 @@
 import React , {Component } from 'react'
-import { withRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class CategoriesBar extends Component {
+
+    showList = () => {
+        document.querySelector('.pages-dropdown').classList.toggle('active');
+    }
+
     render(){
         return(
             <div className='categories'>
@@ -25,8 +30,24 @@ class CategoriesBar extends Component {
                                 <li className='list-item d-inline-block pr-4'>
                                     <Link to='/products'>MEN</Link>
                                 </li>
-                                <li className='list-item d-inline-block pr-4'>
-                                    <Link to='/'>PAGES <i className='fas fa-caret-down'></i></Link>
+                                <li className='list-item d-inline-block pr-4 position-relative'>
+                                    <a href='#' className='pages-dropdown-click' onClick={() => this.showList()}>PAGES <i className='fas fa-caret-down'></i></a>
+                                    <div className='pages-dropdown position-absolute' >
+                                        <ul className='m-0 list-group'>
+                                            <Link to='/'>
+                                                <li className='list-group-item'>Home</li>
+                                            </Link>
+                                            <Link to='/Products'>
+                                                <li className='list-group-item'>Products</li>
+                                            </Link>
+                                            <Link to='/About'>
+                                                <li className='list-group-item'>About</li>
+                                            </Link>
+                                            <Link to='/Checkout'>
+                                                <li className='list-group-item'>Checkout</li>
+                                            </Link>
+                                        </ul>
+                                    </div>
                                 </li>
                             </ul>
                         </div>

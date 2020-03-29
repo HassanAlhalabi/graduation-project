@@ -3,6 +3,7 @@ import React , {Component} from 'react';
 import SectionTitle from  './SectionTitle';
 
 import Order from './Order';
+import OrderTotal from './OrderTotal'
 
 class OrderReview extends Component {
 
@@ -13,7 +14,7 @@ class OrderReview extends Component {
             productsInCart : [
                 {
                     id: 1,
-                    title: 'p1',
+                    title: 'Product name 1',
                     price: 5.4,
                     pre_price: 10,
                     size: 'xl',
@@ -22,7 +23,7 @@ class OrderReview extends Component {
                 },
                 {
                     id: 2,
-                    title: 'p2',
+                    title: 'Product name 2',
                     price: 15.4,
                     pre_price: 20,
                     size: 'xl',
@@ -31,7 +32,7 @@ class OrderReview extends Component {
                 },
                 {
                     id: 3,
-                    title: 'p3',
+                    title: 'Product name 3',
                     price: 54,
                     pre_price: 60,
                     size: 'xl',
@@ -49,7 +50,7 @@ class OrderReview extends Component {
     })
 
     // *********** Update quantity function ***************** //
-    updateQuantity = e => console.log(e.target.value)
+    // updateQuantity = e => console.log(e.target.value)
 
     render(){
         if(this.state.productsInCart.length > 0) { 
@@ -61,7 +62,7 @@ class OrderReview extends Component {
                         
                         <SectionTitle title={'Order Review'}/>
                         <div className='table-responsive'>
-                            <table className='table'>
+                            <table className='table mb-0'>
                                 <thead>
                                     <tr>
                                         <th>Product</th>
@@ -94,6 +95,7 @@ class OrderReview extends Component {
                             </tbody>
                         </table>
                     </div>
+                    <OrderTotal subtotal={3} shipping={'Free Shipping'} total={23}/>
                 </div>
             </div>
 

@@ -27,22 +27,12 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className='col-12 col-sm-6 col-lg-3 account'>
-                            <h4 className='pt-4 mb-4'>my account</h4>
+                            <h5 className='pt-4 mb-4'>my account</h5>
                             <div>
                                 <ul className='list-inline'>
                                     <li>
                                         <Link to='/'>
                                             <span>></span> MY ACCOUNT
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/'>
-                                            <span>></span> MY WISHLIST
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/'>
-                                            <span>></span> COMPARE
                                         </Link>
                                     </li>
                                     <li>
@@ -59,7 +49,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className='col-12 col-sm-6 col-lg-3 services'>
-                            <h4 className='pt-4 mb-4'>customer services</h4>
+                            <h5 className='pt-4 mb-4'>customer services</h5>
                             <div>
                                 <ul className='list-inline'>
                                     <li>
@@ -86,7 +76,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className='col-12 col-sm-6 col-lg-3'>
-                            <h4 className='pt-4 mb-4'>contact us</h4>
+                            <h5 className='pt-4 mb-4'>contact us</h5>
                             <p>Keep in touch and register to get our latest news,products and offers</p>
                             <form>
                                 <div className='form-group'>

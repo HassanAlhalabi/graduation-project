@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+
 import PrivateRoute from './components/common/PrivateRoute';
 
 import Navbar from './components/layout/Navbar';
@@ -30,7 +31,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <FixedCart />
+            <FixedCart NumberOfProductsInCart={3}/>
             <Navbar />
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
