@@ -40,12 +40,15 @@ class CategoriesBar extends Component {
                                             <Link to='/Products'>
                                                 <li className='list-group-item'>Products</li>
                                             </Link>
-                                            <Link to='/About'>
-                                                <li className='list-group-item'>About</li>
+                                            <Link to='/Productdetails'>
+                                                <li className='list-group-item'>Product Details</li>
                                             </Link>
                                             <Link to='/Checkout'>
                                                 <li className='list-group-item'>Checkout</li>
                                             </Link>
+                                            <Link to='/About'>
+                                                <li className='list-group-item'>About</li>
+                                            </Link> 
                                         </ul>
                                     </div>
                                 </li>

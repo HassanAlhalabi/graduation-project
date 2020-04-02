@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom';
+
 const OrderTotal = ({subtotal,shipping,total}) => 
     <div className='order-total'>
         <div className='order-total-inner d-flex justify-content-end'>
@@ -10,29 +12,34 @@ const OrderTotal = ({subtotal,shipping,total}) =>
                             <td>
                                 Subtotal
                             </td>
-                            <td>
-                                {subtotal}
+                            <td className='sub-total'>
+                                <span>$ {subtotal}</span>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Shipping
                             </td>
-                            <td>
-                                {shipping}
+                            <td className='shipping'>
+                                <span>{shipping}</span>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td className='total-label'>
                                 Total
                             </td>
-                            <td>
-                                {total}
+                            <td className='total'>
+                                <span>$ {total}</span>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div className='d-flex justify-content-end'>
+            <Link to='/'>
+                <button className='btn btn-primary'>Place Order</button>
+            </Link>
         </div>
     </div>
 

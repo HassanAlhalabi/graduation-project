@@ -29,10 +29,20 @@ const HotDeal = () =>
                  </div>
                  <div className='col-12 col-sm-12 col-md-4 d-flex flex-sm-row flex-md-column justify-content-between'>
                     <div className=''>
-                        <img src={Banner10} alt='hot-deal-img' className='img-fluid'/>
+                        <div className=' position-relative'>
+                            <img src={Banner10} alt='collection-img' className='img-fluid'/>
+                            <div className='link-text position-absolute'>
+                                <Link className="nav-link px-2 bg-primary text-white rounded" to="/products">New Collection</Link>
+                            </div>
+                        </div>
                     </div>
                     <div className=''>
-                        <img src={Banner11} alt='hot-deal-img' className='img-fluid'/>
+                        <div className=' position-relative'>
+                            <img src={Banner11} alt='collection-img' className='img-fluid'/>
+                            <div className='link-text position-absolute'>
+                                <Link className="nav-link px-2 bg-primary text-white rounded" to="/products">New Collection</Link>
+                            </div>
+                        </div>
                     </div>
                  </div>
             </div>

@@ -32,23 +32,23 @@ class FilterBox extends Component {
 
             <div className='filter-box'>
                 <div>
-                   <h5 className='default-color'>Filter By Price:</h5>
-                   <div className='price-filter mb-5 d-flex'>
-                       <div className='d-flex pl-1 pr-1'>
+                   <h5 className='orange-color mb-3'>Filter By Price:</h5>
+                   <div className='price-filter mb-5 d-flex justify-content-between'>
+                       <div className='pl-1 pr-1'>
                             <span className=''>$1</span>
                        </div>
                        <div className='pl-1 pr-1'>
-                            <input type='range' className='form-control' min='1' max='1000' ref={this.range}/>
+                            <input type='range' className='form-control rounded-0' min='1' max='1000' ref={this.range}/>
                        </div>
-                       <div className='d-flex pl-1 pr-1'>
+                       <div className='pl-1 pr-1'>
                             <span className='max-number' ref={this.max}>$1000</span>
                        </div>
                     </div> 
                 </div>
                 <div>
-                    <h5 className='default-color'>Filter By Brand:</h5>
+                    <h5 className='orange-color mb-3'>Filter By Brand:</h5>
                     <div className='brand-filter mb-5'>
-                        <select className='form-control'>
+                        <select className='form-control rounded-0'>
                             <option value='1'>Filter1</option>
                             <option value='2'>Filter2</option>
                             <option value='3'>Filter3</option>
@@ -56,7 +56,7 @@ class FilterBox extends Component {
                     </div>
                 </div>
                 <div>
-                    <h5 className='default-color'>Filter By Gender:</h5>
+                    <h5 className='orange-color mb-3'>Filter By Gender:</h5>
                     <div className='gender-filter mb-5'>
                         <div>
                             <label htmlFor='male' className='w-50 default-color'>Male:</label>

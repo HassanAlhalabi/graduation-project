@@ -18,8 +18,13 @@ class Slider extends Component {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Hot Deal</h3>
+                        <p>Up to 50% off</p>
+                        <div className='slide-btn'>
+                            <Link to='/products'>
+                                <button className='btn btn-primary btn-lg'>Shop Now</button>
+                            </Link>
+                        </div>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -30,8 +35,13 @@ class Slider extends Component {
                     />
                 
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>Hot Deal</h3>
+                        <p>Up to 50% off</p>
+                        <div className='slide-btn'>
+                            <Link to='/products'>
+                                <button className='btn btn-primary btn-lg'>Shop Now</button>
+                            </Link>
+                        </div>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -42,8 +52,13 @@ class Slider extends Component {
                     />
                 
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Hot Deal</h3>
+                        <p>Up to 50% off</p>
+                        <div className='slide-btn'>
+                            <Link to='/products'>
+                                <button className='btn btn-primary btn-lg'>Shop Now</button>
+                            </Link>
+                        </div>
                     </Carousel.Caption>
                     </Carousel.Item>
             </Carousel>

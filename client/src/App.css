@@ -21,15 +21,20 @@ a:hover {
   color: #F8694A !important;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary.disabled:focus {
   background-color: #F8694A !important;
-  border: #F8694A;
+  border:1px solid #F8694A !important;
   border-radius: 0;
+  color: #FFF;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #30323A;
+  background-color: #FFF !important;
+  color: #F8694A ;
+  border: 1px solid #F8694A !important;
   box-shadow: none;
 }
 
@@ -51,6 +56,20 @@ a:hover {
   color: #9e0000;
   box-shadow: 0px 0px 7px #f8694a;
   border: 1px solid #f8694a;
+}
+
+.fa-star {
+  color: #FFB656;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.far.fa-star.empty {
+  color: #b0a6a6;;
+}
+
+.disabled {
+  cursor: default !important;
 }
 
 /* ************* UpperBar Style ************ */
@@ -137,6 +156,13 @@ footer input[type='email']:focus {
   display: none;
 }
 
+@media (max-width: 575px) and (min-width : 350px){
+  .categories .pages-dropdown {
+    right: 0;
+    left: auto;
+  }
+}
+
 .categories .pages-dropdown.active {
   display: block
 }
@@ -152,6 +178,7 @@ footer input[type='email']:focus {
   color: #555;
   transition: .4s;
   text-transform: uppercase;
+  min-width: 215px;
 }
 
 .categories .pages-dropdown li:hover {
@@ -172,9 +199,55 @@ footer input[type='email']:focus {
 
 /* ************* slider Style ************ */
 
+.slide .carousel-caption {
+  bottom: 33%;
+}
+
+@media (min-width: 992px) {
+  .slide .carousel-caption h3 {
+    font-size:48px;
+  }
+  .slide .carousel-caption p {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 991px) {
+  .slide .carousel-caption {
+    bottom: 45px;
+  }
+}
+
+.slide .carousel-caption {
+  display: inline-block;
+  padding: 10px 5px;
+  background-color: #30323a8c;
+}
+
+.slide .carousel-caption h3 {
+  margin: 0;
+  color: #F8694A;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.slide .carousel-caption p {
+  color: #FFF;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 100;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.slide .carousel-control-prev,
+.slide .carousel-control-next {
+  display: none;
+}
+
 /* ************* Newcollection Style ************ */
 
-.newcollection .link-text{
+.newcollection .link-text,
+.hot-deal .link-text {
   top: 0px;
   left: 0px;
   width: 100%;
@@ -183,7 +256,8 @@ footer input[type='email']:focus {
   display: flex;
 }
 
-.newcollection .link-text a {
+.newcollection .link-text a,
+.hot-deal .link-text a {
   background-color: transparent !important;
   align-self: center;
   text-align: center;
@@ -193,7 +267,8 @@ footer input[type='email']:focus {
 }
 
 @media (max-width: 576px) {
-  .newcollection .link-text a {
+  .newcollection .link-text a,
+  .hot-deal .link-text a {
     font-size: 6vw;
   }
 }
@@ -252,8 +327,22 @@ footer input[type='email']:focus {
 
 /* ************* FilterBox style ************ */
 
+.filter-box {
+  position: sticky;
+  top: 30px;
+}
+
+.filter-box h5 {
+  border-bottom: 1px solid;
+  padding-bottom: 8px;
+}
+
 .filter-box .price-filter {
   color: #777;
+}
+
+.filter-box .price-filter > div:nth-child(2) {
+  width: -webkit-fill-available;
 }
 
 .filter-box .price-filter input[type='range'] {
@@ -369,7 +458,6 @@ footer input[type='email']:focus {
 .product-grid7 .price {
   color: #333;
   font-size: 20px;
-  font-family: Lora, serif;
   font-weight: 700;
   margin-bottom: 8px;
   text-align: center;
@@ -399,55 +487,61 @@ footer input[type='email']:focus {
   min-height: 200px;
 }
 
-/* ************* UpperBar Style ************ */
 
-footer { background-color: #F6F7F8;}
 
-footer p {
-  font-size: .9em;
+/* **************************** Product details page Components style ************************** */
+
+.product-details .product-info .product-title {
+  text-transform: capitalize;
+  font-weight: 700;
 }
 
-footer h4 { text-transform: uppercase;font-weight: 700;}
-
-footer .account ul li,
-footer .services ul li {
-  transition: .8s;
-  overflow: hidden;
-  font-size: 14px;
-  margin-bottom: 5px;
+.product-details .product-info .pricing .current-price {
+  font-size: 24px;
+  font-weight: 700;
 }
 
-footer .account ul li a,
-footer .services ul li a {
-  margin-left: -13px !important;
+.product-details .product-info .pricing .pre-price {
+  font-size: 18px;
+  text-decoration: line-through;
+  color: #F8694A;
 }
 
-footer .account ul li a:hover,
-footer .services ul li a:hover  {
-  margin-left: 0 !important;
+.product-details .product-info .size span:last-child{
+  padding: 2px 7px;
+  border: 1px solid #f8694a;
+  color: #f8694a;
 }
 
-.upper-footer { border-bottom: 1px solid #ced4da}
-
-.footer-social {
-  list-style: none;
+.product-details .span-fw {
+  width: 80px;
+  display: inline-block;
 }
 
-footer input[type='email'] {
-  font-size: 14px;
+.product-details .product-info .quantity span {
+  line-height: 35px;
 }
 
-footer button {
-  background-color: #F8694A !important;
-  border: none !important;
-  font-weight: 700 !important;
+.product-details .product-info .quantity input {
+  width: 75px;
 }
 
-footer button:hover,
-footer button:focus {
-  background-color: #30323A !important;
-  box-shadow: none !important;
+.product-details .product-info .color span:last-child{
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  opacity: .7;
+  vertical-align: middle;
 }
+
+.product-details .prev-product-btn,
+.product-details .next-product-btn {
+  padding: 15px 30px;
+  font-size: 24px;
+}
+
+
+
 
 /* **************************** About us page  style ************************** */
 
@@ -510,11 +604,31 @@ footer button:focus {
   padding: 15px;
 }
 
+.order-total table .total-label {
+  line-height: 40px;
+}
+
 .order-total table tr td:first-child {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 14px;
   border-right: 1px solid #dee2e6;
+}
+
+.order-total table .sub-total {
+  font-weight : bold
+}
+
+.order-total table .shipping {
+  color: #555;
+  font-weight: 100;
+  font-size: small;
+}
+
+.order-total table .total {
+  font-size: 24px;
+  font-weight: 800;
+  color: #F8694A
 }
 
 /* **************************** FixedCart style ************************** */
@@ -553,4 +667,54 @@ footer button:focus {
   line-height: 26px;
   border: 1px solid #f8694a;
   color: #f8694a;
+}
+
+/* *************** Footer Style ************ */
+
+footer { background-color: #F6F7F8;}
+
+footer p {
+  font-size: .9em;
+}
+
+footer h4 { text-transform: uppercase;font-weight: 700;}
+
+footer .account ul li,
+footer .services ul li {
+  transition: .8s;
+  overflow: hidden;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+footer .account ul li a,
+footer .services ul li a {
+  margin-left: -8px !important;
+}
+
+footer .account ul li a:hover,
+footer .services ul li a:hover  {
+  margin-left: 0 !important;
+}
+
+.upper-footer { border-bottom: 1px solid #ced4da}
+
+.footer-social {
+  list-style: none;
+}
+
+footer input[type='email'] {
+  font-size: 14px;
+}
+
+footer button {
+  background-color: #F8694A !important;
+  border: none !important;
+  font-weight: 700 !important;
+}
+
+footer button:hover,
+footer button:focus {
+  background-color: #30323A !important;
+  box-shadow: none !important;
 }
