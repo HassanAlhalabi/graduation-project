@@ -12,6 +12,7 @@ import './App.css';
 
 import PrivateRoute from './components/common/PrivateRoute';
 
+import UpperBar from './components/layout/UpperBar';
 import Navbar from './components/layout/Navbar';
 import Login from './components/layout/Login';
 import Home from './components/presentational/Home';
@@ -32,6 +33,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
+            <UpperBar />
             <FixedCart NumberOfProductsInCart={3}/>
             <Navbar />
               <Route exact path="/" component={Home} />

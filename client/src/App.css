@@ -78,12 +78,17 @@ a:hover {
   border-bottom: 1px solid #EEE;
 }
 
-.upper-bar span {
+.upper-bar p {
   font-size: 16px;
   color:#4A4E5A;
+  margin: 5px 0px;
 }
 
-.upper-bar ul li a {
+.upper-bar .upper-bar-links ul {
+  margin: 5px 0px;
+} 
+
+.upper-bar .upper-bar-links ul li a {
   color: #4A4E5A;
   text-transform: uppercase;
   font-size: 14px;
@@ -93,7 +98,7 @@ a:hover {
   color: #F8694A !important;
 }
 
-/* ************* UpperBar Style ************ */
+/* ************* navbar Style ************ */
 
 .navbar-brand,.navbar-brand:hover {
   color: #333 !important;
@@ -540,6 +545,50 @@ footer input[type='email']:focus {
   font-size: 24px;
 }
 
+.product-review .review-details {
+  border-bottom: 1px solid #DDD;
+}
+
+.product-review .review-details .user-name ,
+.product-review .review-details .review-date {
+  color: #555;
+} 
+
+.product-review .review-details .user-name i,
+.product-review .review-details .review-date i {
+  color: #F8694A;
+  margin-right: 5px;
+} 
+
+.product-review .review-text {
+  color: #555;
+  font-size: 14px;
+}
+
+.prev-next-review {
+  padding-top: 12px;
+}
+
+.add-review-form h6 {
+  font-size: 18px;
+}
+
+.add-review-form p {
+  font-size: 14px;
+}
+
+.add-review-form input,textarea {
+  font-size: 14px !important;
+  font-weight: 100 !important;
+}
+
+.add-review-form label {
+  line-height: 40px;
+}
+
+.dv-star-rating {
+  font-size: 27px;
+}
 
 
 

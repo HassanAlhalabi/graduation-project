@@ -103,11 +103,11 @@ class ProductDetails extends Component {
                 <Breadcrumb page='Product Details'/>
                 <ProductInfo info={this.state.products[this.state.index]}/>
                 <div className='container'>
-                    <div className='prev-next-product text-center p-4'>
-                        <button className='prev-product-btn btn btn-primary disabled m-4 mr-5' onClick={() => this.getPrevProduct()}>
+                    <div className='prev-next-product text-center pt-4 d-flex justify-content-between'>
+                        <button className='prev-product-btn btn btn-primary disabled' onClick={() => this.getPrevProduct()}>
                             <i className='fas fa-arrow-left'></i>
                         </button>
-                        <button className='next-product-btn btn btn-primary m-4 ml-5' onClick={() => this.getNextProduct()}>
+                        <button className='next-product-btn btn btn-primary' onClick={() => this.getNextProduct()}>
                             <i className='fas fa-arrow-right'></i>
                         </button>
                     </div>

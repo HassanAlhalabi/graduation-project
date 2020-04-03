@@ -8,7 +8,7 @@ const ProductInfo = ({info}) => {
         ratingFull.push(<i className='fa fa-star'></i>)
     }
     for (let index = 0; index < (5 - info.rating); index++) {
-        ratingFull.push(<i className='far fa-star empty'></i>)
+        ratingEmpty.push(<i className='far fa-star empty'></i>)
     }  
 
     let available = (info.availability === 1) ? 'In Stock' : 'Not Available';
@@ -60,15 +60,21 @@ const ProductInfo = ({info}) => {
                                 <span style={{backgroundColor:info.color}}></span>
                             </div>
                             <div className='quantity mt-4 d-flex'>
-                                <span className='font-weight-bold span-fw'>Quantity:</span>
-                                <input 
-                                    type='number' 
-                                    className='form-control d-inline-block rounded-0 mr-2' 
-                                    max={info.quantity}
-                                    min='0'/>
-                                <button className='btn btn-primary btn-sm font-weight-bold ml-auto'>
-                                    <i className='fas fa-shopping-cart mr-1'></i>
-                                     Add To Cart</button>
+                                <div className='row'>
+                                    <div className='col-12 col-sm-6 mb-4'>
+                                        <span className='font-weight-bold span-fw'>Quantity:</span>
+                                        <input 
+                                            type='number' 
+                                            className='form-control d-inline-block rounded-0 mr-2' 
+                                            max={info.quantity}
+                                            min='0'/>
+                                    </div>
+                                    <div className='col-12 col-sm-6 pr-0'>
+                                        <button className='btn btn-primary font-weight-bold ml-auto'>
+                                        <i className='fas fa-shopping-cart mr-1'></i>
+                                        Add To Cart</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -85,7 +85,7 @@ const Footer = () => {
                                         className='form-control form-control-lg rounded-0' 
                                         placeholder='Enter Email Address'/>
                                 </div>
-                                <div className='form-group'>
+                                <div className='form-group' id='news-letter'>
                                     <button
                                         type='submit'
                                         className='btn btn-primary rounded-0'>
