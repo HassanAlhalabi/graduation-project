@@ -1,8 +1,8 @@
 import React , {Component} from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import Banner1 from './img/banner01.jpg';
-import Banner2 from './img/banner02.jpg';
-import Banner3 from './img/banner03.jpg';
+import Banner1 from '../layout/img/banner01.jpg';
+import Banner2 from '../layout/img/banner02.jpg';
+import Banner3 from '../layout/img/banner03.jpg';
 
 import {Carousel} from 'react-bootstrap';
 

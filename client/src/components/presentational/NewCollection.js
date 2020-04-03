@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Banner10 from './img/banner10.jpg'
-import Banner11 from './img/banner11.jpg'
-import Banner12 from './img/banner12.jpg'
+import Banner10 from '../layout/img/banner10.jpg'
+import Banner11 from '../layout/img/banner11.jpg'
+import Banner12 from '../layout/img/banner12.jpg'
 
 import {Link} from 'react-router-dom'
 

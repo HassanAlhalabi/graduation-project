@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 
 import Breadcrumb from '../layout/Breadcrumb';
 import CategoriesBar from '../layout/CategoriesBar';
-import FilterBox from '../layout/FilterBox';
+import FilterBox from './FilterBox';
 
 import Axios from 'axios';
 

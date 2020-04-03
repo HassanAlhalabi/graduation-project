@@ -2,8 +2,8 @@ import React , {Component} from 'react';
 
 import Breadcrumb from '../layout/Breadcrumb';
 import CategoriesBar from '../layout/CategoriesBar';
-import BillingShipping from '../layout/BillingShipping';
-import OrderReview from '../layout/OrderReview';
+import BillingShipping from './BillingShipping';
+import OrderReview from './OrderReview';
 
 class Checkout extends Component {
 

@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import CategoriesBar from '../layout/CategoriesBar';
-import CategorySlider from '../layout/CategorySlider';
-import DealsOfTheDay from '../layout/DealsOfTheDay';
-import NewCollection from '../layout/NewCollection';
-import LatestProducts from '../layout/LatestProducts';
-import HotDeal from '../layout/HotDeal';
+import CategorySlider from './CategorySlider';
+import DealsOfTheDay from './DealsOfTheDay';
+import NewCollection from './NewCollection';
+import LatestProducts from './LatestProducts';
+import HotDeal from './HotDeal';
 import Pickedforyou from '../layout/PickedForYou';
 
 import Spinner from '../common/Spinner';

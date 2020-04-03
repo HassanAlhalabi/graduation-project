@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 
-import SectionTitle from './SectionTitle';
+import SectionTitle from '../layout/SectionTitle';
 
-class LatestProducts extends Component {
+class DealsOfTheDay extends Component {
 
     render(){
 
@@ -10,7 +10,7 @@ class LatestProducts extends Component {
 
             <div className='latest-products mt-5 mb-5'>
                 <div className='container'>
-                    <SectionTitle title={"latest products"}/>
+                    <SectionTitle title={"deals of the day"}/>
                      <div className='row'>
                         <h2>
                             Products In Here ....
@@ -25,4 +25,4 @@ class LatestProducts extends Component {
 
 }
 
-export default LatestProducts
+export default DealsOfTheDay

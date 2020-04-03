@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 
-import SectionTitle from  './SectionTitle';
+import SectionTitle from  '../layout/SectionTitle';
 
 import Order from './Order';
 import OrderTotal from './OrderTotal'

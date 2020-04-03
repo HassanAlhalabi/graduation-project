@@ -2,8 +2,8 @@ import React , {Component} from 'react';
 
 import Breadcrumb from '../layout/Breadcrumb';
 import CategoriesBar from '../layout/CategoriesBar';
-import ProductInfo from '../layout/ProductInfo';
-import ProductReviews from '../layout/ProductReviews';
+import ProductInfo from './ProductInfo';
+import ProductReviews from './ProductReviews';
 import PickedForYou from '../layout/PickedForYou';
 
 class ProductDetails extends Component {

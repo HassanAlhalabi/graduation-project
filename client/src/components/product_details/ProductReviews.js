@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 
 import SectionTitle from '../layout/SectionTitle';
-import Review from '../layout/Review';
+import Review from './Review';
 import StarRatingComponent from 'react-star-rating-component';
 
 class ProductReview extends Component {
