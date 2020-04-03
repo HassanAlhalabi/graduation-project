@@ -19,16 +19,19 @@ const About  = () =>
           <div className='row  mb-5'>
             <div className='col-12 col-md-6'>
               <h4 className='pt-4 pb-4'>Lorem ipsum dolor</h4>
-              <p className='pr-5'>
+              <p className='pr-5 mb-4'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut
                 justo in mauris lobortis bibendum nec nec tellus. Morbi est ipsum,
-                pretium nec est vel, maximus congue metus. Proin eu euismod turpis,
+                eu euismod turpis,
                 eget ornare nunc. Suspendisse id aliquet justo, eget ornare ligula.
-                Nunc eu pretium nisi, vel maximus leo. Ut tempus risus quis
+                Nunc eu pretium nisi. 
+              </p>
+              <p>
+                vel maximus leo. Ut tempus risus quis
                 ultricies dictum. Donec at mauris justo. Vestibulum ut lorem vitae
                 tellus facilisis volutpat vitae quis purus. Suspendisse lobortis
                 fermentum placerat.
-              </p>
+              </p> 
             </div>
             <div className='col-12 col-md-6'>
               <div className='img-holder'>
@@ -45,15 +48,18 @@ const About  = () =>
             </div>
             <div className='col-12 col-md-6 mb-5'>
               <h4 className='pt-4 pb-4 pl-md-5'>Lorem ipsum dolor</h4>
-              <p className='pl-md-5'>
+              <p className='pl-md-5 mb-4'>
                 Nam efficitur dui et urna ullamcorper rhoncus. Proin porta aliquet
                 ipsum, ac volutpat diam auctor eu. Ut tristique odio ligula, ut
-                aliquam ex consequat rutrum. In vel magna a velit rhoncus ornare.
+                In vel magna a velit rhoncus ornare.
                 Phasellus arcu felis, consectetur non nunc nec, finibus rutrum
                 libero. Nulla consequat lorem et felis semper, ut tempus orci
-                lacinia. Nam blandit et metus
+                lacinia.
+              </p>  
+              <p className='pl-md-5'>
+                Nam blandit et metus
                 ut vestibulum. Maecenas bibendum diam laoreet urna sollicitudin, in
-                pellentesque diam condimentum.
+                pellentesque diam condimentum. 
               </p>
             </div>
           </div>

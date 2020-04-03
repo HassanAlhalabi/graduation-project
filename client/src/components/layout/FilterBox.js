@@ -38,7 +38,7 @@ class FilterBox extends Component {
                             <span className=''>$1</span>
                        </div>
                        <div className='pl-1 pr-1'>
-                            <input type='range' className='form-control rounded-0' min='1' max='1000' ref={this.range}/>
+                            <input type='range' className='form-control rounded-0' min='1' max='1000' defaultValue='1000' ref={this.range}/>
                        </div>
                        <div className='pl-1 pr-1'>
                             <span className='max-number' ref={this.max}>$1000</span>
@@ -49,15 +49,20 @@ class FilterBox extends Component {
                     <h5 className='orange-color mb-3'>Filter By Brand:</h5>
                     <div className='brand-filter mb-5'>
                         <select className='form-control rounded-0'>
-                            <option value='1'>Filter1</option>
-                            <option value='2'>Filter2</option>
-                            <option value='3'>Filter3</option>
+                            <option value='0'>All</option>
+                            <option value='1'>Adidas</option>
+                            <option value='2'>Nike</option>
+                            <option value='3'>Prada</option>
                         </select>
                     </div>
                 </div>
                 <div>
                     <h5 className='orange-color mb-3'>Filter By Gender:</h5>
                     <div className='gender-filter mb-5'>
+                        <div>
+                            <label htmlFor='all' className='w-50 default-color'>All:</label>
+                            <input type='radio' className='' id='all' name='gender'/>
+                        </div>
                         <div>
                             <label htmlFor='male' className='w-50 default-color'>Male:</label>
                             <input type='radio' className='' id='male' name='gender'/>

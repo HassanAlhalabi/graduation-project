@@ -21,9 +21,6 @@ const UpperBar = () =>
                             <li className='list-item ml-3'>
                                 <a href='#news-letter'>Newsletter</a>
                             </li>
-                            <li className='list-item ml-3'>
-                                <a href='#'>Eng</a>
-                            </li>
                         </ul>
                     </div>
                 </div>    
