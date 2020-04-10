@@ -18,5 +18,7 @@ module.exports = {
   facebookSecretId: process.env.FACEBOOK_APP_SECRET,
   googleOauth2ClientID: process.env.GOOGLE_OAUTH2_CLIENT_ID,
   googleOauth2ClientSecret: process.env.GOOGLE_OAUTH2_CLIENT_SECRET,
-  cookieKey: process.env.COOKIE_KEY
+  cookieKey: process.env.COOKIE_KEY,
+  stripePublishKey: process.env.STRIPE_PUB_KEY,
+  stripeSecretKey: process.env.STRIPE_SEC_KEY,
 };

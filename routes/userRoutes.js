@@ -16,4 +16,10 @@ router.get('/current_user', (req, res) => {
   res.send(req.user);
 });
 
+router.post('/payment', (req, res) => {
+  //handle updating user info after payment
+  console.log('payment route been called ..');
+  res.send(req.user);
+});
+
 module.exports = router;
