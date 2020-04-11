@@ -3,6 +3,7 @@ const router = express.Router();
 
 //user logout route - destroy the cookie in the browser -
 router.get('/logout', (req, res) => {
+  console.log('User Logout route called...');
   req.logout();
   res.send(req.user);
 });
