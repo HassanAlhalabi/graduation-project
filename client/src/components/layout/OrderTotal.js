@@ -35,9 +35,6 @@ const OrderTotal = ({ subtotal, shipping, total }) => (
       </div>
     </div>
     <div className="d-flex justify-content-end">
-      {/* <Link to='/'>
-                <button className='btn btn-primary'>Place Order</button>
-            </Link> */}
       <StripeCheckout
         description="Desciption here.."
         amount={total * 100}
