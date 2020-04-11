@@ -24,10 +24,7 @@ class Navbar extends Component {
     return name.substr(0, index);
   };
 
-  showList = () => {
-    document.querySelector('.profile-links').classList.toggle('active');
-    console.log('ok')
-  }
+  showList = () => document.querySelector('.profile-links').classList.toggle('active')
 
   render() {
     const { user } = this.props;
@@ -44,13 +41,13 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className="nav-item text-center">
-          <Link className="" to="/my-products">
+          <Link className="" to="/my_products">
             <div><span>My Products</span></div>
             <div><i className="fas fa-boxes"></i></div>
           </Link>
         </li>
-        <li className="nav-item position-relative text-center" >
-          <a href='#' onClick={() => this.showList()}>
+        <li className="nav-item position-relative text-center pt-1" >
+          <a href='#' onClick={() => this.showList()} >
             <img
               className="rounded-circle"
               src={this.props.user.avatar}
@@ -59,7 +56,7 @@ class Navbar extends Component {
             />
             {this.getFirstName(user.name)}
           </a>
-          <div className='profile-links position-absolute active text-left'>
+          <div className='profile-links position-absolute text-left'>
             <ul className='m-0 list-group'>
               <Link to='/'>
                   <li className='list-group-item'>Profile</li>

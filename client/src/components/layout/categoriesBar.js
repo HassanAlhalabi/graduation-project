@@ -31,7 +31,9 @@ class CategoriesBar extends Component {
                                     <Link to='/products'>MEN</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4 position-relative'>
-                                    <a href='#' className='pages-dropdown-click' onClick={() => this.showList()}>PAGES <i className='fas fa-caret-down'></i></a>
+                                    <a href='#' className='pages-dropdown-click' onClick={() => this.showList()}>
+                                        PAGES <i className='fas fa-caret-down'></i>
+                                    </a>
                                     <div className='pages-dropdown position-absolute' >
                                         <ul className='m-0 list-group'>
                                             <Link to='/'>

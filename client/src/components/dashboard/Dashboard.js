@@ -7,6 +7,8 @@ import { getUserProducts } from '../../redux/reducers/productsReducer';
 
 import Spinner from '../common/Spinner';
 import ProductActions from './ProductActions';
+import CategoriesBar from '../layout/CategoriesBar';
+import Breadcrumb from '../layout/Breadcrumb';
 import SectionTitle from '../layout/SectionTitle';
 //import Experience from "./Experience";
 //import Education from "./Education";
@@ -64,6 +66,8 @@ class Dashboard extends Component {
     }
     return (
       <div className="dashboard">
+        <CategoriesBar />
+        <Breadcrumb page={'Dashboard'}/>
         <div className="container">
           <div className="row">
             <div className="col-md-12">
