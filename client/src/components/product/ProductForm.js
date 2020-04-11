@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
@@ -7,6 +6,8 @@ import axios from 'axios';
 //import InputGroup from '../common/InputGroup';
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import SelectInput from '../common/SelectInput'; 
+import SectionTitle from '../layout/SectionTitle';
 
 export class ProductForm extends Component {
   state = {
@@ -17,6 +18,9 @@ export class ProductForm extends Component {
     prevPrice: 0,
     offer: false,
     itemsNumber: 0,
+    brand: '',
+    size: '',
+    color: '',
     image: '',
     errors: {},
     disabled: true
@@ -79,6 +83,12 @@ export class ProductForm extends Component {
       // ... perform after upload is successful operation
     });
   };
+
+componentDidMount() {
+  const colorInput = document.querySelector('input[type="color"]');
+  colorInput.onChange = () => console.log('ok')
+}
+
   render() {
     const { errors } = this.state;
 
@@ -87,21 +97,21 @@ export class ProductForm extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <Link to="/dashboard" className="btn btn-light">
+              {/* <Link to="/dashboard" className="btn btn-light">
                 Back to dashboard
-              </Link>
-              <h1 className="text-center display-4">Add Product</h1>
-              <p className="lead text-center">
+              </Link> */}
+              <SectionTitle title={'Add new product'}/>
+              <p className="lead mb-5">
                 Add a new product, and make sure to include any details with
-                spesifications.
+                specifications.
               </p>
               <small className="d-block mb-3 text-muted">
-                * = required field
+                <span className='asterisk'><i class="fas fa-asterisk"></i></span> = required field
               </small>
               <form>
-                <div className="from-group">
+                <div className="form-group">
                   <TextFieldGroup
-                    placeholder="* Name"
+                    placeholder="Product title"
                     name="name"
                     onChange={this.onChange}
                     type="text"
@@ -110,7 +120,7 @@ export class ProductForm extends Component {
                     info="Be specific"
                   />
                   <TextFieldGroup
-                    placeholder="* Price"
+                    placeholder="Price"
                     name="price"
                     onChange={this.onChange}
                     type="number"
@@ -143,7 +153,32 @@ export class ProductForm extends Component {
                     </label>
                   </div>
                   <TextFieldGroup
-                    placeholder="* Available items number for selling"
+                    placeholder="Brand"
+                    name="itemBrand"
+                    onChange={this.onChange}
+                    type="text"
+                    error={errors.itemBrand}
+                    value={this.state.brand}
+                    info="Item Brand"
+                  />
+                  <SelectInput
+                    name="itemSize"
+                    onChange={this.onChange}
+                    error={errors.itemSize}
+                    value={this.state.itemSize}
+                    info="Item Size"
+                  />
+                  <TextFieldGroup
+                    placeholder="Color"
+                    name="itemColor"
+                    onChange={this.onChange}
+                    type="color"
+                    error={errors.itemColor}
+                    value={this.state.itemColor}
+                    info="Item Color"
+                  />
+                  <TextFieldGroup
+                    placeholder="Available items number for selling"
                     name="itemsNumber"
                     onChange={this.onChange}
                     type="number"
@@ -176,7 +211,7 @@ export class ProductForm extends Component {
                       </div>
                     )}
                   </Dropzone>
-                  <small>
+                  <small className='text-muted'>
                     Upload your product's images by drag &amp; drop OR select
                     them from your local storage drive
                   </small>
@@ -208,8 +243,8 @@ export class ProductForm extends Component {
                     error={errors.specifications}
                     info="Type all product specifications, make sure to put a (-) to seperate each specification from the next one"
                   />
-                  <button type="submit" className="btn btn-dark">
-                    Submit
+                  <button type="submit" className="btn btn-primary">
+                    Add Product
                   </button>
                 </div>
               </form>
@@ -220,5 +255,7 @@ export class ProductForm extends Component {
     );
   }
 }
+
+
 
 export default ProductForm;

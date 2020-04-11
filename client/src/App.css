@@ -89,7 +89,7 @@ a:hover {
 } 
 
 .upper-bar .upper-bar-links ul li a {
-  color: #4A4E5A;
+  color:  #65686b !important;
   text-transform: uppercase;
   font-size: 14px;
 }
@@ -123,8 +123,18 @@ footer input[type='email']:focus {
   border-color: #dd4b39;
 }
 
+.log-links {
+  padding-top: 20px;
+  flex-direction: row;
+}
+
+.log-links a {
+  color: #65686b !important
+}
+
 .login-signup-btn {
-  margin: 0
+  margin: 0;
+  margin-top: 4px 
 }
 
 #google-login {
@@ -132,6 +142,16 @@ footer input[type='email']:focus {
 }
 #facebook-login {
   background-color: #3b5998 !important;
+}
+
+.profile-links {
+  top: calc(100% + 2px);
+  right: 0;
+  z-index: 10000;
+  display: none;
+}
+.profile-links li {
+  font-size: .8rem;
 }
 
 /* ************* Categories Bar Style ************ */
@@ -144,7 +164,8 @@ footer input[type='email']:focus {
 .categories a { color: #EEE !important;font-size: .9rem; }
 
 .categories a:hover,
-.categories a:focus {
+.categories a:focus,
+.log-links a:hover  {
   color: #F8694A !important
 }
 
@@ -155,7 +176,7 @@ footer input[type='email']:focus {
 }
 
 .categories .pages-dropdown {
-  top: (100% + 2px);
+  top: calc(100% + 2px);
   left: 0;
   z-index: 10000;
   display: none;
@@ -168,16 +189,19 @@ footer input[type='email']:focus {
   }
 }
 
-.categories .pages-dropdown.active {
+.categories .pages-dropdown.active,
+.profile-links.active {
   display: block
 }
 
-.categories .pages-dropdown {
+.categories .pages-dropdown,
+.profile-links {
   border-top: 2px solid #F8694A;
 }
 
-.categories .pages-dropdown li {
-  border-radius: 0;
+.categories .pages-dropdown li,
+.profile-links li {
+  border-radius: 0 !important;
   padding: 10px 40px;
   border: none;
   color: #555;
@@ -186,7 +210,8 @@ footer input[type='email']:focus {
   min-width: 215px;
 }
 
-.categories .pages-dropdown li:hover {
+.categories .pages-dropdown li:hover,
+.profile-links li:hover {
   color: #F8694A;
 }
 
@@ -485,7 +510,6 @@ footer input[type='email']:focus {
 /*Upload box*/
 .upload-box {
   border: 1px solid #ced4da;
-  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -766,4 +790,14 @@ footer button:hover,
 footer button:focus {
   background-color: #30323A !important;
   box-shadow: none !important;
+}
+
+
+/* **************************** Add product, Update product form  style ************************** */
+
+.add-product input,
+.add-product textarea,
+.add-product select {
+  border-radius: 0;
+  font-size: medium
 }

@@ -21,7 +21,7 @@ const TextFieldGroup = ({
         })}
         placeholder={placeholder}
         name={name}
-        value={value}
+        defaultValue={value}
         onChange={onChange}
         disabled={disabled}
       />

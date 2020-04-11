@@ -7,6 +7,7 @@ import { getUserProducts } from '../../redux/reducers/productsReducer';
 
 import Spinner from '../common/Spinner';
 import ProductActions from './ProductActions';
+import SectionTitle from '../layout/SectionTitle';
 //import Experience from "./Experience";
 //import Education from "./Education";
 
@@ -66,7 +67,7 @@ class Dashboard extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="display-4">Dashboard</h1>
+              <SectionTitle title={'Dashboard'} />
               {dashboardConetent}
               {/* {this.props.auth.user._id} */}
             </div>

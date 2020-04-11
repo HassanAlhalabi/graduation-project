@@ -23,54 +23,61 @@ class Navbar extends Component {
     let index = name.indexOf(' ');
     return name.substr(0, index);
   };
+
+  showList = () => {
+    document.querySelector('.profile-links').classList.toggle('active');
+    console.log('ok')
+  }
+
   render() {
     const { user } = this.props;
     let logLinks;
 
     logLinks = user ? (
       <React.Fragment>
-        <li className="nav-item">
-          <Link className="nav-link" to="/my-products">
-            My Products
+        <li className="nav-item text-center">
+          <Link className="" to="/dashboard">
+            <div><span>Dashboard</span></div>
+            <div>
+              <i className="fas fa-tachometer-alt"></i>
+            </div>
           </Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/dashboard">
-            Dashboard
+        <li className="nav-item text-center">
+          <Link className="" to="/my-products">
+            <div><span>My Products</span></div>
+            <div><i className="fas fa-boxes"></i></div>
           </Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/add-product">
-            Add Product
-          </Link>
-        </li>
-        <li className="nav-item mr-3">
-          <Link
-            className="nav-link px-2 bg-primary text-white rounded"
-            to="/cart"
-          >
-            <i className="fas fa-shopping-cart" />
-          </Link>
-        </li>
-        <li className="nav-item">
-          <span className="nav-link font-weight-normal text-white px-2 bg-secondary rounded">
-            Hello {this.getFirstName(user.name)}
-          </span>
-        </li>
-        <li className="nav-item">
-          <Link
-            className="nav-link"
-            to="/logout"
-            onClick={this.onLogoutClicked.bind(this)}
-          >
+        <li className="nav-item position-relative text-center" >
+          <a href='#' onClick={() => this.showList()}>
             <img
               className="rounded-circle"
               src={this.props.user.avatar}
               alt={this.props.user.name}
               style={{ width: '25px', marginRight: '5px' }}
             />
-            Logout
-          </Link>
+            {this.getFirstName(user.name)}
+          </a>
+          <div className='profile-links position-absolute active text-left'>
+            <ul className='m-0 list-group'>
+              <Link to='/'>
+                  <li className='list-group-item'>Profile</li>
+              </Link>
+              <Link to="/add-product">
+                <li className='list-group-item'>
+                  <div>Add Product</div>
+                  {/*   */}
+                </li>
+              </Link>
+              <Link
+                to="/logout"
+                onClick={this.onLogoutClicked.bind(this)}
+                >
+                  <li className='list-group-item'>Logout</li>
+                </Link>
+            </ul>
+          </div>
         </li>
       </React.Fragment>
     ) : (
@@ -90,7 +97,7 @@ class Navbar extends Component {
               <span>E</span>-SHOP
             </Link>
 
-            <div className='col-12 col-md-7 col-lg-5 pl-lg-0'>
+            <div className='col-12 col-md-7 col-lg-5 pl-lg-0 mt-4 mt-md-0'>
               <SearchBox />
             </div>
             
@@ -107,8 +114,8 @@ class Navbar extends Component {
               <span className="navbar-toggler-icon" />
             </button>
             
-            <div className="collapse navbar-collapse col-12 col-lg-4" id="navbarNav">
-              <ul className="navbar-nav ml-auto ml-sm-0 mt-sm-3 ml-lg-auto mt-lg-0">
+            <div className="col-12 col-lg-4" id="navbarNav">
+              <ul className="navbar-nav justify-content-between log-links pb-4 pb-lg-0">
                 {logLinks}
               </ul>
             </div>

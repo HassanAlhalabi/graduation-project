@@ -19,7 +19,7 @@ const TextAreaFieldGroup = ({
         })}
         placeholder={placeholder}
         name={name}
-        value={value}
+        defaultValue={value}
         onChange={onChange}
       />
       {info && <small className="form-text text-muted">{info}</small>}
