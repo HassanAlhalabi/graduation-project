@@ -25,6 +25,7 @@ import Cart from './components/product/Cart';
 import MyProducts from './components/my_products/MyProducts';
 import Profile from './components/profile/Profile';
 import ProductForm from './components/product/ProductForm';
+import UpdateProduct from './components/update_product/UpdateProduct';
 
 import FixedCart from './components/layout/FixedCart';
 import Footer from './components/layout/Footer';
@@ -60,6 +61,9 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/profile" component={Profile} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/updateproduct/:pid" component={UpdateProduct} />
               </Switch>
             <Footer />  
           </div>

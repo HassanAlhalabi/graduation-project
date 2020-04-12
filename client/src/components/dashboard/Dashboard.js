@@ -62,6 +62,7 @@ class Dashboard extends Component {
             </Link>
           </div>
         );
+
       }
     }
     return (
@@ -72,6 +73,7 @@ class Dashboard extends Component {
           <div className="row">
             <div className="col-md-12">
               <SectionTitle title={'Dashboard'} />
+              <Link to='./updateproduct/1'>Update</Link>
               {dashboardConetent}
               {/* {this.props.auth.user._id} */}
             </div>

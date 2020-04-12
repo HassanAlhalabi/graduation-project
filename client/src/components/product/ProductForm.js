@@ -23,7 +23,7 @@ export class ProductForm extends Component {
     color: '',
     image: '',
     errors: {},
-    disabled: true
+    disabled: true,
   };
 
   onChange = e => {
@@ -39,7 +39,9 @@ export class ProductForm extends Component {
   };
   onUpload = e => {
     e.preventDefault();
-    //let image = e.currentTarget.querySelector('input[type="file"]').value;
+
+    // let image = e.currentTarget.querySelector('input[type="file"]').value;
+
     axios
       .post(`/api/products/product/images/upload`)
       .then(res => console.log(res))
@@ -48,7 +50,8 @@ export class ProductForm extends Component {
 
   handleOnDrop = (files, rejectedFiles) => {
     console.log(files);
-    files.forEach((file, i) => this.setState({ image: file.name }));
+    
+          files.forEach((file, i) => this.setState({ image: file.name }));
     // Push all the axios request promise into a single array
     const uploaders = files.map(file => {
       // Initial FormData
@@ -75,13 +78,18 @@ export class ProductForm extends Component {
           const data = response.data;
           const fileURL = data.secure_url; // You should store this URL for future references in your app
           console.log(data);
+        
         });
+
     });
 
     // Once all the files are uploaded
     axios.all(uploaders).then(() => {
       // ... perform after upload is successful operation
+  
     });
+
+
   };
 
 componentDidMount() {
@@ -90,6 +98,7 @@ componentDidMount() {
 }
 
   render() {
+    
     const { errors } = this.state;
 
     return (
@@ -97,16 +106,13 @@ componentDidMount() {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              {/* <Link to="/dashboard" className="btn btn-light">
-                Back to dashboard
-              </Link> */}
               <SectionTitle title={'Add new product'}/>
               <p className="lead mb-5">
                 Add a new product, and make sure to include any details with
                 specifications.
               </p>
               <small className="d-block mb-3 text-muted">
-                <span className='asterisk'><i class="fas fa-asterisk"></i></span> = required field
+                <span className='asterisk'><i className="fas fa-asterisk"></i></span> = required field
               </small>
               <form>
                 <div className="form-group">
@@ -206,6 +212,9 @@ componentDidMount() {
                     error={errors.description}
                     info="A brief description about the product"
                   />
+                  <div className='product-imgs-preview d-flex'>
+                    <img id="output_image"/>
+                  </div>
                   <Dropzone
                     onDrop={this.handleOnDrop}
                     multiple
