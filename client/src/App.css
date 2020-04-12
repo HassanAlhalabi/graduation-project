@@ -795,11 +795,26 @@ footer button:focus {
 
 /* **************************** Add product, Update product form  style ************************** */
 
+.add-product .form-group {
+  margin-bottom: 25px;
+}
+
 .add-product input,
 .add-product textarea,
 .add-product select {
   border-radius: 0;
   font-size: medium
+}
+
+.add-product input[type='color'] {
+  padding: 0;
+  border: none;
+  width: 50px;
+  height: 50px;
+}
+
+.form-check {
+  margin-bottom: 25px
 }
 
 .form-check-label {
@@ -809,4 +824,8 @@ footer button:focus {
 .select-input {
   padding-left: 14px;
   color: #65686b;
+}
+
+.add-product small {
+  color: #f8694ae0 !important;
 }

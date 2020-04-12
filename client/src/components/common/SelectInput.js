@@ -25,7 +25,7 @@ const TextFieldGroup = ({
       <option>lg</option>
       <option>xl</option>
     </select>
-    {info && <small className="form-text text-muted">{info}</small>}
+    {info && <small className="form-text orange-color font-weight-bold">{info}</small>}
     {error && <div className="invalid-feedback">{error}</div>}
   </div>
       

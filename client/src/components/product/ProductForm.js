@@ -186,6 +186,26 @@ componentDidMount() {
                     value={this.state.itemsNumber}
                     info="The exact number of this product items which available for selling"
                   />
+                  {/* <form onSubmit={this.onUpload}>
+                    <TextFieldGroup
+                      name="image"
+                      onChange={this.onChange}
+                      type="file"
+                      error={errors.image}
+                      value={this.state.image}
+                      info="Select product image and press upload button before submitting the product"
+                    />
+                    <input type="submit" />
+                  </form> */}
+                  <TextAreaFieldGroup
+                    placeholder="Product description"
+                    className="mt-4"
+                    name="description"
+                    value={this.state.description}
+                    onChange={this.onChange}
+                    error={errors.description}
+                    info="A brief description about the product"
+                  />
                   <Dropzone
                     onDrop={this.handleOnDrop}
                     multiple
@@ -211,41 +231,15 @@ componentDidMount() {
                       </div>
                     )}
                   </Dropzone>
-                  <small className='text-muted'>
+                  <small className='orange-color font-weight-bold'>
                     Upload your product's images by drag &amp; drop OR select
                     them from your local storage drive
                   </small>
-                  {/* <form onSubmit={this.onUpload}>
-                    <TextFieldGroup
-                      name="image"
-                      onChange={this.onChange}
-                      type="file"
-                      error={errors.image}
-                      value={this.state.image}
-                      info="Select product image and press upload button before submitting the product"
-                    />
-                    <input type="submit" />
-                  </form> */}
-                  <TextAreaFieldGroup
-                    placeholder="Product description"
-                    className="mt-4"
-                    name="description"
-                    value={this.state.description}
-                    onChange={this.onChange}
-                    error={errors.description}
-                    info="A brief description about the product"
-                  />
-                  <TextAreaFieldGroup
-                    placeholder="Product specifications. Seperate each specification with a (-) from the next one"
-                    name="specifications"
-                    value={this.state.specifications}
-                    onChange={this.onChange}
-                    error={errors.specifications}
-                    info="Type all product specifications, make sure to put a (-) to seperate each specification from the next one"
-                  />
-                  <button type="submit" className="btn btn-primary">
-                    Add Product
-                  </button>
+                  <div className='mt-5'>
+                    <button type="submit" className="btn btn-primary">
+                      Add Product
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
