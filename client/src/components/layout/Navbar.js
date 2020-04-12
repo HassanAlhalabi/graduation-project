@@ -58,7 +58,7 @@ class Navbar extends Component {
           </a>
           <div className='profile-links position-absolute text-left'>
             <ul className='m-0 list-group'>
-              <Link to='/'>
+              <Link to='/profile'>
                   <li className='list-group-item'>Profile</li>
               </Link>
               <Link to="/add-product">

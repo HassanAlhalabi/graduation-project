@@ -23,6 +23,7 @@ import Checkout from './components/checkout/Checkout';
 import About from './components/about/About';
 import Cart from './components/product/Cart';
 import MyProducts from './components/my_products/MyProducts';
+import Profile from './components/profile/Profile';
 import ProductForm from './components/product/ProductForm';
 
 import FixedCart from './components/layout/FixedCart';
@@ -56,6 +57,9 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/my_products" component={MyProducts} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/profile" component={Profile} />
               </Switch>
             <Footer />  
           </div>

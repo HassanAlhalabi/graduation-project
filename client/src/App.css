@@ -829,3 +829,19 @@ footer button:focus {
 .add-product small {
   color: #f8694ae0 !important;
 }
+
+/* **************************** Profile component style ************************** */
+
+.profile .profile-info .user-name span:first-child,
+.profile .profile-info .user-email span:first-child {
+  width: max-content;
+}
+
+.profile .profile-info .user-name span:last-child,
+.profile .profile-info .user-email span:last-child {
+  color: #65686b;
+}
+
+.profile .profile-info .user-avatar img {
+  
+}
