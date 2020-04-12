@@ -4,7 +4,7 @@ import isEmpty from '../../validation/is-empty';
 //Define initial state value
 const initialState = {
   user: null,
-  isAuthenticated: false
+  isAuthenticated: false,
 };
 
 //Define action types
@@ -19,20 +19,21 @@ export default (state = initialState, action) => {
       console.log('user logged in');
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
       };
     case LOGOUT:
       console.log('user logged out');
       return {
         ...state,
         user: action.payload,
-        isAuthenticated: !isEmpty(action.payload)
+        isAuthenticated: !isEmpty(action.payload),
       };
     case FETCH_USER:
+      console.log('fetching user ..');
       return {
         ...state,
         user: action.payload,
-        isAuthenticated: !isEmpty(action.payload)
+        isAuthenticated: !isEmpty(action.payload),
       };
     default:
       return state;
@@ -41,52 +42,66 @@ export default (state = initialState, action) => {
 
 //Export the function that will login the user to it's initialState.
 
-//fetch current user
-export const fetchUser = () => dispatch => {
-  axios
-    .get('/api/current_user')
-    .then(res =>
-      dispatch({
-        type: FETCH_USER,
-        payload: res.data
-      })
-    )
-    .catch(err => console.log(err));
-};
-
 //Login action
-export const login = () => dispatch => {
+export const login = () => (dispatch) => {
   console.log('user log in action triggered');
   axios
     .get('/auth/google')
-    .then(res =>
+    .then((res) =>
       dispatch({
         type: LOGIN,
-        payload: res.data
-      })
+        payload: res.data,
+      }),
     )
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
 
 //Export the function that will logs out the user from the state
 //logout action
-export const logout = () => dispatch => {
+export const logout = () => (dispatch) => {
   console.log('user log out action triggered');
   dispatch(clearUsersProducts());
   axios
     .get('/api/logout')
-    .then(res =>
+    .then((res) =>
       dispatch({
         type: LOGOUT,
-        payload: res.data
-      })
+        payload: res.data,
+      }),
     )
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
 
-//clear users products
+//fetch current user action
+export const fetchUser = () => (dispatch) => {
+  axios
+    .get('/api/current_user')
+    .then((res) =>
+      dispatch({
+        type: FETCH_USER,
+        payload: res.data,
+      }),
+    )
+    .catch((err) => console.log(err));
+};
+
+// handle stripe token action
+export const handleToken = (token) => (dispatch) => {
+  console.log('user payment handle token action triggered');
+  axios
+    .post('/api/payment', token)
+    .then((res) => {
+      dispatch({
+        type: FETCH_USER,
+        payload: res.data,
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
+//clear users products action
 export const clearUsersProducts = () => {
   return {
-    type: CLEAR_USER_PRODUCTS
+    type: CLEAR_USER_PRODUCTS,
   };
 };

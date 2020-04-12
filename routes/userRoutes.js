@@ -3,6 +3,7 @@ const router = express.Router();
 
 //user logout route - destroy the cookie in the browser -
 router.get('/logout', (req, res) => {
+  console.log('User Logout route called...');
   req.logout();
   res.send(req.user);
 });
@@ -13,6 +14,12 @@ router.get('/current_user', (req, res) => {
   //res.send(req.session);
 
   //the deserialized user
+  res.send(req.user);
+});
+
+router.post('/payment', (req, res) => {
+  //handle updating user info after payment
+  console.log('payment route been called ..');
   res.send(req.user);
 });
 

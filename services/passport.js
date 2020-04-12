@@ -15,13 +15,13 @@ passport.serializeUser((user, done) => {
 //deserialize user and pull out the token inside the cookie - user id - and search in DB for this user
 passport.deserializeUser((id, done) => {
   User.findById(id)
-    .then(user => done(null, user))
-    .catch(err => console.log(err));
+    .then((user) => done(null, user))
+    .catch((err) => console.log(err));
 });
 
 //Getting the email from profile object
 let googleEmail;
-const getGoogleEmail = res => {
+const getGoogleEmail = (res) => {
   for (var i = 0; i < res.emails.length; i++) {
     if (res.emails[i].type === 'account') {
       googleEmail = res.emails[i].value;
@@ -32,18 +32,23 @@ const getGoogleEmail = res => {
 };
 
 let facebookEmail;
-const getFacebookEmail = res => {
-  for (var i = 0; i < res.emails.length; i++) {
-    if (res.emails[i].value) {
-      facebookEmail = res.emails[i].value;
-    } else {
-      facebookEmail = '';
+const getFacebookEmail = (profile) => {
+  if (profile.emails.length > 0) {
+    for (var i = 0; i < profile.emails.length; i++) {
+      if (profile.emails[i].value) {
+        facebookEmail = profile.emails[i].value;
+      } else {
+        facebookEmail = '';
+      }
     }
+  } else {
+    facebookEmail = '';
   }
+  // console.log(profile);
 };
 
 let avatar;
-const getAvatar = res => {
+const getAvatar = (res) => {
   for (var i = 0; i < res.photos.length; i++) {
     if (res.photos[i].value) {
       avatar = res.photos[i].value;
@@ -60,15 +65,15 @@ passport.use(
       clientID: keys.googleOauth2ClientID,
       clientSecret: keys.googleOauth2ClientSecret,
       callbackURL: '/auth/google/callback/',
-      proxy: true
+      proxy: true,
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ googleId: profile.id })
-        .then(user => {
+        .then((user) => {
           if (user) {
             // User already exists, no need to create a new user just log the user in
             console.log(
-              `User with Google ID: ${user.googleId} is already exists`
+              `User with Google ID: ${user.googleId} is already exists`,
             );
             done(null, user); // null for error object, which is null because the user is fetched from the DB
           } else {
@@ -79,16 +84,16 @@ passport.use(
               googleId: profile.id,
               name: profile.displayName,
               email: googleEmail,
-              avatar: avatar
+              avatar: avatar,
             })
               .save()
-              .then(user => done(null, user))
-              .catch(err => console.log(err));
+              .then((user) => done(null, user))
+              .catch((err) => console.log(err));
           }
         })
-        .catch(err => console.log(err));
-    }
-  )
+        .catch((err) => console.log(err));
+    },
+  ),
 );
 
 //Setting up users authentication with Facebook strategy with passport
@@ -100,15 +105,15 @@ passport.use(
       clientSecret: keys.facebookSecretId,
       callbackURL: '/auth/facebook/callback',
       profileFields: ['id', 'displayName', 'photos', 'emails'],
-      proxy: true
+      proxy: true,
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ facebookId: profile.id })
-        .then(user => {
+        .then((user) => {
           if (user) {
             // User already exists, no need to create a new user just log the user in
             console.log(
-              `User with Facebook ID: ${user.facebookId} is already exists`
+              `User with Facebook ID: ${user.facebookId} is already exists`,
             );
             done(null, user); // null for error object, which is null because the user is fetched from the DB
           } else {
@@ -119,14 +124,14 @@ passport.use(
               facebookId: profile.id,
               name: profile.displayName,
               email: facebookEmail,
-              avatar: avatar
+              avatar: avatar,
             })
               .save()
-              .then(user => done(null, user))
-              .catch(err => console.log(err));
+              .then((user) => done(null, user))
+              .catch((err) => console.log(err));
           }
         })
-        .catch(err => console.log(err));
-    }
-  )
+        .catch((err) => console.log(err));
+    },
+  ),
 );

@@ -8,11 +8,11 @@ const TextFieldGroup = ({
   onChange,
   error,
   info,
-  disabled
+  disabled,
 }) => {
   return (
-    <div className='from-group'>
-    <select className={classnames('form-control form-control-lg', {
+    <div className='form-group'>
+    <select className={classnames('form-control form-control-lg select-input', {
           'is-invalid': error })}
             name={name}
             defaultValue={value}

@@ -801,3 +801,12 @@ footer button:focus {
   border-radius: 0;
   font-size: medium
 }
+
+.form-check-label {
+  color: #65686b;
+}
+
+.select-input {
+  padding-left: 14px;
+  color: #65686b;
+}
