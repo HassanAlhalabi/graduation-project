@@ -112,6 +112,7 @@ a:hover {
 
 .main-navbar .search-box button { 
   right: 0 ;
+  top: 5px;
   border-color: transparent;
   background-color: transparent;
   color: #999;
