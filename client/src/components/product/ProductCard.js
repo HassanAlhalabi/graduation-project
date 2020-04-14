@@ -7,7 +7,6 @@ class Productcard extends Component {
   render() {
     const { product } = this.props;
     return (
-      <div className="col-md-3 col-sm-6">
         <div className="product-grid7">
           <div className="product-image7">
             <Link to="/">
@@ -44,7 +43,6 @@ class Productcard extends Component {
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }

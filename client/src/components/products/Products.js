@@ -25,7 +25,9 @@ class Products extends Component {
                     products.length > 0
                     ?
                     products.map(product => (
-                        <ProductCard key={product._id} product={product} />
+                        <div className='col-12 col-md-6 col-lg-4'>
+                            <ProductCard key={product._id} product={product} />
+                        </div>
                     ))
                     : 
                     <div>
@@ -46,7 +48,9 @@ class Products extends Component {
                         </div>
                         {/* Products Show */}
                         <div className='col-12 col-sm-6 col-md-9'>
-                            <h2>{productContent}</h2>
+                            <div className='row m-0'>
+                                {productContent}
+                            </div>
                         </div>
                     </div>    
                 </div>

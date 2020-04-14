@@ -44,7 +44,9 @@ class Home extends Component {
               <div className="row">
                 {products.length > 0
                   ? products.map(product => (
-                      <ProductCard key={product._id} product={product} />
+                      <div className='col-12 col-md-4 col-lg-3'>
+                        <ProductCard key={product._id} product={product} />
+                      </div>
                     ))
                   : null}
               </div>
