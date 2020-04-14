@@ -23,8 +23,10 @@ class Home extends Component {
   }
 
   render() {
+    
     const { loading, products } = this.props; // Getting products from Redux
     let homeContent;
+
     loading
       ? (homeContent = <Spinner />)
       : (homeContent = (

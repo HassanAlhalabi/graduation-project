@@ -1,16 +1,40 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 
 import Breadcrumb from '../layout/Breadcrumb';
 import CategoriesBar from '../layout/CategoriesBar';
 import FilterBox from './FilterBox';
+import ProductCard from '../product/ProductCard';
+import Spinner from '../common/Spinner';
 
-import Axios from 'axios';
+import { connect } from 'react-redux';
+import { getProducts } from '../../redux/reducers/productsReducer';
 
 class Products extends Component {
+    
+    render() {
 
-    render(){
+        const { loading , products }  = this.props; // Destracture
+
+        
+
+        let productContent = loading ? <Spinner /> : // Loading is true => show spinner
+                                                     // Loading is false => show products container
+            <div className="row"> 
+                {
+                    products.length > 0
+                    ?
+                    products.map(product => (
+                        <ProductCard key={product._id} product={product} />
+                    ))
+                    : 
+                    <div>
+                        <p className='alert alert-orange rounded-0'>No Products Ordrs In Cart !!</p>
+                    </div>
+                }
+            </div>
+
         return(
-
             <div className='products'>
                 <Breadcrumb page='Products'/>
                 <CategoriesBar />
@@ -22,14 +46,27 @@ class Products extends Component {
                         </div>
                         {/* Products Show */}
                         <div className='col-12 col-sm-6 col-md-9'>
-                            <h2>Products In Here</h2>
+                            <h2>{productContent}</h2>
                         </div>
                     </div>    
                 </div>
             </div>
-
         );
     }
 }
 
-export default Products;
+Products.propTypes = {
+    products: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    getProducts: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => {
+    return({
+        products: state.products.products,
+        loading: state.products.loading 
+    });
+}
+
+
+export default connect(mapStateToProps, getProducts )(Products);
