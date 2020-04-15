@@ -34,23 +34,11 @@ class Home extends Component {
 
             <CategoriesBar />
             <CategorySlider />
-            <DealsOfTheDay />
+            <DealsOfTheDay products={products}/>
             <NewCollection />
-            <LatestProducts />
+            <LatestProducts products={products}/>
             <HotDeal />
-            <Pickedforyou />
-
-            <div className='container'>
-              <div className="row">
-                {products.length > 0
-                  ? products.map(product => (
-                      <div className='col-12 col-md-4 col-lg-3'>
-                        <ProductCard key={product._id} product={product} />
-                      </div>
-                    ))
-                  : null}
-              </div>
-            </div>
+            <Pickedforyou products={products}/>
             
           </div>  
         ));
