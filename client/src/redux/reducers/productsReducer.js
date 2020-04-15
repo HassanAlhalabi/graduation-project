@@ -6,6 +6,7 @@ const initialState = {
   products: [],
   product: [],
   userProducts: [],
+  productsInCart: [],
   loading: true
 };
 
@@ -15,6 +16,7 @@ const GET_PRODUCT = 'GET_PRODUCT';
 const GET_USER_PRODUCTS = 'GET_USER_PRODUCTS';
 const CLEAR_USER_PRODUCTS = 'CLEAR_USER_PRODUCTS';
 const SET_LOADING = 'SET_LOADING';
+const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART'; 
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -50,6 +52,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         userProducts: [],
+        loading: false
+      };
+    case ADD_PRODUCT_TO_CART:
+      console.log('add-product-to-cart reducer');
+      return {
+        ...state,
+        productsInCart: action.payload,
         loading: false
       };
     default:
@@ -106,3 +115,11 @@ export const setLoading = () => {
     type: SET_LOADING
   };
 };
+
+// Add a product to cart
+export const addProductToCart = () => dispatch => {
+      dispatch( product => ({
+        type: ADD_PRODUCT_TO_CART,
+        payload: product
+      })
+)};
