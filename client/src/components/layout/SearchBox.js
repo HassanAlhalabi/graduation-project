@@ -22,10 +22,13 @@ class SearchBox extends Component {
                             <i className='fas fa-microphone'></i>
                         </button>
                     </div>
-                    <div>
-                        <button type='submit' className='rounded-0'>
-                            <i className='fas fa-image'></i>
-                        </button>
+                    <div className='img-search position-relative text-center'>
+                        <div  className='position-absolute w-100 h-100'>
+                            <input type='file' accept='image/*' className='w-100 h-100'/>
+                        </div>
+                        <div className='position-absolute w-100 h-100n'>
+                            <i className='fas fa-image w-100 h-100'></i>
+                        </div>
                     </div>
                 </form> 
             </div>

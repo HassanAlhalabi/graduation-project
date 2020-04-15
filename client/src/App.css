@@ -118,6 +118,27 @@ a:hover {
   color: #999;
 }
 
+.main-navbar .search-box .img-search {
+  width: 25px;
+  height: 25px;
+  color: #999; 
+}
+
+.main-navbar .search-box .img-search > div:first-child {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.main-navbar .search-box .img-search > div:last-child {
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
 .main-navbar .search-box input[type='search']:focus,
 footer input[type='email']:focus {
   box-shadow: 0 0 0 0.2rem rgba(248,105,74,.25);
