@@ -11,12 +11,28 @@ import { connect } from 'react-redux';
 import { getProducts } from '../../redux/reducers/productsReducer';
 
 class Products extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            filterParams: {
+                price : 1000,
+                brand : 'all',
+                size  : 'all',
+            }
+        }
+    }
+
+    getFilterParameters = params => {
+        this.setState({filterParams: params})
+    }
+    
     
     render() {
 
-        const { loading , products }  = this.props; // Destracture
+        console.log(this.state.filterParams)
 
-        
+        const { loading , products }  = this.props;
 
         let productContent = loading ? <Spinner /> : // Loading is true => show spinner
                                                      // Loading is false => show products container
@@ -24,11 +40,17 @@ class Products extends Component {
                 {
                     products.length > 0
                     ?
-                    products.map(product => (
-                        <div className='col-12 col-md-6 col-lg-4'>
-                            <ProductCard key={product._id} product={product} />
-                        </div>
-                    ))
+                    products.filter( product => 
+                        
+                        // Filter Parameters
+                        product.price <= this.state.filterParams.price
+                        
+                        
+                        ).map(product => 
+                            <div className='col-12 col-md-6 col-lg-4'>
+                                <ProductCard key={product._id} product={product} />
+                            </div>    
+                    )
                     : 
                     <div>
                         <p className='alert alert-orange rounded-0'>No Products Ordrs In Cart !!</p>
@@ -44,7 +66,7 @@ class Products extends Component {
                     <div className='row'>
                         {/* Filter Box */}
                         <div className='col-12 col-md-3'>
-                            <FilterBox />
+                            <FilterBox filterParams={ this.getFilterParameters }/>
                         </div>
                         {/* Products Show */}
                         <div className='col-12 col-sm-6 col-md-9'>
