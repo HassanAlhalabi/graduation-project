@@ -12,9 +12,23 @@ class LatestProducts extends Component {
         }
     }
 
+
+
+    getLatestProducts = (productsList,totalNmber) => {
+        let newProductsList = [];
+        let i = 0;
+        while( i < totalNmber){
+            newProductsList.push(productsList[productsList.length-i-1]);
+            ++i; 
+        }
+        return newProductsList;
+    }    
+
     render(){
 
         const products = this.state.products;
+
+        console.log(this.getLatestProducts(products,1))
 
         return( 
 
@@ -23,7 +37,7 @@ class LatestProducts extends Component {
                     <SectionTitle title={"latest products"}/>
                      <div className='row'>
                      {products.length > 0
-                        ? products.map(product => (
+                        ? this.getLatestProducts(products,1).map(product => (
                             <div className='col-12 col-md-4 col-lg-3' key={product._id}> 
                                 <ProductCard key={product._id} product={product} />
                             </div>

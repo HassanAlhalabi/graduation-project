@@ -9,32 +9,6 @@ class Pickedforyou extends Component {
         super(props);
         this.state = {
             products: this.props.products,
-            dummyProducts: [
-                {
-                 id: 1,
-                 title: 'product'
-                },
-                {
-                id: 2,
-                title: 'product'
-                },
-                {
-                id: 3,
-                title: 'product'
-                },
-                {
-                id: 4,
-                title: 'product'
-                },
-                {
-                id: 5,
-                title: 'product'
-                },
-                {
-                id: 6,
-                title: 'product'
-                },     
-            ]
         }
     }
 
@@ -58,8 +32,6 @@ class Pickedforyou extends Component {
     render(){
 
         const products = this.state.products;
-
-        this.getRandomProducts(this.state.dummyProducts,4);
 
         return( 
 
