@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import PropTypes from 'prop-types';
 
+import PropTypes from 'prop-types';
 import Breadcrumb from '../layout/Breadcrumb';
 import CategoriesBar from '../layout/CategoriesBar';
 import FilterBox from './FilterBox';
@@ -30,6 +30,7 @@ class Products extends Component {
     
     render() {
 
+
         const { loading , products }  = this.props;
 
         let productContent = loading ? <Spinner /> : // Loading is true => show spinner
@@ -58,8 +59,8 @@ class Products extends Component {
 
         return(
             <div className='products'>
-                <Breadcrumb page='Products'/>
                 <CategoriesBar />
+                <Breadcrumb page='Products'/>
                 <div className='container mt-5'>
                     <div className='row'>
                         {/* Filter Box */}

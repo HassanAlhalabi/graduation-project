@@ -18,6 +18,7 @@ import Login from './components/layout/Login';
 import Home from './components/presentational/Home';
 import Dashboard from './components/dashboard/Dashboard';
 import Products from './components/products/Products';
+import SearchProducts from './components/products/SearchProducts';
 import ProductDetails from './components/product_details/ProductDetails'
 import Checkout from './components/checkout/Checkout';
 import About from './components/about/About';
@@ -42,6 +43,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/products" component={Products} />
+              <Route exact path="/products/search-products/:searchTerm?" component={SearchProducts} />
               <Route exact path="/productdetails" component={ProductDetails} />
               <Route exact path="/checkout" component={Checkout} />
               <Route exact path="/cart" component={Cart} />

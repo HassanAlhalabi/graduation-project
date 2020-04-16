@@ -38,7 +38,7 @@ class Home extends Component {
             <NewCollection />
             <LatestProducts products={products}/>
             <HotDeal />
-            <Pickedforyou products={products}/>
+            <Pickedforyou />
             
           </div>  
         ));

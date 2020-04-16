@@ -113,7 +113,7 @@ class ProductDetails extends Component {
                     </div>
                     <ProductReviews />
                 </div>
-                <PickedForYou />   
+                <PickedForYou products={this.state.products}/>   
             </div>
         );
 

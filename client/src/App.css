@@ -116,6 +116,18 @@ a:hover {
   border-color: transparent;
   background-color: transparent;
   color: #999;
+  transition: .6s
+}
+
+.main-navbar .search-box button a {
+  color: #999 !important;
+}
+
+
+.main-navbar .search-box input[type='search']:focus,
+footer input[type='email']:focus {
+  box-shadow: 0 0 0 0.2rem rgba(248,105,74,.25);
+  border-color: #dd4b39;
 }
 
 .main-navbar .search-box .img-search {
@@ -137,12 +149,16 @@ a:hover {
   top: 0;
   left: 0;
   z-index: 9;
+  transition: .6s
 }
 
-.main-navbar .search-box input[type='search']:focus,
-footer input[type='email']:focus {
-  box-shadow: 0 0 0 0.2rem rgba(248,105,74,.25);
-  border-color: #dd4b39;
+.main-navbar .search-box .img-search:hover,
+.main-navbar .search-box button a:hover {
+  color: #F8694A !important;
+}
+
+::-webkit-file-upload-button {
+  cursor:pointer;
 }
 
 .log-links {

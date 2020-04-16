@@ -1,5 +1,8 @@
 import React,{Component} from 'react';
 
+import {connect} from 'react-redux';
+import {getProducts} from '../../redux/reducers/productsReducer';
+
 import SectionTitle from './SectionTitle';
 import ProductCard from '../product/ProductCard';
 
@@ -11,7 +14,7 @@ class Pickedforyou extends Component {
             products: this.props.products,
         }
     }
-
+    
     getRandomProducts = (productsList,totalNmber) => {
         let keyList = [];
         let newProductsList = [];
@@ -31,7 +34,8 @@ class Pickedforyou extends Component {
 
     render(){
 
-        const products = this.state.products;
+        const products = this.props.products;
+        console.log(products)
 
         return( 
 
@@ -56,4 +60,9 @@ class Pickedforyou extends Component {
 
 }
 
-export default Pickedforyou
+const mapStateToProps = state => ({
+    products: state.products.products,
+    loading: state.products.loading
+});
+
+export default connect(mapStateToProps,getProducts )(Pickedforyou)
