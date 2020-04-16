@@ -22,7 +22,6 @@ class SearchBox extends Component {
     }
 
     render(){
-        console.log(this.state.searchTerm)
         return(
             <div className='search-box mt-md-4 d-flex'>
                 <div className=' flex-grow-1'>
