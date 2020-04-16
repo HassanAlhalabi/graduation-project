@@ -9,11 +9,13 @@ class CategoriesBar extends Component {
 
     render(){
         return(
-            <div className='categories'>
+            <div className='categories-bar'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-3 pt-3 pb-2 d-none d-xl-flex'>
-                            <span>CATEGORIES</span>
+                        <div className='col-3 pt-3 pb-2 d-none d-xl-flex to-categories-link'>
+                            <Link to='/products/products-categories'>
+                                <span>CATEGORIES</span>
+                            </Link>    
                             <span className=''><i className='fas fa-list-alt'></i></span>
                         </div>
                         <div className='col-12 col-xl-9 pt-3 pb-3'>
@@ -25,10 +27,10 @@ class CategoriesBar extends Component {
                                     <Link to='/products'>SHOP</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4'>
-                                    <Link to='/products'>WOMEN</Link>
+                                    <Link to="/products/products-categories/women's-clothing">WOMEN</Link>
                                 </li>
-                                <li className='list-item d-inline-block pr-4'>
-                                    <Link to='/products'>MEN</Link>
+                                <li className="list-item d-inline-block pr-4">
+                                    <Link to="/products/products-categories/men's-clothing">MEN</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4 position-relative'>
                                     <a href='#' className='pages-dropdown-click' onClick={() => this.showList()}>

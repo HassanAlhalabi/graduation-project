@@ -14,7 +14,7 @@ const Breadcrumb = ({page}) => {
         <div className='breadcrumb m-0'>
             <div className='container'>
                 <div>
-                    <p className='m-0'>Home  /  {homeRoutes} <span className='orange-color'>{lastRoute}</span></p>
+                    <p className='m-0 text-capitalize'>Home  /  {homeRoutes} <span className='orange-color'>{lastRoute}</span></p>
                 </div>
             </div>
         </div>

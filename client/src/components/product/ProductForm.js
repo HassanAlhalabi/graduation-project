@@ -10,6 +10,7 @@ import SelectInput from '../common/SelectInput';
 import SectionTitle from '../layout/SectionTitle';
 
 export class ProductForm extends Component {
+
   state = {
     name: '',
     description: '',
@@ -24,6 +25,8 @@ export class ProductForm extends Component {
     image: '',
     errors: {},
     disabled: true,
+    categories: ['men clothes','women clothes','phones','accessories'],
+    sizes: ['sm','md','lg','xl']
   };
 
   onChange = e => {
@@ -158,6 +161,15 @@ componentDidMount() {
                       Offer
                     </label>
                   </div>
+                  <SelectInput
+                    name="itemCategory"
+                    onChange={this.onChange}
+                    error={errors.itemCategory}
+                    value={this.state.itemCategory}
+                    info="Item Main Category Clothes,Electronics,Phones...etc"
+                    options={this.state.categories}
+                    optionLettersCase={'text-capitalize'} 
+                  />
                   <TextFieldGroup
                     placeholder="Brand"
                     name="itemBrand"
@@ -172,7 +184,9 @@ componentDidMount() {
                     onChange={this.onChange}
                     error={errors.itemSize}
                     value={this.state.itemSize}
-                    info="Item Size"
+                    info="Item Size small,medium,large.....etc"
+                    options={this.state.sizes}
+                    optionLettersCase={'text-uppercase'} 
                   />
                   <TextFieldGroup
                     placeholder="Color"

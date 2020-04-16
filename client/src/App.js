@@ -19,6 +19,7 @@ import Home from './components/presentational/Home';
 import Dashboard from './components/dashboard/Dashboard';
 import Products from './components/products/Products';
 import SearchProducts from './components/products/SearchProducts';
+import ProductsCategories from './components/products/ProductsCategories';
 import ProductDetails from './components/product_details/ProductDetails'
 import Checkout from './components/checkout/Checkout';
 import About from './components/about/About';
@@ -30,6 +31,7 @@ import UpdateProduct from './components/update_product/UpdateProduct';
 
 import FixedCart from './components/layout/FixedCart';
 import Footer from './components/layout/Footer';
+
 
 class App extends Component {
   render() {
@@ -44,6 +46,7 @@ class App extends Component {
               <Route exact path="/about" component={About} />
               <Route exact path="/products" component={Products} />
               <Route exact path="/products/search-products/:searchTerm?" component={SearchProducts} />
+              <Route exact path="/products/Products-Categories/:category?" component={ProductsCategories} />
               <Route exact path="/productdetails" component={ProductDetails} />
               <Route exact path="/checkout" component={Checkout} />
               <Route exact path="/cart" component={Cart} />

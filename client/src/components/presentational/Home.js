@@ -24,12 +24,10 @@ class Home extends Component {
 
   render() {
     
-    const { loading, products } = this.props; // Getting products from Redux
+    const { products } = this.props; // Getting products from Redux
     let homeContent;
 
-    loading
-      ? (homeContent = <Spinner />)
-      : (homeContent = (
+    homeContent = (
           <div className='home'>
 
             <CategoriesBar />
@@ -41,7 +39,7 @@ class Home extends Component {
             <Pickedforyou />
             
           </div>  
-        ));
+        );
 
     return homeContent;
   }

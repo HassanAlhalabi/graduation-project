@@ -26,25 +26,23 @@ class SearchBox extends Component {
             <div className='search-box mt-md-4 d-flex'>
                 <div className=' flex-grow-1'>
                     <form onSubmit={this.handleOnSubmit}> 
-                        <div className='position-relative'>
-                            
-                                <input 
-                                    type='search'
-                                    placeholder='Search products ...' 
-                                    className='form-control rounded-0 w-100 p-3'
-                                    onKeyUp={this.handleSearchInput}
-                                />
-                                <button className='rounded-0 position-absolute'>
-                                    <Link to={'/products/search-products/'+this.state.searchTerm}>
-                                        <i className='fas fa-search'></i>
-                                    </Link>    
-                                </button>
-                            
+                        <div className='position-relative'> 
+                            <input 
+                                type='search'
+                                placeholder='Search products ...' 
+                                className='form-control rounded-0 w-100 p-3'
+                                onKeyUp={this.handleSearchInput}
+                            />
+                            <button className='rounded-0 position-absolute'>
+                                <Link to={'/products/search-products/'+this.state.searchTerm}>
+                                    <i className='fas fa-search'></i>
+                                </Link>    
+                            </button>
                         </div> 
                     </form>
                 </div>           
                 <div>
-                    <button className='rounded-0'>
+                    <button className='rounded-0 h-100'>
                         <i className='fas fa-microphone'></i>
                     </button>
                 </div>

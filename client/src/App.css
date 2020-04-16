@@ -3,6 +3,11 @@
 body {
   height: 100vh;
   font-family: 'Hind', sans-serif; 
+  transform-origin: center ;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
 }
 
 .row {
@@ -134,6 +139,7 @@ footer input[type='email']:focus {
   width: 25px;
   height: 25px;
   color: #999; 
+  align-self: center;
 }
 
 .main-navbar .search-box .img-search > div:first-child {
@@ -194,26 +200,29 @@ footer input[type='email']:focus {
 
 /* ************* Categories Bar Style ************ */
 
-.categories {
+.categories-bar {
   background-color: #30323A;
   color: #EEE;
 }
 
-.categories a { color: #EEE !important;font-size: .9rem; }
+.categories-bar a { color: #EEE !important;font-size: .9rem; }
 
-.categories a:hover,
-.categories a:focus,
+.categories-bar a:hover,
 .log-links a:hover  {
   color: #F8694A !important
 }
 
-.categories .row div:first-child {
+.categories-bar .row div:first-child {
   background-color: #F8694A;
   font-weight: bold;
   justify-content: space-between;
 }
 
-.categories .pages-dropdown {
+.categories-bar .row div:first-child a:hover{
+  color: #EEE !important;
+}
+
+.categories-bar .pages-dropdown {
   top: calc(100% + 2px);
   left: 0;
   z-index: 10000;
@@ -221,23 +230,23 @@ footer input[type='email']:focus {
 }
 
 @media (max-width: 575px) and (min-width : 350px){
-  .categories .pages-dropdown {
+  .categories-bar .pages-dropdown {
     right: 0;
     left: auto;
   }
 }
 
-.categories .pages-dropdown.active,
+.categories-bar .pages-dropdown.active,
 .profile-links.active {
   display: block
 }
 
-.categories .pages-dropdown,
+.categories-bar .pages-dropdown,
 .profile-links {
   border-top: 2px solid #F8694A;
 }
 
-.categories .pages-dropdown li,
+.categories-bar .pages-dropdown li,
 .profile-links li {
   border-radius: 0 !important;
   padding: 10px 40px;
@@ -248,7 +257,7 @@ footer input[type='email']:focus {
   min-width: 215px;
 }
 
-.categories .pages-dropdown li:hover,
+.categories-bar .pages-dropdown li:hover,
 .profile-links li:hover {
   color: #F8694A;
 }
@@ -554,6 +563,36 @@ footer input[type='email']:focus {
   min-height: 200px;
 }
 
+/* **************************** Products categories page Components style ************************** */
+
+.category .category-inner .category-holder {
+  height: 300px;
+  overflow: hidden;
+}
+
+.category .category-inner .category-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: .5s;
+} 
+
+.category:hover .category-inner .category-image img{
+  transform: translateZ(30px) translateY(-30px) scale(1.1)
+}
+
+.category .category-inner .category-content {
+  top: 0;
+  left: 0;
+  background-color: #33333350;
+}
+
+.category .category-inner .category-content div {
+  color: #EEE;
+  padding: 10px;
+  font-size: 22px;
+  background-color: #f8694ab8;
+}
 
 
 /* **************************** Product details page Components style ************************** */

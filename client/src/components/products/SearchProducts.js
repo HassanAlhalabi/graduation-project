@@ -35,7 +35,7 @@ class SearchProducts extends Component {
         return(
             <div className='search-produts'>
                 <CategoriesBar />
-                <Breadcrumb page={'Products / search-products / ' + searchTerm  + ' '}/>
+                <Breadcrumb page={'Products / Search-Products / ' + searchTerm  + ' '}/>
 
                 <div className='container mt-4'> 
                     {searchResult}    
