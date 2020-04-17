@@ -27,10 +27,10 @@ class CategoriesBar extends Component {
                                     <Link to='/products'>SHOP</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4'>
-                                    <Link to="/products/products-categories/women's-clothing">WOMEN</Link>
+                                    <Link to="/products/products-categories/women-clothing">WOMEN</Link>
                                 </li>
                                 <li className="list-item d-inline-block pr-4">
-                                    <Link to="/products/products-categories/men's-clothing">MEN</Link>
+                                    <Link to="/products/products-categories/men-clothing">MEN</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4 position-relative'>
                                     <a className='pages-dropdown-click' onClick={() => this.showList()}>

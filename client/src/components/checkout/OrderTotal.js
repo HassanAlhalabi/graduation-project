@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { handleToken } from '../../redux/reducers/authReducer';
 
-const OrderTotal = ({ subtotal, shipping, total }) => (
+const OrderTotal = ({ subtotal, shippingDesc, total }) => (
   <div className="order-total">
     <div className="order-total-inner d-flex justify-content-end">
       <div className="table-responsive w-auto">
@@ -21,13 +21,13 @@ const OrderTotal = ({ subtotal, shipping, total }) => (
             <tr>
               <td>Shipping</td>
               <td className="shipping">
-                <span>{shipping}</span>
+                <span>{shippingDesc}</span>
               </td>
             </tr>
             <tr>
               <td className="total-label">Total</td>
               <td className="total">
-                <span>$ {total}</span>
+                <span>$ {total.toFixed(2)}</span>
               </td>
             </tr>
           </tbody>

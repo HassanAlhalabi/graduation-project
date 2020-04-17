@@ -57,7 +57,8 @@ class OrderReview extends Component {
                     color: 'red',
                     quantity: 5,
                 },
-            ]
+            ],
+            shipping: 0,
         }
 
     }
@@ -130,8 +131,8 @@ class OrderReview extends Component {
                         </table>
                     </div>
                     <OrderTotal 
-                                subtotal={this.getSubtotal()} shipping={'Free Shipping'} 
-                                total={(this.getSubtotal()*1 + 4)}/>
+                                subtotal={this.getSubtotal()} shippingDesc={'Free Shipping'} 
+                                total={(this.getSubtotal()*1 + this.state.shipping)}/>
                 </div>
             </div>
 

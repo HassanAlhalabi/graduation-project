@@ -301,7 +301,7 @@ footer input[type='email']:focus {
 
 .slide .carousel-caption {
   display: inline-block;
-  padding: 10px 5px;
+  padding: 25px 5px;
   background-color: #30323a8c;
 }
 
@@ -732,7 +732,11 @@ footer input[type='email']:focus {
 }
 
 .order-review table tbody td.p_details > div:nth-child(2) {
-  margin:10px 10px 10px 0px
+  margin:10px 10px 10px 0px;
+}
+
+.order-review table tbody td.p_details > div:nth-child(2) h4 {
+  font-weight: 600;
 }
 
 .order-review table tbody td.p_details > div:first-child img {
