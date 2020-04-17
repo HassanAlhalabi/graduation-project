@@ -13,6 +13,9 @@ import ProductCard from '../product/ProductCard';
 import MenImage from '../layout/img/men-category.jpg';
 import womenImage from '../layout/img/women-category.jpg';
 import PhonesImage from '../layout/img/phones-category.jpg';
+import ComputersImage from '../layout/img/computers-category.jpg';
+import ElectronicsImage from '../layout/img/electronics-category.jpg';
+import JewlsWatchesImage from '../layout/img/jewls-watches-category.jpg';
 
 class ProductsCategories extends Component {
 
@@ -38,17 +41,17 @@ class ProductsCategories extends Component {
                 {
                     cid : 4,
                     cName: ' computer & office',
-                    cImage: PhonesImage
+                    cImage: ComputersImage
                 },
                 {
                     cid : 5,
                     cName: 'consumer electronics',
-                    cImage: PhonesImage
+                    cImage: ElectronicsImage
                 },
                 {
                     cid : 6,
                     cName: 'jewlery & watches',
-                    cImage: PhonesImage
+                    cImage: JewlsWatchesImage
                 },
             ]
         }
