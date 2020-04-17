@@ -25,12 +25,12 @@ class ProductsCategories extends Component {
             categories : [
                 {
                     cid : 1,
-                    cName: "Men's Clothing",
+                    cName: "Men Clothing",
                     cImage: MenImage
                 },
                 {
                     cid : 2,
-                    cName: "Women's Clothing",
+                    cName: "Women Clothing",
                     cImage: womenImage
                 },
                 {

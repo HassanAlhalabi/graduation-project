@@ -222,6 +222,10 @@ footer input[type='email']:focus {
   color: #EEE !important;
 }
 
+.pages-dropdown-click {
+  cursor: pointer;
+}
+
 .categories-bar .pages-dropdown {
   top: calc(100% + 2px);
   left: 0;
@@ -578,7 +582,7 @@ footer input[type='email']:focus {
 } 
 
 .category:hover .category-inner .category-image img{
-  transform: translateZ(30px) translateY(-30px) scale(1.1)
+  transform: translateZ(20px) translateY(-20px) scale(1.1)
 }
 
 .category .category-inner .category-content {
@@ -592,6 +596,7 @@ footer input[type='email']:focus {
   padding: 10px;
   font-size: 22px;
   background-color: #f8694ab8;
+  text-transform: capitalize;
 }
 
 

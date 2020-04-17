@@ -16,12 +16,12 @@ class CategoriesList extends Component {
                     </Link>
                 </li>
                 <li className='pl-0 pr-0'>
-                    <Link to='/products/products-categories/phones&accessories'>
+                    <Link to='/products/products-categories/phones-&-accessories'>
                         phones & accessories
                     </Link>
                 </li>
                 <li className='pl-0 pr-0'>
-                    <Link to='/products/products-categories/computer&office'>
+                    <Link to='/products/products-categories/computer-&-office'>
                         computer & office
                     </Link>
                 </li>
@@ -31,7 +31,7 @@ class CategoriesList extends Component {
                     </Link>
                 </li>
                 <li className='pl-0 pr-0'>
-                    <Link to='/products/products-categories/jewlery&watches'>
+                    <Link to='/products/products-categories/jewlery-&-watches'>
                         jewlery & watches
                     </Link>
                 </li>

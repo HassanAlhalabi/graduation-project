@@ -33,7 +33,7 @@ class CategoriesBar extends Component {
                                     <Link to="/products/products-categories/men's-clothing">MEN</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4 position-relative'>
-                                    <a href='#' className='pages-dropdown-click' onClick={() => this.showList()}>
+                                    <a className='pages-dropdown-click' onClick={() => this.showList()}>
                                         PAGES <i className='fas fa-caret-down'></i>
                                     </a>
                                     <div className='pages-dropdown position-absolute' >

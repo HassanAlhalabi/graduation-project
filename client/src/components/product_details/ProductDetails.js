@@ -1,5 +1,9 @@
 import React , {Component} from 'react';
 
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getProducts } from '../../redux/reducers/productsReducer';
+
 import Breadcrumb from '../layout/Breadcrumb';
 import CategoriesBar from '../layout/CategoriesBar';
 import ProductInfo from './ProductInfo';
@@ -20,6 +24,7 @@ class ProductDetails extends Component {
                     image: 'https://via.placeholder.com/450',
                     price: 5.4,
                     pre_price: 10,
+                    category: 'menclothing',
                     rating: 4,
                     availability: 1,
                     brand: 'brand',
@@ -34,6 +39,7 @@ class ProductDetails extends Component {
                     image: 'https://via.placeholder.com/400',
                     price: 15.4,
                     pre_price: 20,
+                    category: 'menclothing',
                     rating: 3,
                     availability: 1,
                     brand: 'brand',
@@ -48,6 +54,7 @@ class ProductDetails extends Component {
                     image: 'https://via.placeholder.com/500',
                     price: 54,
                     pre_price: 60,
+                    category: 'menclothing',
                     rating: 3,
                     availability: 1,
                     brand: 'brand',
@@ -62,7 +69,7 @@ class ProductDetails extends Component {
     }
 
     getPrevProduct = () => {
-        console.log(this.state.index)
+        
         if(this.state.index === 0){
             return null;
         } else {
@@ -79,7 +86,7 @@ class ProductDetails extends Component {
     }
 
     getNextProduct = () => {
-        console.log(this.state.index)
+        
         if(this.state.index === this.state.products.length-1){
             return null;
         } else {
@@ -118,7 +125,17 @@ class ProductDetails extends Component {
         );
 
     }
-
 }
 
-export default ProductDetails;
+ProductDetails.propTypes = {
+    products: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    getProducts: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+products: state.products.products,
+loading: state.products.loading
+});
+
+export default connect(mapStateToProps,getProducts)(ProductDetails);

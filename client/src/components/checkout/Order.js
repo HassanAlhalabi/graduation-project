@@ -1,13 +1,22 @@
 import React from 'react';
 
-import Product from '../layout/img/product01.jpg';
+const Order = ({
+        id,
+        name,
+        image,
+        size,
+        color,
+        price,
+        pre_price,
+        quantity,
+        removeProduct,
+        updateQuantity,
+    }) => 
 
-const Order = ({name,size,color,price,pre_price,quantity,removeProduct,updateQuantity}) => 
-
-    <tr className='order'>
+    <tr className='order' id={'order'+id}>
         <td className='p_details'>
             <div className='float-left'>
-                <img src={Product} alt='Order Image' />
+                <img src={image} alt='Order Image' />
             </div>
             <div>
                 <h4 className='p_name'>{name}</h4>
@@ -22,7 +31,7 @@ const Order = ({name,size,color,price,pre_price,quantity,removeProduct,updateQua
         </td>
         <td className='quantity'>
             <div className='form-group'>
-                <input 
+                <input
                     type='number' 
                     name='quantity' 
                     className='quantity form-control rounded-0'

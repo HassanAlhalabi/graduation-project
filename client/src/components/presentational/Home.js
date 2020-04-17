@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -9,9 +10,6 @@ import NewCollection from './NewCollection';
 import LatestProducts from './LatestProducts';
 import HotDeal from './HotDeal';
 import Pickedforyou from '../layout/PickedForYou';
-
-import Spinner from '../common/Spinner';
-import ProductCard from '../product/ProductCard';
 
 import { getProducts } from '../../redux/reducers/productsReducer';
 
