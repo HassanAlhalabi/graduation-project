@@ -7,6 +7,10 @@ class FilterBox extends Component {
     constructor(props){
         super(props)
 
+        this.state={
+            colors : ['red','#eee','cyan','gray','unavailable']
+        }
+
         this.range = React.createRef();
         this.max = React.createRef();
 
@@ -23,19 +27,36 @@ class FilterBox extends Component {
         slider.onclick = () => {
             max.innerText = '$'+slider.value;
         }
+
     }
 
     handleFilterChange = () => {
+
        let priceParam = document.querySelector('.filter-box form input#range').value;
+       const checkboxes = document.querySelectorAll("input[type='checkbox']")
+       let colors = [];
+       checkboxes.forEach( checkbox => {
+           if(checkbox.checked) {
+               colors.push(checkbox.value)
+               checkbox.parentElement.parentElement.parentElement.classList.add('checked')
+           } else {
+               checkbox.parentElement.parentElement.parentElement.classList.remove('checked')
+           }
+           
+       });
        let brandParam = document.querySelector('.filter-box form #brand').value;
        let sizeParam = document.querySelector('.filter-box form #size').value;
        let filterParameters = {
            price : priceParam,
+           colors : colors,
            brand : brandParam,
            size  : sizeParam,
        }
-       this.props.filterParams(filterParameters)
+
+       this.props.filterParams(filterParameters);
+
     }
+
 
     render(){
         return(
@@ -62,6 +83,27 @@ class FilterBox extends Component {
                                 <span className='max-number' ref={this.max}>$1000</span>
                         </div>
                         </div> 
+                    </div>
+                    <div className='color-checkbox mb-5'>
+                        <h5 className='orange-color mb-3'>Filter By Color:</h5>
+                        {/* <h5 className='orange-color mb-3'>Filter By Color:</h5> */}
+                        <div className='wrapper'>
+                            <div>
+                                {
+                                    this.state.colors.map(color =>
+                                        color === 'unavailable' ? null :
+                                        <div className='color-box-holder checked'>
+                                            <div>
+                                                <div className='color-box'>
+                                                    <input type='checkbox' name='colors' value={color} />
+                                                    <div className='color-holder' style={{backgroundColor : color}}></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <h5 className='orange-color mb-3'>Filter By Brand:</h5>
@@ -96,6 +138,9 @@ class FilterBox extends Component {
     }
 
 }
+
+        
+        
 
 export default FilterBox
 

@@ -12,14 +12,18 @@ import { getProducts } from '../../redux/reducers/productsReducer';
 
 class Products extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             filterParams: {
                 price : 1000,
+                color: [],
                 brand : 'all',
                 size  : 'all',
-            }
+            },
+            colors: this.props.products.map(product =>
+                product.color
+            )
         }
     }
 
@@ -30,6 +34,7 @@ class Products extends Component {
     
     render() {
 
+        console.log(this.state.filterParams)
 
         const { loading , products }  = this.props;
 
@@ -65,7 +70,9 @@ class Products extends Component {
                     <div className='row'>
                         {/* Filter Box */}
                         <div className='col-12 col-md-3'>
-                            <FilterBox filterParams={ this.getFilterParameters }/>
+                            <FilterBox 
+                                        filterParams={ this.getFilterParameters } 
+                                        availableColors={this.state.colors}/>
                         </div>
                         {/* Products Show */}
                         <div className='col-12 col-sm-6 col-md-9'>

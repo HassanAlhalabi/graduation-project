@@ -3,7 +3,7 @@ import spinner from "./spinner.gif";
 
 export default () => {
   return (
-    <div>
+    <div className='m-auto'>
       <img
         src={spinner}
         style={{ width: "200px", margin: "auto", display: "block" }}
