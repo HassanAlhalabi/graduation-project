@@ -14,11 +14,11 @@ export class ProductForm extends Component {
   state = {
     name: '',
     description: '',
-    specifications: '',
     price: 0,
     prevPrice: 0,
+    category: '',
     offer: false,
-    itemsNumber: 0,
+    quantity: 0,
     brand: '',
     size: '',
     color: '',
@@ -107,17 +107,17 @@ componentDidMount() {
     return (
       <div className="add-product">
         <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <SectionTitle title={'Add new product'}/>
-              <p className="lead mb-5">
-                Add a new product, and make sure to include any details with
-                specifications.
-              </p>
-              <small className="d-block mb-3 text-muted">
-                <span className='asterisk'><i className="fas fa-asterisk"></i></span> = required field
-              </small>
-              <form>
+          <SectionTitle title={'Add new product'}/>
+          <p className="lead mb-5">
+            Add a new product, and make sure to include any details with
+            specifications.
+          </p>
+          <form>
+            <small className="d-block mb-4 text-muted required-product-hint">
+              <span className='asterisk'><i className="fas fa-asterisk"></i></span> = required field
+            </small>
+            <div className="row">
+              <div className="col-md-6">
                 <div className="form-group">
                   <TextFieldGroup
                     placeholder="Product title"
@@ -134,7 +134,7 @@ componentDidMount() {
                     onChange={this.onChange}
                     type="number"
                     error={errors.price}
-                    value={this.state.price}
+                    // value={this.state.price}
                     info="Product selling price in USD$ currency"
                   />
                   <TextFieldGroup
@@ -143,7 +143,7 @@ componentDidMount() {
                     onChange={this.onChange}
                     type="number"
                     error={errors.prevPrice}
-                    value={this.state.prevPrice}
+                    // value={this.state.prevPrice}
                     info="Product selling price in USD$ currency before this offer takes place"
                     disabled={this.state.disabled ? 'disabled' : ''}
                   />
@@ -158,7 +158,7 @@ componentDidMount() {
                       id="offer"
                     />
                     <label htmlFor="current" className="form-check-label">
-                      Offer
+                      Make Offer
                     </label>
                   </div>
                   <SelectInput
@@ -198,12 +198,12 @@ componentDidMount() {
                     info="Item Color"
                   />
                   <TextFieldGroup
-                    placeholder="Available items number for selling"
-                    name="itemsNumber"
+                    placeholder="Available Quantity For Selling"
+                    name="quantity"
                     onChange={this.onChange}
                     type="number"
-                    error={errors.itemsNumber}
-                    value={this.state.itemsNumber}
+                    error={errors.quantity}
+                    // value={this.state.quantity}
                     info="The exact number of this product items which available for selling"
                   />
                   {/* <form onSubmit={this.onUpload}>
@@ -218,7 +218,7 @@ componentDidMount() {
                     <input type="submit" />
                   </form> */}
                   <TextAreaFieldGroup
-                    placeholder="Product description"
+                    placeholder="Product Description"
                     className="mt-4"
                     name="description"
                     value={this.state.description}
@@ -226,47 +226,49 @@ componentDidMount() {
                     error={errors.description}
                     info="A brief description about the product"
                   />
-                  <div className='product-imgs-preview d-flex'>
-                    <img id="output_image"/>
-                  </div>
-                  <Dropzone
-                    onDrop={this.handleOnDrop}
-                    multiple
-                    accept="image/*"
-                  >
-                    {({ getRootProps, getInputProps }) => (
-                      <div
-                        {...getRootProps()}
-                        className="input-group upload-box"
-                      >
-                        <div className="upload-box-text">
-                          <input
-                            {...getInputProps()}
-                            className="form-control form-control-lg"
-                            type="file"
-                            name="image"
-                          />
-                          <p className="input-group-text">
-                            Browse for images Or Drop the images here{' '}
-                            <i className="fas fa-upload fa-2x ml-2" />{' '}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                  </Dropzone>
-                  <small className='orange-color font-weight-bold'>
-                    Upload your product's images by drag &amp; drop OR select
-                    them from your local storage drive
-                  </small>
-                  <div className='mt-5'>
-                    <button type="submit" className="btn btn-primary">
-                      Add Product
-                    </button>
-                  </div>
                 </div>
-              </form>
+              </div>  
+              <div className='col-md-6'>  
+                {/* <div className='product-imgs-preview d-flex'>
+                  <img id="output_image"/>
+                </div> */}
+                <Dropzone
+                  onDrop={this.handleOnDrop}
+                  multiple
+                  accept="image/*"
+                >
+                  {({ getRootProps, getInputProps }) => (
+                    <div
+                      {...getRootProps()}
+                      className="input-group upload-box"
+                    >
+                      <div className="upload-box-text">
+                        <input
+                          {...getInputProps()}
+                          className="form-control form-control-lg"
+                          type="file"
+                          name="image"
+                        />
+                        <p className="input-group-text">
+                          Browse for images Or Drop the images here{' '}
+                          <i className="fas fa-upload fa-2x ml-2" />{' '}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </Dropzone>
+                <small className='orange-color font-weight-bold'>
+                  Upload your product's images by drag &amp; drop OR select
+                  them from your local storage drive
+                </small>
+                <div className='mt-5'>
+                  <button type="submit" className="btn btn-primary">
+                    Add Product
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     );

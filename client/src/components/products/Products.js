@@ -34,8 +34,6 @@ class Products extends Component {
     
     render() {
 
-        console.log(this.state.filterParams.color)
-
         const { loading , products }  = this.props;
 
         let productContent = loading ? <Spinner /> : // Loading is true => show spinner

@@ -931,6 +931,12 @@ footer button:focus {
 
 /* **************************** Add product, Update product form  style ************************** */
 
+.add-product .required-product-hint {
+  font-size: 18px;
+  color: #f8694a !important;
+  margin-bottom: 50px;
+}
+
 .add-product .form-group {
   margin-bottom: 25px;
 }
