@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 class CategoriesBar extends Component {
 
-    showList = () => {
-        document.querySelector('.pages-dropdown').classList.toggle('active');
-    }
+    showList = () => document.querySelector('.pages-dropdown').classList.toggle('active');
+
+    hideList = () => setTimeout(() => document.querySelector('.profile-links').classList.toggle('active'),50)
 
     render(){
         return(
@@ -33,7 +33,7 @@ class CategoriesBar extends Component {
                                     <Link to="/products/products-categories/men-clothing">MEN</Link>
                                 </li>
                                 <li className='list-item d-inline-block pr-4 position-relative'>
-                                    <a className='pages-dropdown-click' onClick={() => this.showList()}>
+                                    <a className='pages-dropdown-click' onClick={() => this.showList()} onBlur={() => this.shideList()}>
                                         PAGES <i className='fas fa-caret-down'></i>
                                     </a>
                                     <div className='pages-dropdown position-absolute' >

@@ -33,6 +33,7 @@ export class ProductForm extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+    console.log(this.state)
   };
   onChecked = e => {
     this.setState({
@@ -94,11 +95,6 @@ export class ProductForm extends Component {
 
 
   };
-
-componentDidMount() {
-  const colorInput = document.querySelector('input[type="color"]');
-  colorInput.onChange = () => console.log('ok')
-}
 
   render() {
     

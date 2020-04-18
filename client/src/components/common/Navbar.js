@@ -26,6 +26,8 @@ class Navbar extends Component {
 
   showList = () => document.querySelector('.profile-links').classList.toggle('active')
 
+  hideList = () => setTimeout(() => document.querySelector('.profile-links').classList.toggle('active'),50)
+
   render() {
     const { user } = this.props;
     let logLinks;
@@ -47,7 +49,7 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className="nav-item position-relative text-center pt-1" >
-          <a href='#' onClick={() => this.showList()} >
+          <a href='#' onClick={() => this.showList()} onBlur={() => this.hideList()}>
             <img
               className="rounded-circle"
               src={this.props.user.avatar}
