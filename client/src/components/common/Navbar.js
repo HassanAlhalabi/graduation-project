@@ -26,7 +26,7 @@ class Navbar extends Component {
 
   showList = () => document.querySelector('.profile-links').classList.toggle('active')
 
-  hideList = () => setTimeout(() => document.querySelector('.profile-links').classList.toggle('active'),50)
+  hideList = () => setTimeout(() => document.querySelector('.profile-links').classList.toggle('active'),100)
 
   render() {
     const { user } = this.props;
@@ -56,7 +56,7 @@ class Navbar extends Component {
               alt={this.props.user.name}
               style={{ width: '25px', marginRight: '5px' }}
             />
-            {this.getFirstName(user.name)}
+            {this.getFirstName(user.name)} <i className='fas fa-caret-down'></i>
           </a>
           <div className='profile-links position-absolute text-left'>
             <ul className='m-0 list-group'>

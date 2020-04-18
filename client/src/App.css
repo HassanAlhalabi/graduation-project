@@ -633,6 +633,10 @@ footer input[type='email']:focus {
   white-space: pre-wrap;
 }
 
+.upload-box .upload-box-text i {
+  color: #F8694A;
+}
+
 
 /* **************************** Products categories page Components style ************************** */
 
@@ -971,12 +975,13 @@ footer button:focus {
   border-radius: 0;
   font-size: medium;
   border: 1px solid #858585;
+  color: #858585 !important;
 }
 
 .add-product input[type='color'] {
   padding: 0;
   border: none;
-  width: 50px;
+  width: 100px;
   height: 50px;
 }
 

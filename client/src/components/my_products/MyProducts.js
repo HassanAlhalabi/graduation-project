@@ -6,6 +6,22 @@ import FilterBox from '../common/FilterBox';
 
 class MyProducts extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            filterParams: {
+                price : 1000,
+                colors: [],
+                brand : 'all',
+                size  : 'all',
+            },
+        }
+    }
+
+    getFilterParameters = params => {
+        this.setState({filterParams : params})
+    }
+
     render(){
         return(
 
@@ -16,7 +32,7 @@ class MyProducts extends Component {
                     <div className='row'>
                         {/* Filter Box */}
                         <div className='col-12 col-md-3'>
-                            <FilterBox />
+                            <FilterBox filterParams={ this.getFilterParameters } />
                         </div>
                         {/* Products Show */}
                         <div className='col-12 col-sm-6 col-md-9'>

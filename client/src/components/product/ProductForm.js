@@ -13,18 +13,19 @@ export class ProductForm extends Component {
 
   state = {
     name: '',
-    description: '',
     price: 0,
     prevPrice: 0,
-    category: '',
+    category: 'unavailable',
     offer: false,
     quantity: 0,
-    brand: '',
-    size: '',
-    color: '',
+    brand: 'unavailable',
+    size: 'unavailable',
+    color: 'unavailable',
+    description: '',
     image: '',
     errors: {},
-    disabled: true,
+    offerDisabled: true,
+    colorDisabled: true,
     categories: ['men clothes','women clothes','phones','accessories'],
     sizes: ['sm','md','lg','xl']
   };
@@ -33,14 +34,26 @@ export class ProductForm extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(this.state)
   };
-  onChecked = e => {
+
+  onOfferChecked = e => {
     this.setState({
-      disabled: !this.state.disabled,
+      offerDisabled: !this.state.offerDisabled,
       offer: !this.state.offer
     });
   };
+
+  onColorChecked = e => {
+    this.setState({
+      colorDisabled: !this.state.colorDisabled,
+    });
+    if(this.state.colorDisabled === false ){
+      this.setState({
+        color: 'unavailable',
+      });
+    } 
+  };
+
   onUpload = e => {
     e.preventDefault();
 
@@ -96,7 +109,33 @@ export class ProductForm extends Component {
 
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    
+    // ******* Validate Data *******
+    let productProps = {
+      name: this.state.name,
+      price: this.state.price,
+      prevPrice: this.state.prevPrice,
+      category: this.state.category,
+      offer: this.state.offer,
+      quantity: this.state.quantity,
+      brand: this.state.brand,
+      size: this.state.size,
+      color: this.state.color,
+      description: this.state.description,
+      image: this.state.image
+    }
+
+
+
+  }
+
+
+
   render() {
+
+    console.log(this.state)
     
     const { errors } = this.state;
 
@@ -142,7 +181,7 @@ export class ProductForm extends Component {
                       name="offer"
                       value={this.state.offer}
                       checked={this.state.offer}
-                      onChange={this.onChecked}
+                      onChange={this.onOfferChecked}
                       id="offer"
                     />
                     <label htmlFor="current" className="form-check-label">
@@ -157,7 +196,7 @@ export class ProductForm extends Component {
                     error={errors.prevPrice}
                     // value={this.state.prevPrice}
                     info="Product selling price in USD$ currency before this offer takes place"
-                    disabled={this.state.disabled ? 'disabled' : ''}
+                    disabled={this.state.offerDisabled ? 'disabled' : ''}
                     required = 'required'
                   />
                   <SelectInput
@@ -172,7 +211,7 @@ export class ProductForm extends Component {
                   />
                   <TextFieldGroup
                     placeholder="brand"
-                    name="itemBrand"
+                    name="brand"
                     onChange={this.onChange}
                     type="text"
                     error={errors.brand}
@@ -188,15 +227,31 @@ export class ProductForm extends Component {
                     options={this.state.sizes}
                     optionLettersCase={'text-uppercase'} 
                   />
-                  <TextFieldGroup
-                    placeholder="color"
-                    name="itemColor"
-                    onChange={this.onChange}
-                    type="color"
-                    error={errors.itemColor}
-                    value={this.state.itemColor}
-                    info="Item Color"
-                  />
+                  <div>
+                    <div className="form-check mb-1">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        name="color-check"
+                        value={this.state.color}
+                        onChange={this.onColorChecked}
+                        id="color-check"
+                      />
+                      <label htmlFor="current" className="form-check-label">
+                        Choose Color
+                      </label>
+                    </div>
+                    <TextFieldGroup
+                      name="color"
+                      onChange={this.onChange}
+                      type="color"
+                      disabled={this.state.colorDisabled}
+                      error={errors.color}
+                      // value={this.state.color}
+                      info="Item Color..
+                      (MAKE SURE THE COLOR IN THE SQUARE HAS CHANGED AND CHECKBOX IS CHECKED!!)"
+                      />
+                  </div>
                   <TextFieldGroup
                     placeholder="Available Quantity For Selling"
                     name="quantity"
@@ -250,6 +305,7 @@ export class ProductForm extends Component {
                           className="form-control form-control-lg"
                           type="file"
                           name="image"
+                          required
                         />
                         <p className="input-group-text">
                           Browse for images Or Drop the images here{' '}
@@ -265,7 +321,7 @@ export class ProductForm extends Component {
                   them from your local storage drive
                 </small>
                 <div className='mt-5'>
-                  <button type="submit" className="btn btn-primary btn-lg">
+                  <button type='submit' className="btn btn-primary btn-lg" onClick={this.handleSubmit}>
                     Add Product
                   </button>
                 </div>
