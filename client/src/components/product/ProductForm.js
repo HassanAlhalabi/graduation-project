@@ -7,7 +7,7 @@ import axios from 'axios';
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import SelectInput from '../common/SelectInput'; 
-import SectionTitle from '../layout/SectionTitle';
+import SectionTitle from '../common/SectionTitle';
 
 export class ProductForm extends Component {
 

@@ -1,6 +1,4 @@
 import React from 'react';
-
-import P from '../layout/img/product07.jpg'
 import { Link } from 'react-router-dom';
 
 const Category = ({name,image}) => 

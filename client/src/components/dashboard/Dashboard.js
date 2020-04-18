@@ -7,9 +7,9 @@ import { getUserProducts } from '../../redux/reducers/productsReducer';
 
 import Spinner from '../common/Spinner';
 import ProductActions from './ProductActions';
-import CategoriesBar from '../layout/CategoriesBar';
-import Breadcrumb from '../layout/Breadcrumb';
-import SectionTitle from '../layout/SectionTitle';
+import CategoriesBar from '../common/CategoriesBar';
+import Breadcrumb from '../common/Breadcrumb';
+import SectionTitle from '../common/SectionTitle';
 //import Experience from "./Experience";
 //import Education from "./Education";
 

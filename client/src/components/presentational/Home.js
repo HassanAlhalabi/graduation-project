@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import CategoriesBar from '../layout/CategoriesBar';
+import CategoriesBar from '../common/CategoriesBar';
 import CategorySlider from './CategorySlider';
 import DealsOfTheDay from './DealsOfTheDay';
 import NewCollection from './NewCollection';
 import LatestProducts from './LatestProducts';
 import HotDeal from './HotDeal';
-import Pickedforyou from '../layout/PickedForYou';
+import Pickedforyou from '../common/PickedForYou';
 
 import { getProducts } from '../../redux/reducers/productsReducer';
 

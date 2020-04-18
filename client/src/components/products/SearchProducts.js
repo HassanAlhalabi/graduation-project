@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import { getProducts } from '../../redux/reducers/productsReducer';
 import Spinner from '../common/Spinner';
 
-import CategoriesBar from '../layout/CategoriesBar';
-import Breadcrumb from '../layout/Breadcrumb';
+import CategoriesBar from '../common/CategoriesBar';
+import Breadcrumb from '../common/Breadcrumb';
 import ProductCard from '../product/ProductCard';
 
 class SearchProducts extends Component {

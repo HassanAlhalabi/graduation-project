@@ -2,9 +2,9 @@ import React , {Component} from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import CategoriesBar from '../layout/CategoriesBar';
-import Breadcrumb from '../layout/Breadcrumb';
-import SectionTitle from '../layout/SectionTitle';
+import CategoriesBar from '../common/CategoriesBar';
+import Breadcrumb from '../common/Breadcrumb';
+import SectionTitle from '../common/SectionTitle';
 
 import { fetchUser } from '../../redux/reducers/authReducer';
 

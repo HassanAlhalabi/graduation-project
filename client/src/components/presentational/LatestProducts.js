@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-import SectionTitle from '../layout/SectionTitle';
+import SectionTitle from '../common/SectionTitle';
 import ProductCard from '../product/ProductCard';
 
 class LatestProducts extends Component {

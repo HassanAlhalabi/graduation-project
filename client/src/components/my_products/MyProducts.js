@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 
-import Breadcrumb from '../layout/Breadcrumb';
-import CategoriesBar from '../layout/CategoriesBar';
-import FilterBox from './FilterBox';
+import Breadcrumb from '../common/Breadcrumb';
+import CategoriesBar from '../common/CategoriesBar';
+import FilterBox from '../common/FilterBox';
 
 class MyProducts extends Component {
 

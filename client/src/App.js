@@ -12,9 +12,9 @@ import './App.css';
 
 import PrivateRoute from './components/common/PrivateRoute';
 
-import UpperBar from './components/layout/UpperBar';
-import Navbar from './components/layout/Navbar';
-import Login from './components/layout/Login';
+import UpperBar from './components/common/UpperBar';
+import Navbar from './components/common/Navbar';
+import Login from './components/common/Login';
 import Home from './components/presentational/Home';
 import Dashboard from './components/dashboard/Dashboard';
 import Products from './components/products/Products';
@@ -29,8 +29,8 @@ import Profile from './components/profile/Profile';
 import ProductForm from './components/product/ProductForm';
 import UpdateProduct from './components/update_product/UpdateProduct';
 
-import FixedCart from './components/layout/FixedCart';
-import Footer from './components/layout/Footer';
+import FixedCart from './components/common/FixedCart';
+import Footer from './components/common/Footer';
 
 
 class App extends Component {

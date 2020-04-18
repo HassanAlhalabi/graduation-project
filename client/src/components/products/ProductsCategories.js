@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 import { getProducts } from '../../redux/reducers/productsReducer';
 import Spinner from '../common/Spinner';
 
-import CategoriesBar from '../layout/CategoriesBar';
-import Breadcrumb from '../layout/Breadcrumb';
+import CategoriesBar from '../common/CategoriesBar';
+import Breadcrumb from '../common/Breadcrumb';
 import Catgory from './Category';
 import ProductCard from '../product/ProductCard';
 
-import MenImage from '../layout/img/men-category.jpg';
-import womenImage from '../layout/img/women-category.jpg';
-import PhonesImage from '../layout/img/phones-category.jpg';
-import ComputersImage from '../layout/img/computers-category.jpg';
-import ElectronicsImage from '../layout/img/electronics-category.jpg';
-import JewlsWatchesImage from '../layout/img/jewls-watches-category.jpg';
+import MenImage from '../common/img/men-category.jpg';
+import womenImage from '../common/img/women-category.jpg';
+import PhonesImage from '../common/img/phones-category.jpg';
+import ComputersImage from '../common/img/computers-category.jpg';
+import ElectronicsImage from '../common/img/electronics-category.jpg';
+import JewlsWatchesImage from '../common/img/jewls-watches-category.jpg';
 
 class ProductsCategories extends Component {
 

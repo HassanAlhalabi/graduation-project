@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getProducts } from '../../redux/reducers/productsReducer';
 
-import Breadcrumb from '../layout/Breadcrumb';
-import CategoriesBar from '../layout/CategoriesBar';
+import Breadcrumb from '../common/Breadcrumb';
+import CategoriesBar from '../common/CategoriesBar';
 import ProductInfo from './ProductInfo';
 import ProductReviews from './ProductReviews';
-import PickedForYou from '../layout/PickedForYou';
+import PickedForYou from '../common/PickedForYou';
 
 class ProductDetails extends Component {
 

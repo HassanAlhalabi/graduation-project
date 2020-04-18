@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 
-import Breadcrumb from '../layout/Breadcrumb';
-import CategoriesBar from '../layout/CategoriesBar';
+import Breadcrumb from '../common/Breadcrumb';
+import CategoriesBar from '../common/CategoriesBar';
 import BillingShipping from './BillingShipping';
 import OrderReview from './OrderReview';
 

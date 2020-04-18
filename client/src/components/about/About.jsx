@@ -1,10 +1,10 @@
 import React from "react";
 
-import Breadcrumb from '../layout/Breadcrumb';
-import CategoriesBar from '../layout/CategoriesBar';
+import Breadcrumb from '../common/Breadcrumb';
+import CategoriesBar from '../common/CategoriesBar';
 
-import AboutImg1 from '../layout/img/about-img-1.jpg';
-import AboutImg2 from '../layout/img/about-img-2.jpg';
+import AboutImg1 from '../common/img/about-img-1.jpg';
+import AboutImg2 from '../common/img/about-img-2.jpg';
 
 const About  = () =>
 

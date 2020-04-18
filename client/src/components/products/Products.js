@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 
 import PropTypes from 'prop-types';
-import Breadcrumb from '../layout/Breadcrumb';
-import CategoriesBar from '../layout/CategoriesBar';
-import FilterBox from './FilterBox';
+import Breadcrumb from '../common/Breadcrumb';
+import CategoriesBar from '../common/CategoriesBar';
+import FilterBox from '../common/FilterBox';
 import ProductCard from '../product/ProductCard';
 import Spinner from '../common/Spinner';
-
+ 
 import { connect } from 'react-redux';
 import { getProducts } from '../../redux/reducers/productsReducer';
 
@@ -17,7 +17,7 @@ class Products extends Component {
         this.state = {
             filterParams: {
                 price : 1000,
-                color: [],
+                colors: [],
                 brand : 'all',
                 size  : 'all',
             },
@@ -28,13 +28,13 @@ class Products extends Component {
     }
 
     getFilterParameters = params => {
-        this.setState({filterParams: params})
+        this.setState({filterParams : params})
     }
     
     
     render() {
 
-        console.log(this.state.filterParams)
+        console.log(this.state.filterParams.color)
 
         const { loading , products }  = this.props;
 
