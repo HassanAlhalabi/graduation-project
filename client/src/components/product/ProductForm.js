@@ -269,7 +269,7 @@ componentDidMount() {
                   them from your local storage drive
                 </small>
                 <div className='mt-5'>
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-primary btn-lg">
                     Add Product
                   </button>
                 </div>
