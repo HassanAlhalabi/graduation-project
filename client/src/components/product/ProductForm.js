@@ -127,6 +127,7 @@ componentDidMount() {
                     error={errors.name}
                     value={this.state.name}
                     info="Be specific"
+                    required='required'
                   />
                   <TextFieldGroup
                     placeholder="Price"
@@ -136,18 +137,9 @@ componentDidMount() {
                     error={errors.price}
                     // value={this.state.price}
                     info="Product selling price in USD$ currency"
+                    required='required'
                   />
-                  <TextFieldGroup
-                    placeholder="Price before markdown offer"
-                    name="prevPrice"
-                    onChange={this.onChange}
-                    type="number"
-                    error={errors.prevPrice}
-                    // value={this.state.prevPrice}
-                    info="Product selling price in USD$ currency before this offer takes place"
-                    disabled={this.state.disabled ? 'disabled' : ''}
-                  />
-                  <div className="form-check mb-4">
+                  <div className="form-check mb-1">
                     <input
                       className="form-check-input"
                       type="checkbox"
@@ -161,35 +153,47 @@ componentDidMount() {
                       Make Offer
                     </label>
                   </div>
-                  <SelectInput
-                    name="itemCategory"
+                  <TextFieldGroup
+                    placeholder="Price before markdown offer"
+                    name="prevPrice"
                     onChange={this.onChange}
-                    error={errors.itemCategory}
-                    value={this.state.itemCategory}
+                    type="number"
+                    error={errors.prevPrice}
+                    // value={this.state.prevPrice}
+                    info="Product selling price in USD$ currency before this offer takes place"
+                    disabled={this.state.disabled ? 'disabled' : ''}
+                    required = 'required'
+                  />
+                  <SelectInput
+                    name="category"
+                    onChange={this.onChange}
+                    error={errors.category}
+                    value={this.state.category}
                     info="Item Main Category Clothes,Electronics,Phones...etc"
                     options={this.state.categories}
-                    optionLettersCase={'text-capitalize'} 
+                    optionLettersCase={'text-capitalize'}
+                    required = 'required' 
                   />
                   <TextFieldGroup
-                    placeholder="Brand"
+                    placeholder="brand"
                     name="itemBrand"
                     onChange={this.onChange}
                     type="text"
-                    error={errors.itemBrand}
+                    error={errors.brand}
                     value={this.state.brand}
                     info="Item Brand"
                   />
                   <SelectInput
-                    name="itemSize"
+                    name="size"
                     onChange={this.onChange}
-                    error={errors.itemSize}
-                    value={this.state.itemSize}
+                    error={errors.size}
+                    value={this.state.size}
                     info="Item Size small,medium,large.....etc"
                     options={this.state.sizes}
                     optionLettersCase={'text-uppercase'} 
                   />
                   <TextFieldGroup
-                    placeholder="Color"
+                    placeholder="color"
                     name="itemColor"
                     onChange={this.onChange}
                     type="color"
@@ -205,6 +209,7 @@ componentDidMount() {
                     error={errors.quantity}
                     // value={this.state.quantity}
                     info="The exact number of this product items which available for selling"
+                    required = 'required'
                   />
                   {/* <form onSubmit={this.onUpload}>
                     <TextFieldGroup
@@ -225,6 +230,7 @@ componentDidMount() {
                     onChange={this.onChange}
                     error={errors.description}
                     info="A brief description about the product"
+                    required = 'required'
                   />
                 </div>
               </div>  
@@ -240,7 +246,7 @@ componentDidMount() {
                   {({ getRootProps, getInputProps }) => (
                     <div
                       {...getRootProps()}
-                      className="input-group upload-box"
+                      className="input-group upload-box position-relative"
                     >
                       <div className="upload-box-text">
                         <input
@@ -254,6 +260,7 @@ componentDidMount() {
                           <i className="fas fa-upload fa-2x ml-2" />{' '}
                         </p>
                       </div>
+                      <span className='asterisk position-absolute'><i className="fas fa-asterisk"></i></span>
                     </div>
                   )}
                 </Dropzone>

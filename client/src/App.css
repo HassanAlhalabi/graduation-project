@@ -610,12 +610,29 @@ footer input[type='email']:focus {
 
 /*Upload box*/
 .upload-box {
-  border: 1px solid #ced4da;
+  border: 1px solid #858585;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 200px;
+  cursor: pointer !important;
+  -webkit-file-upload-button : cursor;
 }
+
+.upload-box:focus {
+  border: 1px solid #F8694A;
+  box-shadow: 0px 0px 3px #F8694A;
+  outline: none;
+}
+
+.upload-box .upload-box-text {
+  width: 80%;
+}
+
+.upload-box .upload-box-text p {
+  white-space: pre-wrap;
+}
+
 
 /* **************************** Products categories page Components style ************************** */
 
@@ -937,6 +954,13 @@ footer button:focus {
   margin-bottom: 50px;
 }
 
+.add-product span.asterisk {
+  top: 14px;
+  right: 38px;
+  font-size: 10px;
+  color: #f8694a;
+}
+
 .add-product .form-group {
   margin-bottom: 25px;
 }
@@ -945,7 +969,8 @@ footer button:focus {
 .add-product textarea,
 .add-product select {
   border-radius: 0;
-  font-size: medium
+  font-size: medium;
+  border: 1px solid #858585;
 }
 
 .add-product input[type='color'] {

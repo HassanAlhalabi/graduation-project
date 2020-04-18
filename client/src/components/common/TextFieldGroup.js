@@ -11,9 +11,11 @@ const TextFieldGroup = ({
   error,
   info,
   disabled,
+  required,
 }) => {
+  required = required && !disabled;
   return (
-    <div className="form-group">
+    <div className="form-group position-relative">
       {error && <div className="alert alert-danger rounded-0 ">{error}</div>}
       <input
         type={type}
@@ -27,6 +29,7 @@ const TextFieldGroup = ({
         disabled={disabled}
       />
       {info && <small className="form-text orange-color font-weight-bold">{info}</small>}
+      {required && <span className='asterisk position-absolute'><i className="fas fa-asterisk"></i></span>}
     </div>
   );
 };

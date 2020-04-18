@@ -9,10 +9,12 @@ const TextAreaFieldGroup = ({
   onChange,
   error,
   className,
-  info
+  info,
+  required
 }) => {
   return (
-    <div className={'form-group ' + className}>
+    <div className={'form-group position-relative ' + className}>
+      {error && <div className="alert alert-danger rounded-0 ">{error}</div>}
       <textarea
         className={classnames('form-control form-control-lg', {
           'is-invalid': error
@@ -23,7 +25,7 @@ const TextAreaFieldGroup = ({
         onChange={onChange}
       />
       {info && <small className="form-text orange-color font-weight-bold">{info}</small>}
-      {error && <div className="invalid-feedback">{error}</div>}
+      {required && <span className='asterisk position-absolute'><i className="fas fa-asterisk"></i></span>}
     </div>
   );
 };
