@@ -70,6 +70,7 @@ class ProductDetails extends Component {
 
     getPrevProduct = () => {
         
+        // If we are at first product
         if(this.state.index === 0){
             return null;
         } else {
@@ -83,10 +84,12 @@ class ProductDetails extends Component {
             }
             this.setState({index: this.state.index-1})
         }
+
     }
 
     getNextProduct = () => {
         
+        // If we are at last product
         if(this.state.index === this.state.products.length-1){
             return null;
         } else {

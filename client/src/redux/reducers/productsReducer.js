@@ -58,11 +58,8 @@ export default (state = initialState, action) => {
       console.log('add-product-to-cart reducer');
       // If the product already existed in cart only increase quantity
       // Check if product already in cart
-      console.log('Added product id',action.payload.id)
       let inCart = state.productsInCart.filter(product => product.id === action.payload.id)
-      console.log('Cart Status:',inCart) 
       if (inCart.length !== 0) { 
-        console.log('existed Product')
         return({
           ...state,
           productsInCart : state.productsInCart.map(product =>
@@ -71,7 +68,6 @@ export default (state = initialState, action) => {
           loading: false
         })
       } else {
-        console.log('new product')
         return({
           ...state,
           productsInCart: [...state.productsInCart,action.payload],

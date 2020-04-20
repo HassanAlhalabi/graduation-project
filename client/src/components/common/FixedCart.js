@@ -1,6 +1,7 @@
 import React from 'react';
-
 import {Link} from 'react-router-dom';
+
+import {connect} from 'react-redux';
 
 const FixedCart = ({NumberOfProductsInCart}) => 
 
@@ -15,4 +16,10 @@ const FixedCart = ({NumberOfProductsInCart}) =>
         </div>
     </div>
 
-export default FixedCart;
+const mapStateToProps = state => {
+    return({
+        NumberOfProductsInCart : state.products.productsInCart.length,
+    })
+}
+
+export default connect(mapStateToProps,null)(FixedCart);

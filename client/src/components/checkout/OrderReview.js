@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-
+import {connect} from 'react-redux';
 import SectionTitle from  '../common/SectionTitle';
 
 import Order from './Order';
@@ -11,53 +11,7 @@ class OrderReview extends Component {
         super(props);
 
         this.state = {
-            products : [
-                {
-                    id: 1,
-                    title: 'Product name 1',
-                    image: 'https://via.placeholder.com/450',
-                    price: 5.4,
-                    pre_price: 10,
-                    category: 'menclothing',
-                    rating: 4,
-                    availability: 1,
-                    brand: 'brand',
-                    size: 'xl',
-                    color: 'red',
-                    quantity: 3,
-                }],
-            productsInCart : [
-                {
-                    id: 1,
-                    title: 'Product name 1',
-                    image: 'https://via.placeholder.com/100',
-                    price: 5.4,
-                    pre_price: 10,
-                    size: 'xl',
-                    color: 'red',
-                    quantity: 3,
-                },
-                {
-                    id: 2,
-                    title: 'Product name 2',
-                    image: 'https://via.placeholder.com/100',
-                    price: 15.4,
-                    pre_price: 20,
-                    size: 'xl',
-                    color: 'red',
-                    quantity: 1,
-                },
-                {
-                    id: 3,
-                    title: 'Product name 3',
-                    image: 'https://via.placeholder.com/100',
-                    price: 54,
-                    pre_price: 60,
-                    size: 'xl',
-                    color: 'red',
-                    quantity: 5,
-                },
-            ],
+            productsInCart : this.props.productsInCart,
             shipping: 0,
         }
 
@@ -150,7 +104,13 @@ class OrderReview extends Component {
             )
         }
     }
-
 }
 
-export default OrderReview;
+const mapStateToProps = state => {
+    return({
+        productsInCart : state.products.productsInCart,
+        loading : state.products.loading
+    })
+}
+
+export default connect(mapStateToProps,null)(OrderReview);

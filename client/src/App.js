@@ -40,7 +40,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <UpperBar />
-            <FixedCart NumberOfProductsInCart={3}/>
+            <FixedCart />
             <Navbar />
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
