@@ -111,7 +111,7 @@ export class ProductForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    
+
     // ******* Validate Data *******
     let productProps = {
       name: this.state.name,
@@ -127,15 +127,34 @@ export class ProductForm extends Component {
       image: this.state.image
     }
 
+    let EmptyCheck = {
+      name: this.state.name,
+      category: this.state.category,
+      quantity: this.state.quantity,
+      brand: this.state.brand,
+      size: this.state.size,
+      color: this.state.color,
+      description: this.state.description,
+      image: this.state.image
+    }
 
-
+    let errors = {}
+    Object.keys(EmptyCheck).map(key => {
+      if(EmptyCheck[key] === ''){
+        errors[key] = 'Product ' + key + ' Is Required'
+        this.setState({
+          errors : errors
+        })
+      }
+    })
+    
   }
 
 
 
   render() {
 
-    console.log(this.state)
+    console.log(this.state.errors)
     
     const { errors } = this.state;
 
@@ -285,7 +304,8 @@ export class ProductForm extends Component {
                   />
                 </div>
               </div>  
-              <div className='col-md-6'>  
+              <div className='col-md-6'> 
+                {this.state.errors.image && <div className="alert alert-danger rounded-0 ">{this.state.errors.image}</div>} 
                 {/* <div className='product-imgs-preview d-flex'>
                   <img id="output_image"/>
                 </div> */}

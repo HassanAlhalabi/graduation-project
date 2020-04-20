@@ -56,11 +56,28 @@ export default (state = initialState, action) => {
       };
     case ADD_PRODUCT_TO_CART:
       console.log('add-product-to-cart reducer');
-      return {
-        ...state,
-        productsInCart: action.payload,
-        loading: false
-      };
+      // If the product already existed in cart only increase quantity
+      // Check if product already in cart
+      console.log('Added product id',action.payload.id)
+      let inCart = state.productsInCart.filter(product => product.id === action.payload.id)
+      console.log('Cart Status:',inCart) 
+      if (inCart.length !== 0) { 
+        console.log('existed Product')
+        return({
+          ...state,
+          productsInCart : state.productsInCart.map(product =>
+          product.id === action.payload.id ? 
+          {...product,quantity : product.quantity + action.payload.quantity} : product),
+          loading: false
+        })
+      } else {
+        console.log('new product')
+        return({
+          ...state,
+          productsInCart: [...state.productsInCart,action.payload],
+          loading: false
+        })  
+      }
     default:
       return state;
   }
@@ -116,10 +133,13 @@ export const setLoading = () => {
   };
 };
 
-// Add a product to cart
-export const addProductToCart = () => dispatch => {
-      dispatch( product => ({
-        type: ADD_PRODUCT_TO_CART,
-        payload: product
-      })
-)};
+export const addProductToCartDispatch = dispatch => {
+  return({
+      addProductToCart : product => {
+          dispatch({
+              type: 'ADD_PRODUCT_TO_CART',
+              payload: product
+          })
+      }
+  })
+}
