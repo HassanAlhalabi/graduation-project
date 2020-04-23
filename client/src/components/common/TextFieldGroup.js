@@ -15,21 +15,23 @@ const TextFieldGroup = ({
 }) => {
   required = required && !disabled;
   return (
-    <div className="form-group position-relative">
-      {error && <div className="alert alert-danger rounded-0 ">{error}</div>}
-      <input
-        type={type}
-        className={classnames('form-control form-control-lg', {
-          'is-invalid': error
-        })}
-        placeholder={placeholder}
-        name={name}
-        defaultValue={value}
-        onChange={onChange}
-        disabled={disabled}
-      />
-      {info && <small className="form-text orange-color font-weight-bold">{info}</small>}
-      {required && <span className='asterisk position-absolute'><i className="fas fa-asterisk"></i></span>}
+    <div>
+      {error && <div className="alert alert-danger rounded-0 text-capitalize">{error}</div>}
+      <div className="form-group position-relative">
+        <input
+          type={type}
+          className={classnames('form-control form-control-lg', {
+            'is-invalid': error
+          })}
+          placeholder={placeholder}
+          name={name}
+          defaultValue={value}
+          onChange={onChange}
+          disabled={disabled}
+        />
+        {info && <small className="form-text orange-color font-weight-bold">{info}</small>}
+        {required && <span className='asterisk position-absolute'><i className="fas fa-asterisk"></i></span>}
+      </div>
     </div>
   );
 };

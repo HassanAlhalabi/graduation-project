@@ -17,7 +17,7 @@ export class ProductForm extends Component {
     prevPrice: 0,
     category: 'unavailable',
     offer: false,
-    quantity: 0,
+    availableQuantity: 0,
     brand: 'unavailable',
     size: 'unavailable',
     color: 'unavailable',
@@ -113,13 +113,14 @@ export class ProductForm extends Component {
     e.preventDefault();
 
     // ******* Validate Data *******
+
     let productProps = {
       name: this.state.name,
       price: this.state.price,
       prevPrice: this.state.prevPrice,
       category: this.state.category,
       offer: this.state.offer,
-      quantity: this.state.quantity,
+      availableQuantity: this.state.availableQuantity,
       brand: this.state.brand,
       size: this.state.size,
       color: this.state.color,
@@ -127,34 +128,52 @@ export class ProductForm extends Component {
       image: this.state.image
     }
 
-    let EmptyCheck = {
-      name: this.state.name,
-      category: this.state.category,
-      quantity: this.state.quantity,
-      brand: this.state.brand,
-      size: this.state.size,
-      color: this.state.color,
-      description: this.state.description,
-      image: this.state.image
-    }
+    // .... Check for empty fields
 
     let errors = {}
-    Object.keys(EmptyCheck).map(key => {
-      if(EmptyCheck[key] === ''){
+    Object.keys(productProps).map(key => {
+      if(productProps[key] === ''){
         errors[key] = 'Product ' + key + ' Is Required'
-        this.setState({
-          errors : errors
-        })
       }
     })
+
+    // .... Check for price input
     
+    if(productProps.price === 0) {
+      errors['price'] = 'Product Price is Required'
+    } else if (productProps.price < 0) {
+      errors['price'] = 'Product Price Can\'t Be a Negative Value !!!'
+    }
+
+    if(this.state.offerDisabled === false) { // With offer
+      if(productProps.prevPrice === 0) {
+        errors['prevPrice'] = 'Product previous price is Required'
+      } else if (productProps.prevPrice < 0) {
+        errors['prevPrice'] = 'Product previous price Can\'t Be a Negative Value !!!'
+      } else if (productProps.prevPrice <= productProps.price)
+        errors['prevPrice'] = 'Product previous price Can\'t Be equal or less than new price !!!'
+    } 
+
+    // .... Check available quantity input
+    if(productProps.availableQuantity === 0) {
+      errors['availableQuantity'] = 'Product Quantity is Required'
+    } else if (productProps.availableQuantity < 0) {
+      errors['availableQuantity'] = 'Product Quantity Can\'t Be a Negative Value !!!'
+    }
+
+    this.setState({
+      errors : errors
+    })
+
+    //if there is no errors:
+    if(Object.keys(errors).length === 0) {
+      console.log('Do add-new-product-reducer')
+    }
   }
 
 
 
   render() {
-
-    console.log(this.state.errors)
     
     const { errors } = this.state;
 
@@ -273,10 +292,10 @@ export class ProductForm extends Component {
                   </div>
                   <TextFieldGroup
                     placeholder="Available Quantity For Selling"
-                    name="quantity"
+                    name="availableQuantity"
                     onChange={this.onChange}
                     type="number"
-                    error={errors.quantity}
+                    error={errors.availableQuantity}
                     // value={this.state.quantity}
                     info="The exact number of this product items which available for selling"
                     required = 'required'
@@ -305,7 +324,7 @@ export class ProductForm extends Component {
                 </div>
               </div>  
               <div className='col-md-6'> 
-                {this.state.errors.image && <div className="alert alert-danger rounded-0 ">{this.state.errors.image}</div>} 
+                {this.state.errors.image && <div className="alert alert-danger rounded-0 text-capitalize">{this.state.errors.image}</div>} 
                 {/* <div className='product-imgs-preview d-flex'>
                   <img id="output_image"/>
                 </div> */}

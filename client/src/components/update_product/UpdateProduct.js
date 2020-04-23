@@ -13,18 +13,19 @@ export class ProductForm extends Component {
 
   state = {
     name: '',
-    description: '',
     price: 0,
     prevPrice: 0,
-    category: '',
+    category: 'unavailable',
     offer: false,
-    quantity: 0,
-    brand: '',
-    size: '',
-    color: '',
+    availableQuantity: 0,
+    brand: 'unavailable',
+    size: 'unavailable',
+    color: 'unavailable',
+    description: '',
     image: '',
     errors: {},
-    disabled: true,
+    offerDisabled: true,
+    colorDisabled: true,
     categories: ['men clothes','women clothes','phones','accessories'],
     sizes: ['sm','md','lg','xl']
   };
@@ -34,12 +35,25 @@ export class ProductForm extends Component {
       [e.target.name]: e.target.value
     });
   };
-  onChecked = e => {
+
+  onOfferChecked = e => {
     this.setState({
-      disabled: !this.state.disabled,
+      offerDisabled: !this.state.offerDisabled,
       offer: !this.state.offer
     });
   };
+
+  onColorChecked = e => {
+    this.setState({
+      colorDisabled: !this.state.colorDisabled,
+    });
+    if(this.state.colorDisabled === false ){
+      this.setState({
+        color: 'unavailable',
+      });
+    } 
+  };
+
   onUpload = e => {
     e.preventDefault();
 
@@ -95,10 +109,69 @@ export class ProductForm extends Component {
 
   };
 
-componentDidMount() {
-  const colorInput = document.querySelector('input[type="color"]');
-  colorInput.onChange = () => console.log('ok')
-}
+  handleSubmit = e => {
+    e.preventDefault();
+
+    // ******* Validate Data *******
+
+    let productProps = {
+      name: this.state.name,
+      price: this.state.price,
+      prevPrice: this.state.prevPrice,
+      category: this.state.category,
+      offer: this.state.offer,
+      availableQuantity: this.state.availableQuantity,
+      brand: this.state.brand,
+      size: this.state.size,
+      color: this.state.color,
+      description: this.state.description,
+      image: this.state.image
+    }
+
+    // .... Check for empty fields
+
+    let errors = {}
+    Object.keys(productProps).map(key => {
+      if(productProps[key] === ''){
+        errors[key] = 'Product ' + key + ' Is Required'
+      }
+    })
+
+    // .... Check for price input
+    
+    if(productProps.price === 0) {
+      errors['price'] = 'Product Price is Required'
+    } else if (productProps.price < 0) {
+      errors['price'] = 'Product Price Can\'t Be a Negative Value !!!'
+    }
+
+    if(this.state.offerDisabled === false) { // With offer
+      if(productProps.prevPrice === 0) {
+        errors['prevPrice'] = 'Product previous price is Required'
+      } else if (productProps.prevPrice < 0) {
+        errors['prevPrice'] = 'Product previous price Can\'t Be a Negative Value !!!'
+      } else if (productProps.prevPrice <= productProps.price)
+        errors['prevPrice'] = 'Product previous price Can\'t Be equal or less than new price !!!'
+    } 
+
+    // .... Check available quantity input
+    if(productProps.availableQuantity === 0) {
+      errors['availableQuantity'] = 'Product Quantity is Required'
+    } else if (productProps.availableQuantity < 0) {
+      errors['availableQuantity'] = 'Product Quantity Can\'t Be a Negative Value !!!'
+    }
+
+    this.setState({
+      errors : errors
+    })
+
+    //if there is no errors:
+    if(Object.keys(errors).length === 0) {
+      console.log('Do add-new-product-reducer')
+    }
+  }
+
+
 
   render() {
     
@@ -146,7 +219,7 @@ componentDidMount() {
                       name="offer"
                       value={this.state.offer}
                       checked={this.state.offer}
-                      onChange={this.onChecked}
+                      onChange={this.onOfferChecked}
                       id="offer"
                     />
                     <label htmlFor="current" className="form-check-label">
@@ -161,7 +234,7 @@ componentDidMount() {
                     error={errors.prevPrice}
                     // value={this.state.prevPrice}
                     info="Product selling price in USD$ currency before this offer takes place"
-                    disabled={this.state.disabled ? 'disabled' : ''}
+                    disabled={this.state.offerDisabled ? 'disabled' : ''}
                     required = 'required'
                   />
                   <SelectInput
@@ -176,7 +249,7 @@ componentDidMount() {
                   />
                   <TextFieldGroup
                     placeholder="brand"
-                    name="itemBrand"
+                    name="brand"
                     onChange={this.onChange}
                     type="text"
                     error={errors.brand}
@@ -192,21 +265,37 @@ componentDidMount() {
                     options={this.state.sizes}
                     optionLettersCase={'text-uppercase'} 
                   />
-                  <TextFieldGroup
-                    placeholder="color"
-                    name="itemColor"
-                    onChange={this.onChange}
-                    type="color"
-                    error={errors.itemColor}
-                    value={this.state.itemColor}
-                    info="Item Color"
-                  />
+                  <div>
+                    <div className="form-check mb-1">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        name="color-check"
+                        value={this.state.color}
+                        onChange={this.onColorChecked}
+                        id="color-check"
+                      />
+                      <label htmlFor="current" className="form-check-label">
+                        Choose Color
+                      </label>
+                    </div>
+                    <TextFieldGroup
+                      name="color"
+                      onChange={this.onChange}
+                      type="color"
+                      disabled={this.state.colorDisabled}
+                      error={errors.color}
+                      // value={this.state.color}
+                      info="Item Color..
+                      (MAKE SURE THE COLOR IN THE SQUARE HAS CHANGED AND CHECKBOX IS CHECKED!!)"
+                      />
+                  </div>
                   <TextFieldGroup
                     placeholder="Available Quantity For Selling"
-                    name="quantity"
+                    name="availableQuantity"
                     onChange={this.onChange}
                     type="number"
-                    error={errors.quantity}
+                    error={errors.availableQuantity}
                     // value={this.state.quantity}
                     info="The exact number of this product items which available for selling"
                     required = 'required'
@@ -234,7 +323,8 @@ componentDidMount() {
                   />
                 </div>
               </div>  
-              <div className='col-md-6'>  
+              <div className='col-md-6'> 
+                {this.state.errors.image && <div className="alert alert-danger rounded-0 text-capitalize">{this.state.errors.image}</div>} 
                 {/* <div className='product-imgs-preview d-flex'>
                   <img id="output_image"/>
                 </div> */}
@@ -254,6 +344,7 @@ componentDidMount() {
                           className="form-control form-control-lg"
                           type="file"
                           name="image"
+                          required
                         />
                         <p className="input-group-text">
                           Browse for images Or Drop the images here{' '}
@@ -269,7 +360,7 @@ componentDidMount() {
                   them from your local storage drive
                 </small>
                 <div className='mt-5'>
-                  <button type="submit" className="btn btn-primary btn-lg">
+                  <button type='submit' className="btn btn-primary btn-lg" onClick={this.handleSubmit}>
                     Add Product
                   </button>
                 </div>
