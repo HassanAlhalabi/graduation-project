@@ -4,7 +4,13 @@ import {addProductToCartDispatch} from '../../redux/reducers/productsReducer';
  
 const ProductInfo = ({info,addProductToCart}) => {
     
-    const handleAddToCart = () => addProductToCart(info);
+    const handleAddToCart = () => {
+        // ...... Create Product ......... //
+        //Get quantity
+        let quantity = document.getElementById('quantity').value * 1;
+        let product = {...info,quantity: quantity}
+        addProductToCart(product)
+    }
 
     let ratingFull = [];
     let ratingEmpty = [];
@@ -45,7 +51,7 @@ const ProductInfo = ({info,addProductToCart}) => {
                             </div>
                             <div className='availability mt-2'>
                                 <span className='font-weight-bold'>Availability: </span>
-                                <span className='default-color'>{available} ({info.quantity} Available)</span>
+                                <span className='default-color'>{available} ({info.availableQuantity} Available)</span>
                             </div>
                             <div className='brand mt-2'>
                                 <span className='font-weight-bold'>Brand: </span>
@@ -70,8 +76,10 @@ const ProductInfo = ({info,addProductToCart}) => {
                                         <input 
                                             type='number' 
                                             className='form-control d-inline-block rounded-0 mr-2' 
-                                            max={info.quantity}
-                                            min='0'/>
+                                            max={info.availableQuantity}
+                                            min='1'
+                                            defaultValue={1}
+                                            id='quantity'/>
                                     </div>
                                     <div className='col-12 col-sm-6 pr-0'>
                                         <button className='btn btn-primary font-weight-bold ml-auto' onClick={handleAddToCart}>

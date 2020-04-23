@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import {addProductToCartDispatch} from '../../redux/reducers/productsReducer';
 import ProductModal from './ProductModal';
 
 class Productcard extends Component {
+
+  handleAddToCart = product => this.props.addProductToCart(product)
+
   render() {
     const { product } = this.props;
     return (
@@ -21,7 +25,9 @@ class Productcard extends Component {
             </Link>
             <ul className="social">
               <li>
-                <a href="" className="fa fa-cart-plus" />
+                <button className='btn btn-primary font-weight-bold ml-auto' onClick={() => this.handleAddToCart(product)}>
+                  <i className='fas fa-shopping-cart'></i>
+                </button>
               </li>
             </ul>
             <span className="product-new-label">New</span>
@@ -47,4 +53,4 @@ class Productcard extends Component {
   }
 }
 
-export default Productcard;
+export default connect(null,addProductToCartDispatch)(Productcard);

@@ -527,7 +527,7 @@ footer input[type='email']:focus {
   margin: 0;
   list-style: none;
   position: absolute;
-  bottom: 3px;
+  bottom: 15px;
   left: -20%;
   z-index: 1;
   transition: all 0.5s ease 0s;

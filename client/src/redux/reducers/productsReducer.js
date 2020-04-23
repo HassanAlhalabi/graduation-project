@@ -59,20 +59,34 @@ export default (state = initialState, action) => {
       // If the product already existed in cart only increase quantity
       // Check if product already in cart
       let inCart = state.productsInCart.filter(product => product.id === action.payload.id)
+      let availableQuantity = action.payload.availableQuantity
       if (inCart.length !== 0) { 
-        return({
-          ...state,
-          productsInCart : state.productsInCart.map(product =>
-          product.id === action.payload.id ? 
-          {...product,quantity : product.quantity + action.payload.quantity} : product),
-          loading: false
-        })
+        // Get current quantity in cart
+        let currentQuantity = inCart[0].quantity
+        console.log(inCart)
+        console.log(currentQuantity)
+        if(action.payload.quantity + currentQuantity > availableQuantity) {
+          alert('Unavailable Quantity!! Maximum Quantity is '+availableQuantity)
+        } else {
+          return({
+            ...state,
+            productsInCart : state.productsInCart.map(product =>
+            product.id === action.payload.id ? 
+            {...product,quantity : product.quantity + action.payload.quantity} : product),
+            loading: false
+          })
+        }
+        
       } else {
-        return({
-          ...state,
-          productsInCart: [...state.productsInCart,action.payload],
-          loading: false
-        })  
+        if(action.payload.quantity > availableQuantity || action.payload.quantity === 0) {
+          alert('Unavailable Quantity!! Minimum Quantity is 0 and Maximum Quantity is '+availableQuantity)
+        } else {
+          return({
+            ...state,
+            productsInCart: [...state.productsInCart,action.payload],
+            loading: false
+          }) 
+        } 
       }
     default:
       return state;

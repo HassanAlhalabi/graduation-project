@@ -27,10 +27,10 @@ class ProductDetails extends Component {
                     category: 'menclothing',
                     rating: 4,
                     availability: 1,
+                    availableQuantity: 1,
                     brand: 'brand',
                     size: 'xl',
                     color: 'red',
-                    quantity: 3,
                     description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum  lorem ipsum dolor sit amet lorem ipsum lorem ipsum dolor sit amet lorem ipsum lorem ipsum dolor sit amet lorem ipsum lorem ipsum dolor sit amet lorem ipsum lorem ipsum dolor sit amet lorem ipsum lorem ipsum dolor sit amet lorem ipsum '
                 },
                 {
@@ -42,10 +42,10 @@ class ProductDetails extends Component {
                     category: 'menclothing',
                     rating: 3,
                     availability: 1,
+                    availableQuantity: 5,
                     brand: 'brand',
                     size: 'lg',
                     color: 'blue',
-                    quantity: 1,
                     description: 'lorem ipsum dolor lorem ipsum dolor  sit amet lorem ipsum dolor sit amet'
                 },
                 {
@@ -57,10 +57,10 @@ class ProductDetails extends Component {
                     category: 'menclothing',
                     rating: 3,
                     availability: 1,
+                    availableQuantity: 3,
                     brand: 'brand',
                     size: 'sm',
                     color: 'green',
-                    quantity: 5,
                     description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet'
                 },
             ]
