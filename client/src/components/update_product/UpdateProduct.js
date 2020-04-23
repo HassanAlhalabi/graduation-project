@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 
+import {connect} from 'react-redux';
+import {addNewProductDispatch} from '../../redux/reducers/productsReducer';
+
 //import InputGroup from '../common/InputGroup';
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
@@ -22,7 +25,7 @@ export class ProductForm extends Component {
     size: 'unavailable',
     color: 'unavailable',
     description: '',
-    image: '',
+    image: 'https://via.placeholder.com/450',
     errors: {},
     offerDisabled: true,
     colorDisabled: true,
@@ -115,9 +118,10 @@ export class ProductForm extends Component {
     // ******* Validate Data *******
 
     let productProps = {
+      id: Math.ceil(Math.random(1) * 100000000000),
       name: this.state.name,
-      price: this.state.price,
-      prevPrice: this.state.prevPrice,
+      price: this.state.price * 1,
+      prevPrice: this.state.prevPrice * 1,
       category: this.state.category,
       offer: this.state.offer,
       availableQuantity: this.state.availableQuantity,
@@ -167,7 +171,7 @@ export class ProductForm extends Component {
 
     //if there is no errors:
     if(Object.keys(errors).length === 0) {
-      console.log('Do add-new-product-reducer')
+      this.props.addNewProduct(productProps)
     }
   }
 
@@ -375,4 +379,4 @@ export class ProductForm extends Component {
 
 
 
-export default ProductForm;
+export default connect(null,addNewProductDispatch)(ProductForm);

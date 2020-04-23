@@ -21,9 +21,10 @@ class Products extends Component {
                 brand : 'all',
                 size  : 'all',
             },
-            colors: this.props.products.map(product =>
-                product.color
-            )
+            // colors: this.props.products.map(product =>
+            //     product.color
+            // )
+            colors : ['RED']
         }
     }
 
@@ -35,6 +36,7 @@ class Products extends Component {
     render() {
 
         const { loading , products }  = this.props;
+        console.log(products)
 
         let productContent = loading ? <Spinner /> : // Loading is true => show spinner
                                                      // Loading is false => show products container

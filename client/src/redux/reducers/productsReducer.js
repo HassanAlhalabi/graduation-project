@@ -16,7 +16,8 @@ const GET_PRODUCT = 'GET_PRODUCT';
 const GET_USER_PRODUCTS = 'GET_USER_PRODUCTS';
 const CLEAR_USER_PRODUCTS = 'CLEAR_USER_PRODUCTS';
 const SET_LOADING = 'SET_LOADING';
-const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART'; 
+const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
+const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT'; 
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -88,6 +89,11 @@ export default (state = initialState, action) => {
           }) 
         } 
       }
+    case ADD_NEW_PRODUCT:
+      return({
+        ...state,
+        products : [...state.products , action.payload] 
+      }) 
     default:
       return state;
   }
@@ -147,9 +153,20 @@ export const addProductToCartDispatch = dispatch => {
   return({
       addProductToCart : product => {
           dispatch({
-              type: 'ADD_PRODUCT_TO_CART',
+              type: ADD_PRODUCT_TO_CART,
               payload: product
           })
       }
+  })
+}
+
+export const addNewProductDispatch = dispatch => {
+  return({
+    addNewProduct : product => {
+      dispatch({
+        type: ADD_NEW_PRODUCT,
+        payload: product,
+      })
+    } 
   })
 }
