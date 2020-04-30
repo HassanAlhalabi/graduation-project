@@ -8,7 +8,7 @@ class FilterBox extends Component {
         super(props)
 
         this.state={
-            colors : ['red','#eee','cyan','gray','unavailable']
+            colors : ['black','red','green','gray','cyan','yellow','orange']
         }
 
         this.range = React.createRef();

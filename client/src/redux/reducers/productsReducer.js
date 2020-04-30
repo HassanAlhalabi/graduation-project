@@ -17,6 +17,8 @@ const GET_USER_PRODUCTS = 'GET_USER_PRODUCTS';
 const CLEAR_USER_PRODUCTS = 'CLEAR_USER_PRODUCTS';
 const SET_LOADING = 'SET_LOADING';
 const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
+const UPDATE_PRODUCT_IN_CART_QUANTITY = 'UPDATE_PRODUCT_IN_CART_QUANTITY';
+const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART'
 const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT'; 
 
 export default (state = initialState, action) => {
@@ -64,8 +66,6 @@ export default (state = initialState, action) => {
       if (inCart.length !== 0) { 
         // Get current quantity in cart
         let currentQuantity = inCart[0].quantity
-        console.log(inCart)
-        console.log(currentQuantity)
         if(action.payload.quantity + currentQuantity > availableQuantity) {
           alert('Unavailable Quantity!! Maximum Quantity is '+availableQuantity)
         } else {
@@ -89,10 +89,31 @@ export default (state = initialState, action) => {
           }) 
         } 
       }
+
+    case REMOVE_PRODUCT_FROM_CART :
+      console.log('remove product from cart reducer')
+      return({
+        ...state,
+        productsInCart : state.productsInCart.filter(product => {
+          return product.id !== action.payload
+        })
+      })  
+
+    case UPDATE_PRODUCT_IN_CART_QUANTITY:
+      let updatedProduct = state.productsInCart.filter(product => product.id === action.payload.id)
+      let avaQuantity = updatedProduct[0].availableQuantity
+      console.log('updatedProduct : ', updatedProduct)
+      console.log('available quantity', avaQuantity)
+      if(action.payload.newQuantity > avaQuantity || action.payload.newQuantity === 0) {
+        alert('Unavailable Quantity!! Minimum Quantity is 0 and Maximum Quantity is '+availableQuantity)
+      } else {
+        console.log('updating quantity')  
+      }
+
     case ADD_NEW_PRODUCT:
       return({
         ...state,
-        products : [...state.products , action.payload] 
+        userProducts : [...state.userProducts , action.payload] 
       }) 
     default:
       return state;
@@ -157,6 +178,30 @@ export const addProductToCartDispatch = dispatch => {
               payload: product
           })
       }
+  })
+}
+
+export const removeProductFromCartDispatch = dispatch => {
+  console.log('remove product from cart dispatch')
+  return({
+    removeProductFromCart : id => {
+          dispatch({
+              type: REMOVE_PRODUCT_FROM_CART,
+              payload: id
+          })
+      }
+  })
+}
+
+export const updateProductInCartQuantityDispatch = dispatch => {
+  return({
+      updateProduct: (id,newQuantity) => {dispatch({
+          type :  UPDATE_PRODUCT_IN_CART_QUANTITY,
+          payload: {
+              id : id,
+              newQuantity : newQuantity
+          }
+      })}
   })
 }
 

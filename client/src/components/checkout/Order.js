@@ -8,6 +8,7 @@ const Order = ({
         color,
         price,
         pre_price,
+        availableQuantity,
         quantity,
         removeProduct,
         updateQuantity,
@@ -33,7 +34,9 @@ const Order = ({
             <div className='form-group'>
                 <input
                     type='number' 
-                    name='quantity' 
+                    name='quantity'
+                    min='1'
+                    max={availableQuantity} 
                     className='quantity form-control rounded-0'
                     defaultValue={quantity} 
                     onChange={updateQuantity}

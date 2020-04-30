@@ -1,8 +1,12 @@
 import React,{Component} from 'react';
 
+import {connect} from 'react-redux';
+
 import Breadcrumb from '../common/Breadcrumb';
 import CategoriesBar from '../common/CategoriesBar';
 import FilterBox from '../common/FilterBox';
+import ProductCard from '../product/ProductCard';
+import Spinner from '../common/Spinner';
 
 class MyProducts extends Component {
 
@@ -11,7 +15,7 @@ class MyProducts extends Component {
         this.state = {
             filterParams: {
                 price : 1000,
-                colors: [],
+                colors: this.props.myProducts.map(product => product.color),
                 brand : 'all',
                 size  : 'all',
             },
@@ -23,6 +27,36 @@ class MyProducts extends Component {
     }
 
     render(){
+
+        const { loading , myProducts }  = this.props;
+        console.log(this.state.filterParams.colors)
+
+        let productContent = loading ? <Spinner /> : // Loading is true => show spinner
+                                                     // Loading is false => show products container
+                
+                    myProducts.length > 0
+                    ?
+                    <div className="row"> 
+                        {
+                            myProducts.filter( product => 
+                                
+                                // Filter Parameters
+                                product.price <= this.state.filterParams.price
+                                
+                                
+                                ).map(product => 
+                                    <div className='col-12 col-md-6 col-lg-4'>
+                                        <ProductCard key={product.id} product={product} />
+                                    </div>    
+                            )
+                        }
+                    </div>    
+                    : 
+                    <div>
+                        <p className='alert alert-orange rounded-0'>No Products !!</p>
+                    </div>
+                
+
         return(
 
             <div className='products'>
@@ -32,11 +66,11 @@ class MyProducts extends Component {
                     <div className='row'>
                         {/* Filter Box */}
                         <div className='col-12 col-md-3'>
-                            <FilterBox filterParams={ this.getFilterParameters } />
+                            <FilterBox filterParams={ this.getFilterParameters} colors={this.state.filterParams.colors}/>
                         </div>
                         {/* Products Show */}
                         <div className='col-12 col-sm-6 col-md-9'>
-                            <h2>My Products In Here</h2>
+                            {productContent}
                         </div>
                     </div>    
                 </div>
@@ -46,4 +80,11 @@ class MyProducts extends Component {
     }
 }
 
-export default MyProducts;
+const mapStateToProps = state => {
+    return({
+        myProducts : state.products.userProducts,
+        loading: false
+    })
+}
+
+export default connect(mapStateToProps,null)(MyProducts);

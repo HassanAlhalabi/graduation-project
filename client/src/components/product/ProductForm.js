@@ -15,6 +15,7 @@ import SectionTitle from '../common/SectionTitle';
 export class ProductForm extends Component {
 
   state = {
+    id: '',
     name: '',
     price: 0,
     prevPrice: 0,
@@ -25,12 +26,13 @@ export class ProductForm extends Component {
     size: 'unavailable',
     color: 'unavailable',
     description: '',
-    image: 'https://via.placeholder.com/450',
+    image: '',
     errors: {},
     offerDisabled: true,
     colorDisabled: true,
     categories: ['men clothes','women clothes','phones','accessories'],
-    sizes: ['sm','md','lg','xl']
+    sizes: ['sm','md','lg','xl'],
+    colors: ['black','red','green','gray','cyan','yellow','orange']
   };
 
   onChange = e => {
@@ -283,16 +285,28 @@ export class ProductForm extends Component {
                         Choose Color
                       </label>
                     </div>
-                    <TextFieldGroup
-                      name="color"
-                      onChange={this.onChange}
-                      type="color"
-                      disabled={this.state.colorDisabled}
-                      error={errors.color}
-                      // value={this.state.color}
-                      info="Item Color..
-                      (MAKE SURE THE COLOR IN THE SQUARE HAS CHANGED AND CHECKBOX IS CHECKED!!)"
-                      />
+                    <div>
+                      {
+                         <div className='color-checkbox mb-5'>
+                          <div className='wrapper'>
+                             <div>
+                                 {
+                                     this.state.colors.map(color =>
+                                         color === 'unavailable' ? null :
+                                         <div className='color-box-holder checked'>
+                                             <div>
+                                                 <div className='color-box'>
+                                                     <input type='checkbox' name='colors' value={color} />
+                                                     <div className='color-holder' style={{backgroundColor : color}}></div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     )
+                                 }
+                             </div>
+                         </div>
+                     </div>}
+                    </div>
                   </div>
                   <TextFieldGroup
                     placeholder="Available Quantity For Selling"

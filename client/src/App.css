@@ -434,29 +434,25 @@ footer input[type='email']:focus {
 .filter-box .price-filter span {
   line-height: 35px;
 }
-
-.filter-box .color-checkbox .wrapper > div {
+.color-checkbox .wrapper > div {
   display: flex;
   flex-direction: row;
+  flex-wrap : wrap
 } 
-
-.filter-box .color-checkbox .color-box-holder {
+.color-checkbox .color-box-holder {
   margin: 10px;
   padding: 2px;
 }
-
-.filter-box .color-checkbox .color-box-holder > div {
+.color-checkbox .color-box-holder > div {
   padding: 2px;
   background-color: #fff;
 }
-
-.filter-box .color-checkbox .color-box  {
+.color-checkbox .color-box  {
   width: 20px;
   height: 20px;
   position: relative;
 }
-
-.filter-box .color-checkbox .color-box .color-holder {
+.color-checkbox .color-box .color-holder {
   position: absolute;
   top: 0;
   left: 0;
@@ -466,11 +462,11 @@ footer input[type='email']:focus {
   z-index: 1;
 } 
 
-.filter-box  .color-checkbox .wrapper div.checked {
+.color-checkbox .wrapper div.checked {
   background-color: rgb(240, 104, 80);
 }
 
-.filter-box  .color-checkbox .color-box input {
+.color-checkbox .color-box input {
   cursor: pointer;
   border: none;
   border-radius: 0;

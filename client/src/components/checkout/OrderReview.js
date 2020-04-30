@@ -1,5 +1,6 @@
 import React , {Component} from 'react';
 import {connect} from 'react-redux';
+import {updateProductInCartQuantityDispatch,removeProductFromCartDispatch} from '../../redux/reducers/productsReducer'
 import SectionTitle from  '../common/SectionTitle';
 
 import Order from './Order';
@@ -18,19 +19,14 @@ class OrderReview extends Component {
     }
 
     // Remove product function
-    removeProduct = id => this.setState({
-        productsInCart:this.state.productsInCart.filter(product => product.id !== id )
-    })
+    removeProduct = id => this.props.removeProductFromCart(id)
 
     // *********** Update quantity function ***************** //
 
     updateQuantity = (pid) => {
         let newQuntity = document.querySelector('#order' + pid + ' input[type="number"]').value;
-        this.setState({
-            productsInCart: this.state.productsInCart.map(product => 
-                product.id === pid ? {...product,quantity : newQuntity} : product
-            )
-        })
+        this.props.updateProduct(pid,newQuntity)
+        
     }
 
     getSubtotal = () => {
@@ -66,16 +62,17 @@ class OrderReview extends Component {
                                             
                                                 return(
                                                     <Order 
-                                                        id             = {product.id}
-                                                        name           = {product.title}
-                                                        image          = {product.image}
-                                                        size           = {product.size}
-                                                        color          = {product.color}
-                                                        price          = {product.price}
-                                                        pre_price      = {product.pre_price}
-                                                        quantity       = {product.quantity} 
-                                                        removeProduct  = {() => this.removeProduct(product.id)}
-                                                        updateQuantity = {() => this.updateQuantity(product.id)} 
+                                                        id                = {product.id}
+                                                        name              = {product.title}
+                                                        image             = {product.image}
+                                                        size              = {product.size}
+                                                        color             = {product.color}
+                                                        price             = {product.price}
+                                                        pre_price         = {product.pre_price}
+                                                        availableQuantity = {product.availableQuantity}
+                                                        quantity          = {product.quantity}
+                                                        updateQuantity    = {() => this.updateQuantity(product.id)}
+                                                        removeProduct     = {() => this.removeProduct(product.id)} 
                                                         />
                                                 );  
                                             
@@ -113,4 +110,6 @@ const mapStateToProps = state => {
     })
 }
 
-export default connect(mapStateToProps,null)(OrderReview);
+
+
+export default connect(mapStateToProps,removeProductFromCartDispatch)(OrderReview);
