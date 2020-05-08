@@ -55,7 +55,6 @@ a:hover {
 .alert-orange {
   background-color: #ffc7bb;
   color: #9e0000;
-  box-shadow: 0px 0px 7px #f8694a;
   border: 1px solid #f8694a;
 }
 
@@ -809,7 +808,7 @@ footer input[type='email']:focus {
 
 
 .about .about-header {
-  font-size: 54px;
+  font-size: 64px;
   font-weight: bold;
   color: #FFF;
 }
