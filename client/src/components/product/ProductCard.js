@@ -33,20 +33,23 @@ class Productcard extends Component {
             <span className="product-new-label">New</span>
           </div>
           <div className="product-content">
+            <div className='d-flex justify-content-between'>
+              <div className="price">
+                ${product.price.toFixed(2)}
+                <span>$20.00</span>
+              </div>
+              <ul className="rating">
+                <li className="fa fa-star" />
+                <li className="fa fa-star" />
+                <li className="fa fa-star" />
+                <li className="fa fa-star" />
+                <li className="fa fa-star" />
+              </ul>
+            </div>    
             <h3 className="title">
               <ProductModal product={product} />
             </h3>
-            <ul className="rating">
-              <li className="fa fa-star" />
-              <li className="fa fa-star" />
-              <li className="fa fa-star" />
-              <li className="fa fa-star" />
-              <li className="fa fa-star" />
-            </ul>
-            <div className="price">
-              ${product.price}
-              <span>$20.00</span>
-            </div>
+            
           </div>
         </div>
     );

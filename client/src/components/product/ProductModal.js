@@ -26,7 +26,7 @@ export class ProductModal extends Component {
 
   render() {
     return (
-      <div>
+      <div className='text-left'>
         <Button color="primary" onClick={this.toggle}>
           {this.props.buttonLabel}
           {this.props.product.name}

@@ -533,7 +533,7 @@ footer input[type='email']:focus {
   list-style: none;
   position: absolute;
   bottom: 15px;
-  left: -20%;
+  left: -22%;
   z-index: 1;
   transition: all 0.5s ease 0s;
 }
@@ -591,9 +591,15 @@ footer input[type='email']:focus {
   margin: 0 0 10px;
   list-style: none;
 }
+
+.product-grid7 .rating li {
+  vertical-align: middle;
+  padding: 10px 0px;
+}
+
 .product-grid7 .price {
   color: #333;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   margin-bottom: 8px;
   text-align: center;
@@ -601,7 +607,7 @@ footer input[type='email']:focus {
 }
 .product-grid7 .price span {
   color: #F8694A;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   text-decoration: line-through;
   margin-left: 7px;
