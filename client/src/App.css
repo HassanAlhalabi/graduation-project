@@ -10,10 +10,6 @@ body {
   perspective: 1000;
 }
 
-.row {
-  width: 100%;
-}
-
 p { color: #717171;}
 
 a {
@@ -332,6 +328,19 @@ footer input[type='email']:focus {
 .slide .carousel-control-prev,
 .slide .carousel-control-next {
   display: none;
+}
+
+/* ************* DealsOfTheDay Style ************ */
+
+.latest-products .deals-collection-link {
+  bottom: 30px;
+  left: 10px;
+}
+
+.latest-products .deals-collection-link h3 {
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
 }
 
 /* ************* Newcollection Style ************ */

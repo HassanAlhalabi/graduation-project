@@ -2,7 +2,9 @@ import React,{Component} from 'react';
 
 import SectionTitle from '../common/SectionTitle';
 import ProductCard from '../product/ProductCard';
-import Spinner from '../common/Spinner'
+import {Link} from 'react-router-dom';
+import DealsOfTheDayImage from '../common/img/banner14.jpg';
+import Spinner from '../common/Spinner';
 
 class DealsOfTheDay extends Component {
 
@@ -13,29 +15,41 @@ class DealsOfTheDay extends Component {
         }
     }
 
+    componentWillReceiveProps () {
+        this.setState({ products: this.props.products})
+    }
+
     render(){
 
         const products = this.state.products;
 
         return( 
 
-            <div className='latest-products mt-5 mb-5'>
+            <div className='latest-products pt-5 pb-5'>
                 <div className='container'>
                     <SectionTitle title={"deals of the day"}/>
-                     <div className='row'>
-                        <div className='col='>
-
+                    <div className='row h-100'>
+                        <div className='col-12 col-sm-6 col-lg-3 mb-3'>
+                            <div className='position-relative'>
+                                <div>
+                                    <img src={DealsOfTheDayImage} alt='deals-of-the-day image' className='img-fluid w-100'/>
+                                </div>
+                                <div className='position-absolute deals-collection-link'>
+                                    <h3>New Collection</h3>
+                                    <Link to='/products'>
+                                        <button className='btn btn-primary btn-lg'>Shop Now</button>
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            {products.length > 0
-                                ? products.map(product => (
-                                    <div className='col-12 col-md-4 col-lg-3' key={product._id}>
-                                        <ProductCard key={product._id} product={product} />
-                                    </div>
-                                    ))
-                            : 'loding'}
-                        </div>
-                     </div>
+                        {products.length > 0
+                            ? products.map(product => (
+                                <div className='col-12 col-sm-6 col-lg-3 mb-3' key={product._id}>
+                                    <ProductCard key={product._id} product={product} />
+                                </div>
+                                ))
+                        : <div className='col-12 col-md-6 col-lg-9 mb-3'><Spinner /></div>}
+                    </div>
                 </div>
             </div>
         
