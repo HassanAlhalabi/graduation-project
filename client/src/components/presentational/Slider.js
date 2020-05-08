@@ -18,13 +18,15 @@ class Slider extends Component {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>Hot Deal</h3>
-                        <p>Up to 50% off</p>
-                        <div className='slide-btn'>
-                            <Link to='/products'>
-                                <button className='btn btn-primary btn-lg'>Shop Now</button>
-                            </Link>
-                        </div>
+                        <div className='banner-1'>
+                            <h3>Products Sales</h3>
+                            <p>Up to 50% Discount</p>
+                            <div className='slide-btn'>
+                                <Link to='/products'>
+                                    <button className='btn btn-primary btn-lg'>Shop Now</button>
+                                </Link>
+                            </div>
+                        </div>    
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -35,13 +37,15 @@ class Slider extends Component {
                     />
                 
                     <Carousel.Caption>
-                        <h3>Hot Deal</h3>
-                        <p>Up to 50% off</p>
-                        <div className='slide-btn'>
-                            <Link to='/products'>
-                                <button className='btn btn-primary btn-lg'>Shop Now</button>
-                            </Link>
-                        </div>
+                        <div className='banner-2'>
+                            <h3>Hot Deal</h3>
+                            <p>Up to 50% off</p>
+                            <div className='slide-btn'>
+                                <Link to='/products'>
+                                    <button className='btn btn-primary btn-lg'>Shop Now</button>
+                                </Link>
+                            </div>
+                        </div>        
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -52,13 +56,14 @@ class Slider extends Component {
                     />
                 
                     <Carousel.Caption>
-                        <h3>Hot Deal</h3>
-                        <p>Up to 50% off</p>
-                        <div className='slide-btn'>
-                            <Link to='/products'>
-                                <button className='btn btn-primary btn-lg'>Shop Now</button>
-                            </Link>
-                        </div>
+                        <div className='banner-3 text-left'>
+                            <p>New Product Collection</p>
+                            <div className='slide-btn'>
+                                <Link to='/products'>
+                                    <button className='btn btn-primary btn-lg'>Shop Now</button>
+                                </Link>
+                            </div>
+                        </div>                            
                     </Carousel.Caption>
                     </Carousel.Item>
             </Carousel>
