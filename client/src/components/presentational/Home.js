@@ -30,11 +30,11 @@ class Home extends Component {
 
             <CategoriesBar />
             <CategorySlider />
-            <NewCollection />
             <DealsOfTheDay products={products}/>
             <HotDeal />
-            <LatestProducts products={products}/>
             <Pickedforyou />
+            <NewCollection />
+            <LatestProducts products={products}/>
             
           </div>  
         );
