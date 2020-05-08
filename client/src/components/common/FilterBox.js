@@ -7,10 +7,6 @@ class FilterBox extends Component {
     constructor(props){
         super(props)
 
-        this.state={
-            colors : ['black','red','green','gray','cyan','yellow','orange']
-        }
-
         this.range = React.createRef();
         this.max = React.createRef();
 
@@ -48,7 +44,6 @@ class FilterBox extends Component {
        let sizeParam = document.querySelector('.filter-box form #size').value;
        let filterParameters = {
            price : priceParam,
-           colors : colors,
            brand : brandParam,
            size  : sizeParam,
        }
@@ -83,27 +78,6 @@ class FilterBox extends Component {
                                 <span className='max-number' ref={this.max}>$1000</span>
                         </div>
                         </div> 
-                    </div>
-                    <div className='color-checkbox mb-5'>
-                        <h5 className='orange-color mb-3'>Filter By Color:</h5>
-                        {/* <h5 className='orange-color mb-3'>Filter By Color:</h5> */}
-                        <div className='wrapper'>
-                            <div>
-                                {
-                                    this.state.colors.map(color =>
-                                        color === 'unavailable' ? null :
-                                        <div className='color-box-holder checked'>
-                                            <div>
-                                                <div className='color-box'>
-                                                    <input type='checkbox' name='colors' value={color} />
-                                                    <div className='color-holder' style={{backgroundColor : color}}></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                }
-                            </div>
-                        </div>
                     </div>
                     <div>
                         <h5 className='orange-color mb-3'>Filter By Brand:</h5>

@@ -90,7 +90,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark main-navbar p-2">
         <div className="container">
-          <div className='row'>
+          <div className='row w-100'>
 
             <Link className="navbar-brand col-12 col-md-5 col-lg-3 m-0" to="/">
               <span>E</span>-SHOP

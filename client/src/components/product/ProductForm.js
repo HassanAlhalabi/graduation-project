@@ -31,8 +31,7 @@ export class ProductForm extends Component {
     offerDisabled: true,
     colorDisabled: true,
     categories: ['men clothes','women clothes','phones','accessories'],
-    sizes: ['sm','md','lg','xl'],
-    colors: ['black','red','green','gray','cyan','yellow','orange']
+    sizes: ['sm','md','lg','xl']
   };
 
   onChange = e => {
@@ -183,6 +182,8 @@ export class ProductForm extends Component {
     
     const { errors } = this.state;
 
+    console.log(this.state)
+
     return (
       <div className="add-product">
         <div className="container">
@@ -271,43 +272,28 @@ export class ProductForm extends Component {
                     options={this.state.sizes}
                     optionLettersCase={'text-uppercase'} 
                   />
-                  <div>
-                    <div className="form-check mb-1">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        name="color-check"
-                        value={this.state.color}
-                        onChange={this.onColorChecked}
-                        id="color-check"
-                      />
-                      <label htmlFor="current" className="form-check-label">
-                        Choose Color
-                      </label>
-                    </div>
-                    <div>
-                      {
-                         <div className='color-checkbox mb-5'>
-                          <div className='wrapper'>
-                             <div>
-                                 {
-                                     this.state.colors.map(color =>
-                                         color === 'unavailable' ? null :
-                                         <div className='color-box-holder checked'>
-                                             <div>
-                                                 <div className='color-box'>
-                                                     <input type='checkbox' name='colors' value={color} />
-                                                     <div className='color-holder' style={{backgroundColor : color}}></div>
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     )
-                                 }
-                             </div>
-                         </div>
-                     </div>}
-                    </div>
+                  <div className="form-check mb-1">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      name="color-check"
+                      value={this.state.color}
+                      onChange={this.onColorChecked}
+                      id="color-check"
+                    />
+                    <label htmlFor="current" className="form-check-label">
+                      Choose Color
+                    </label>
                   </div>
+                  <TextFieldGroup
+                    name="color"
+                    onChange={this.onChange}
+                    type="color"
+                    error={errors.color}
+                    info="Item Color...MAKE SURE COLOR HAS BEEN CAHNGED INSIDE BOX"
+                    disabled={this.state.colorDisabled ? 'disabled' : ''}
+                    id='color'
+                  />
                   <TextFieldGroup
                     placeholder="Available Quantity For Selling"
                     name="availableQuantity"
