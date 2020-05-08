@@ -793,17 +793,40 @@ footer input[type='email']:focus {
 
 /* Header style */
 
+.about {
+  background-color: #30323A;
+}
+
+.about .about-section-1 {
+  background-image: url('components/common/img/aboutus-section-1.jpg');
+  background-size: 100% 100%;
+}
+
+.about header {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+
 .about .about-header {
   font-size: 54px;
   font-weight: bold;
-  color: #30323A;
+  color: #FFF;
+}
+
+.about section h4,
+.about section p {
+  color: #FFF;
+}
+
+.about .about-section-2 {
+  background-image: url('components/common/img/aboutus-section-2.jpg');
+  background-size: 100% 100%;
 }
 
 .about .img-holder {
   padding: 2rem 0px;
 }
-
-.about .img-holder img {border-radius: 40px;}
 
 /* **************************** Checkout page style ************************** */
 
