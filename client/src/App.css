@@ -65,7 +65,7 @@ a:hover {
 
 .fa-star {
   color: #FFB656;
-  font-size: 14px;
+  font-size: 12px;
   margin-right: 5px;
 }
 
@@ -599,7 +599,7 @@ footer input[type='email']:focus {
 
 .product-grid7 .price {
   color: #333;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 700;
   margin-bottom: 8px;
   text-align: center;
