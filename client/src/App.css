@@ -839,6 +839,12 @@ footer input[type='email']:focus {
   display: inline-block;
 }
 
+.order-review table tbody .p_details .order-color {
+  width: 25px;
+  height: 25px;
+  margin-top: 13px;
+}
+
 .order-review table tbody .p_details > div:first-child {
   border: 1px solid #F8694A;
   margin:10px 10px 10px 0px

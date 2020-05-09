@@ -22,7 +22,10 @@ const Order = ({
             <div>
                 <h4 className='p_name'>{name}</h4>
                 <p className='size default-color m-0 pt-1'>{size}</p>
-                <p className='color default-color m-0 pt-1'>{color}</p>
+                <div>
+                    <div className='order-color' style={{backgroundColor : color}}>     
+                    </div>
+                </div>
             </div>
             <div className='clearfix'></div>
         </td>

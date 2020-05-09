@@ -32,25 +32,6 @@ class Shipping extends Component {
                         
                     </Form>
                 </div>
-                <SectionTitle title={'Payment Methods'}/>
-                <div className='details'>
-                    <Form method='post'>
-                        <Form.Check
-                            type="radio"
-                            label="Direct Bank Transfer"
-                            name="payment_method"
-                            id="formHorizontalRadios3"
-                            className='pb-3 font-weight-bold'
-                            />
-                        <Form.Check
-                            type="radio"
-                            label="Paypal System"
-                            name="payment_method"
-                            id="formHorizontalRadios4"
-                            className='pb-3 font-weight-bold'
-                            />
-                    </Form>
-                </div>
             </div>
 
         );
