@@ -19,7 +19,7 @@ export class ProductForm extends Component {
     name: '',
     price: 0,
     prevPrice: 0,
-    category: 'unavailable',
+    category: '',
     offer: false,
     availableQuantity: 0,
     brand: 'unavailable',
@@ -30,7 +30,13 @@ export class ProductForm extends Component {
     errors: {},
     offerDisabled: true,
     colorDisabled: true,
-    categories: ['men clothes','women clothes','phones','accessories'],
+    categories: [
+                  'men clothes',
+                  'women clothes',
+                  'phones & accessories',
+                  'computer & office',
+                  'consumer electronics',
+                  'jewlery & watches'],
     sizes: ['sm','md','lg','xl']
   };
 
@@ -142,7 +148,7 @@ export class ProductForm extends Component {
       }
     })
 
-    // .... Check for price input
+    // .... Check for price inputcc
     
     if(productProps.price === 0) {
       errors['price'] = 'Product Price is Required'
@@ -250,7 +256,7 @@ export class ProductForm extends Component {
                     error={errors.category}
                     value={this.state.category}
                     info="Item Main Category Clothes,Electronics,Phones...etc"
-                    options={this.state.categories}
+                    options={['',...this.state.categories]}
                     optionLettersCase={'text-capitalize'}
                     required = 'required' 
                   />
@@ -269,7 +275,7 @@ export class ProductForm extends Component {
                     error={errors.size}
                     value={this.state.size}
                     info="Item Size small,medium,large.....etc"
-                    options={this.state.sizes}
+                    options={['Unavailable',...this.state.sizes]}
                     optionLettersCase={'text-uppercase'} 
                   />
                   <div className="form-check mb-1">

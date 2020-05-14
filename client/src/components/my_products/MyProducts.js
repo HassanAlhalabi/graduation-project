@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import Breadcrumb from '../common/Breadcrumb';
 import CategoriesBar from '../common/CategoriesBar';
 import FilterBox from '../common/FilterBox';
-import ProductCard from '../product/ProductCard';
 import Spinner from '../common/Spinner';
 
 class MyProducts extends Component {
@@ -46,7 +45,7 @@ class MyProducts extends Component {
                                 
                                 ).map(product => 
                                     <div className='col-12 col-md-6 col-lg-4'>
-                                        <ProductCard key={product.id} product={product} />
+                                        {product.title}
                                     </div>    
                             )
                         }

@@ -27,7 +27,6 @@ let optionsList = options.map(option => <option value={option} className={option
                 onChange={onChange}
                 disabled={disabled}
             >
-          <option value='unavailable'>Unavailable</option>
             {optionsList}
         </select>
         {info && <small className="form-text orange-color font-weight-bold">{info}</small>}
