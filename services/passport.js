@@ -21,14 +21,15 @@ passport.deserializeUser((id, done) => {
 
 //Getting the email from profile object
 let googleEmail;
-const getGoogleEmail = (res) => {
-  for (var i = 0; i < res.emails.length; i++) {
-    if (res.emails[i].type === 'account') {
-      googleEmail = res.emails[i].value;
+const getGoogleEmail = (profile) => {
+  for (var i = 0; i < profile.emails.length; i++) {
+    if (profile.emails[i].type === 'account') {
+      googleEmail = profile.emails[i].value;
     } else {
       googleEmail = '';
     }
   }
+  // console.log(profile);
 };
 
 let facebookEmail;
@@ -91,7 +92,7 @@ passport.use(
               .catch((err) => console.log(err));
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log('Google Strtegy err: ', err));
     },
   ),
 );
