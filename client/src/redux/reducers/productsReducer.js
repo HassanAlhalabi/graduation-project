@@ -82,6 +82,7 @@ const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 const UPDATE_PRODUCT_IN_CART_QUANTITY = 'UPDATE_PRODUCT_IN_CART_QUANTITY';
 const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART'
 const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT'; 
+const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -177,6 +178,14 @@ export default (state = initialState, action) => {
         ...state,
         userProducts : [...state.userProducts , action.payload] 
       }) 
+
+    case UPDATE_PRODUCT:
+      let pid =  action.payload.id;
+      let updatedProductsList = state.userProducts.filter(product => product.id !== pid);
+      return({
+        ...state,
+        userProducts : [...updatedProductsList,action.payload]
+      })
     default:
       return state;
   }
@@ -272,6 +281,17 @@ export const addNewProductDispatch = dispatch => {
     addNewProduct : product => {
       dispatch({
         type: ADD_NEW_PRODUCT,
+        payload: product,
+      })
+    } 
+  })
+}
+
+export const updateProductDispatch = dispatch => {
+  return({
+    updateProduct : product => {
+      dispatch({
+        type: UPDATE_PRODUCT,
         payload: product,
       })
     } 

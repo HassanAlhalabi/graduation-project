@@ -4,7 +4,7 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios';
 
 import {connect} from 'react-redux';
-import {addNewProductDispatch} from '../../redux/reducers/productsReducer';
+import {updateProductDispatch} from '../../redux/reducers/productsReducer';
 
 //import InputGroup from '../common/InputGroup';
 import TextFieldGroup from '../common/TextFieldGroup';
@@ -43,6 +43,28 @@ export class ProductForm extends Component {
 
     myProduct : this.props.myProducts.filter(product => product.id === this.props.match.params.pid * 1)[0]
   };
+
+  componentDidMount() {
+    
+    this.setState({
+      id: this.state.myProduct.id,
+      name: this.state.myProduct.name,
+      price: this.state.myProduct.price,
+      prevPrice: this.state.myProduct.prevPrice,
+      category: this.state.myProduct.category,
+      offer: this.state.myProduct.offer,
+      availableQuantity: this.state.myProduct.availableQuantity,
+      brand: this.state.myProduct.brand,
+      size: this.state.myProduct.size,
+      color: this.state.myProduct.color,
+      description: this.state.myProduct.description,
+      image: this.state.myProduct.image,
+    })
+    if(this.state.myProduct.offer === true) {
+      this.setState({offerDisabled : false})
+    }
+
+  }
 
   onChange = e => {
     this.setState({
@@ -129,7 +151,7 @@ export class ProductForm extends Component {
     // ******* Validate Data *******
 
     let productProps = {
-      id: Math.ceil(Math.random(1) * 100000000000),
+      id: this.state.id,
       name: this.state.name,
       price: this.state.price * 1,
       prevPrice: this.state.prevPrice * 1,
@@ -182,7 +204,7 @@ export class ProductForm extends Component {
 
     //if there is no errors:
     if(Object.keys(errors).length === 0) {
-      this.props.addNewProduct(productProps)
+      this.props.updateProduct(productProps)
     }
   }
 
@@ -234,8 +256,7 @@ export class ProductForm extends Component {
                       className="form-check-input"
                       type="checkbox"
                       name="offer"
-                      value={myProduct.offer}
-                      checked={myProduct.offer}
+                      checked={this.state.offer}
                       onChange={this.onOfferChecked}
                       id="offer"
                     />
@@ -339,9 +360,9 @@ export class ProductForm extends Component {
               </div>  
               <div className='col-md-6'> 
                 {this.state.errors.image && <div className="alert alert-danger rounded-0 text-capitalize">{this.state.errors.image}</div>} 
-                {/* <div className='product-imgs-preview d-flex'>
-                  <img id="output_image"/>
-                </div> */}
+                <div className='product-imgs-preview d-flex mb-3'>
+                  <img id="output_image" src={myProduct.image} width='200px' height='200px'/>
+                </div>
                 <Dropzone
                   onDrop={this.handleOnDrop}
                   multiple
@@ -395,4 +416,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps,addNewProductDispatch)(ProductForm);
+export default connect(mapStateToProps,updateProductDispatch)(ProductForm);
