@@ -15,22 +15,33 @@ import SectionTitle from '../common/SectionTitle';
 export class ProductForm extends Component {
 
   state = {
+
+    id: '',
     name: '',
     price: 0,
     prevPrice: 0,
-    category: 'unavailable',
+    category: '',
     offer: false,
     availableQuantity: 0,
     brand: 'unavailable',
     size: 'unavailable',
     color: 'unavailable',
     description: '',
-    image: 'https://via.placeholder.com/450',
+    image: '',
+
     errors: {},
     offerDisabled: true,
     colorDisabled: true,
-    categories: ['men clothes','women clothes','phones','accessories'],
-    sizes: ['sm','md','lg','xl']
+    categories: [
+                  'men clothes',
+                  'women clothes',
+                  'phones & accessories',
+                  'computer & office',
+                  'consumer electronics',
+                  'jewlery & watches'],
+    sizes: ['sm','md','lg','xl'],
+
+    myProduct : this.props.myProducts.filter(product => product.id === this.props.match.params.pid * 1)[0]
   };
 
   onChange = e => {
@@ -141,7 +152,7 @@ export class ProductForm extends Component {
       }
     })
 
-    // .... Check for price input
+    // .... Check for price inputcc
     
     if(productProps.price === 0) {
       errors['price'] = 'Product Price is Required'
@@ -179,14 +190,16 @@ export class ProductForm extends Component {
 
   render() {
     
-    const { errors } = this.state;
+    const { errors , myProduct } = this.state;
+
+    console.log(this.state)
 
     return (
       <div className="add-product">
         <div className="container">
-          <SectionTitle title={'Add new product'}/>
+          <SectionTitle title={'Update product'}/>
           <p className="lead mb-5">
-            Add a new product, and make sure to include any details with
+            Update product, and make sure to include any details with
             specifications.
           </p>
           <form>
@@ -202,7 +215,7 @@ export class ProductForm extends Component {
                     onChange={this.onChange}
                     type="text"
                     error={errors.name}
-                    value={this.state.name}
+                    value={myProduct.name}
                     info="Be specific"
                     required='required'
                   />
@@ -212,7 +225,7 @@ export class ProductForm extends Component {
                     onChange={this.onChange}
                     type="number"
                     error={errors.price}
-                    // value={this.state.price}
+                    value={myProduct.price}
                     info="Product selling price in USD$ currency"
                     required='required'
                   />
@@ -221,8 +234,8 @@ export class ProductForm extends Component {
                       className="form-check-input"
                       type="checkbox"
                       name="offer"
-                      value={this.state.offer}
-                      checked={this.state.offer}
+                      value={myProduct.offer}
+                      checked={myProduct.offer}
                       onChange={this.onOfferChecked}
                       id="offer"
                     />
@@ -236,7 +249,7 @@ export class ProductForm extends Component {
                     onChange={this.onChange}
                     type="number"
                     error={errors.prevPrice}
-                    // value={this.state.prevPrice}
+                    value={myProduct.prevPrice}
                     info="Product selling price in USD$ currency before this offer takes place"
                     disabled={this.state.offerDisabled ? 'disabled' : ''}
                     required = 'required'
@@ -245,9 +258,9 @@ export class ProductForm extends Component {
                     name="category"
                     onChange={this.onChange}
                     error={errors.category}
-                    value={this.state.category}
+                    value={myProduct.category}
                     info="Item Main Category Clothes,Electronics,Phones...etc"
-                    options={this.state.categories}
+                    options={['',...this.state.categories]}
                     optionLettersCase={'text-capitalize'}
                     required = 'required' 
                   />
@@ -257,50 +270,47 @@ export class ProductForm extends Component {
                     onChange={this.onChange}
                     type="text"
                     error={errors.brand}
-                    value={this.state.brand}
+                    value={myProduct.brand}
                     info="Item Brand"
                   />
                   <SelectInput
                     name="size"
                     onChange={this.onChange}
                     error={errors.size}
-                    value={this.state.size}
+                    value={myProduct.size}
                     info="Item Size small,medium,large.....etc"
-                    options={this.state.sizes}
+                    options={['Unavailable',...this.state.sizes]}
                     optionLettersCase={'text-uppercase'} 
                   />
-                  <div>
-                    <div className="form-check mb-1">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        name="color-check"
-                        value={this.state.color}
-                        onChange={this.onColorChecked}
-                        id="color-check"
-                      />
-                      <label htmlFor="current" className="form-check-label">
-                        Choose Color
-                      </label>
-                    </div>
-                    <TextFieldGroup
-                      name="color"
-                      onChange={this.onChange}
-                      type="color"
-                      disabled={this.state.colorDisabled}
-                      error={errors.color}
-                      // value={this.state.color}
-                      info="Item Color..
-                      (MAKE SURE THE COLOR IN THE SQUARE HAS CHANGED AND CHECKBOX IS CHECKED!!)"
-                      />
+                  <div className="form-check mb-1">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      name="color-check"
+                      onChange={this.onColorChecked}
+                      id="color-check"
+                    />
+                    <label htmlFor="current" className="form-check-label">
+                      Choose Color
+                    </label>
                   </div>
+                  <TextFieldGroup
+                    name="color"
+                    onChange={this.onChange}
+                    type="color"
+                    error={errors.color}
+                    info="Item Color...MAKE SURE COLOR HAS BEEN CAHNGED INSIDE BOX"
+                    disabled={this.state.colorDisabled ? 'disabled' : ''}
+                    id='color'
+                    value={myProduct.color}
+                  />
                   <TextFieldGroup
                     placeholder="Available Quantity For Selling"
                     name="availableQuantity"
                     onChange={this.onChange}
                     type="number"
                     error={errors.availableQuantity}
-                    // value={this.state.quantity}
+                    value={myProduct.availableQuantity}
                     info="The exact number of this product items which available for selling"
                     required = 'required'
                   />
@@ -319,7 +329,7 @@ export class ProductForm extends Component {
                     placeholder="Product Description"
                     className="mt-4"
                     name="description"
-                    value={this.state.description}
+                    value={myProduct.description}
                     onChange={this.onChange}
                     error={errors.description}
                     info="A brief description about the product"
@@ -365,7 +375,7 @@ export class ProductForm extends Component {
                 </small>
                 <div className='mt-5'>
                   <button type='submit' className="btn btn-primary btn-lg" onClick={this.handleSubmit}>
-                    Add Product
+                    Update Product
                   </button>
                 </div>
               </div>
@@ -378,5 +388,11 @@ export class ProductForm extends Component {
 }
 
 
+const mapStateToProps = state => {
+  return({
+    myProducts : state.products.userProducts
+  })
+}
 
-export default connect(null,addNewProductDispatch)(ProductForm);
+
+export default connect(mapStateToProps,addNewProductDispatch)(ProductForm);

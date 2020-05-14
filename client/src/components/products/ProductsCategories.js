@@ -40,7 +40,7 @@ class ProductsCategories extends Component {
                 },
                 {
                     cid : 4,
-                    cName: ' computer & office',
+                    cName: 'computer & office',
                     cImage: ComputersImage
                 },
                 {

@@ -1,11 +1,73 @@
 import axios from 'axios';
 //import isEmpty from '../../validation/is-empty';
 
+const sampleProducts = [{
+      id: 1,
+      name: 'black jeans',
+      price: 4,
+      prevPrice: 5,
+      category: 'men clothes',
+      offer: true,
+      availableQuantity: 10,
+      brand: 'nike',
+      size: 'sm',
+      color: '#34ffaa',
+      description: 'Lorem ipsum or lipsum as text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thoue Finibus Bonorum et Malorum for use in a type specimen book',
+      image: 'https://picsum.photos/200',
+      pending: false
+},
+{
+      id: 2,
+      name: 'bag',
+      price: 12,
+      prevPrice: 19,
+      category: 'women clothes',
+      offer: true,
+      availableQuantity: 6,
+      brand: 'prada',
+      size: 'lg',
+      color: '#fa34aa',
+      description: 'Lorem ipsum, or lipsum as it o have scramb Finibus Bonorum et Malorum for use in a type specimen book.',
+      image: 'https://picsum.photos/200',
+      pending: false
+},
+{
+      id: 4,
+      name: 'Smart watch',
+      price: 90,
+      prevPrice: 99.99,
+      category: 'jewlery & watches',
+      offer: true,
+      availableQuantity: 167,
+      brand: 'samsung',
+      size: 'sm',
+      color: '#e2e2e2',
+      description: 'Lorem ipsum, or lipsum as it is sometimes known.',
+      image: 'https://picsum.photos/200',
+      pending: false
+},
+{
+      id: 3,
+      name: 'asus laptop',
+      price: 600,
+      prevPrice: 850,
+      category: 'computer & office',
+      offer: true,
+      availableQuantity: 80,
+      brand: 'HP',
+      size: 'md',
+      color: '#123456',
+      description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero De Finibus Bonorum et Malorum for use in a type specimen book.',
+      image: 'https://picsum.photos/200',
+      pending: false
+},
+]
+
 //Define initial state value
 const initialState = {
   products: [],
   product: [],
-  userProducts: [],
+  userProducts: sampleProducts,
   productsInCart: [],
   loading: true
 };

@@ -10,6 +10,30 @@ body {
   perspective: 1000;
 }
 
+/********** Scroll bar style  ***********/
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #F8694A;
+  border-radius: 4px
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 p { color: #717171;}
 
 a {
@@ -1072,4 +1096,39 @@ footer button:focus {
 
 .profile .profile-info .user-avatar img {
   
+}
+
+/* **************************** MyProducts component style ************************** */
+
+.my-product-view {
+  background-color : #30323a;
+  color: #FFF !important
+}
+
+.my-product-view .product-name {
+  font-size: 21px;
+  text-transform: uppercase
+}
+
+.my-product-view .price {
+  color: #F8694A;
+  font-weight: bold;
+  font-size: 18px
+}
+
+.my-product-view .prev-price {
+  font-size: 16px;
+  color: #CCC
+}
+
+.my-product-view p {
+  color: #FFF;
+  margin: auto;
+  height: 115px;
+  overflow: auto;
+  padding-right: 10px
+}
+
+.my-product-view hr {
+  border-top-color : #F8694A
 }

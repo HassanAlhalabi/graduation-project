@@ -4,48 +4,90 @@ import {connect} from 'react-redux';
 
 import Breadcrumb from '../common/Breadcrumb';
 import CategoriesBar from '../common/CategoriesBar';
-import FilterBox from '../common/FilterBox';
+import MyProductView from './MyProductView';
 import Spinner from '../common/Spinner';
 
 class MyProducts extends Component {
 
     constructor(props){
-        super(props);
+        super(props)
         this.state = {
-            filterParams: {
-                price : 1000,
-                colors: this.props.myProducts.map(product => product.color),
-                brand : 'all',
-                size  : 'all',
-            },
+            myProducts: this.props.myProducts,
+            loading: this.props.loading,
+            searchInput : '',
         }
     }
 
-    getFilterParameters = params => {
-        this.setState({filterParams : params})
+    handleSearchInput = () => {
+        let searchInput = document.getElementById('search').value;
+        this.setState({searchInput : searchInput})
+    }
+
+    sortAZ = () => {
+        this.setState({
+            myProducts: this.state.myProducts.sort( (a,b) => {
+                if(a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
+                if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
+                return 0;
+            }),
+        })
+    }
+    
+    sortZA = () => {
+        this.setState({
+            myProducts: this.state.myProducts.sort( (a,b) => {
+                if(a.name.toLowerCase() < b.name.toLowerCase()) { return 1; }
+                if(a.name.toLowerCase() > b.name.toLowerCase()) { return -1; }
+                return 0;
+            }),
+        })
+    }
+
+    handleDelete = id => {
+        alert('Are you sure you want to delete this product '+ id)
     }
 
     render(){
 
-        const { loading , myProducts }  = this.props;
-        console.log(this.state.filterParams.colors)
+        const { loading , myProducts }  = this.state;
+        
 
         let productContent = loading ? <Spinner /> : // Loading is true => show spinner
                                                      // Loading is false => show products container
                 
                     myProducts.length > 0
                     ?
-                    <div className="row"> 
-                        {
-                            myProducts.filter( product => 
-                                
-                                // Filter Parameters
-                                product.price <= this.state.filterParams.price
-                                
-                                
-                                ).map(product => 
-                                    <div className='col-12 col-md-6 col-lg-4'>
-                                        {product.title}
+
+                    <div>
+                        <div className='mb-3 mb-sm-0'>
+                            <div className='row'>
+                                <div className='col-12 col-sm-6'>
+                                    <div className='search-my-products form-group'>
+                                        <div className='position-relative'> 
+                                            <input 
+                                                type='search'
+                                                placeholder='Search my products ...' 
+                                                className='form-control rounded-0 w-100 p-3'
+                                                onKeyUp={this.handleSearchInput}
+                                                id='search'
+                                            />
+                                        </div>                                        
+                                    </div>
+                                </div>
+                                <div className='col-12 col-sm-6'>
+                                    <div className='sort text-left text-sm-right'>
+                                        <button className='btn btn-primary' id='az' onClick={this.sortAZ}>A - Z</button>
+                                        <button className='btn btn-primary ml-3' id='za' onClick={this.sortZA}>Z - A</button>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>    
+                        {   
+                            myProducts.filter(product => {
+                                return(product.name.toLowerCase().includes(this.state.searchInput));
+                            }).map(product => 
+                                    <div key={product.id}>
+                                        <MyProductView product={product} handleDelete={this.handleDelete}/>
                                     </div>    
                             )
                         }
@@ -61,17 +103,8 @@ class MyProducts extends Component {
             <div className='products'>
                 <CategoriesBar />
                 <Breadcrumb page='My Products'/>
-                <div className='container mt-5'>
-                    <div className='row'>
-                        {/* Filter Box */}
-                        <div className='col-12 col-md-3'>
-                            <FilterBox filterParams={ this.getFilterParameters} colors={this.state.filterParams.colors}/>
-                        </div>
-                        {/* Products Show */}
-                        <div className='col-12 col-sm-6 col-md-9'>
-                            {productContent}
-                        </div>
-                    </div>    
+                <div className='container mt-5 mb-5'>
+                    {productContent}      
                 </div>
             </div>
 
