@@ -16,10 +16,10 @@ class BillingShiping extends Component {
                     <div className='row'>
 
                         <div className='col-12 col-md-6'>
-                            <Billing />
+                            <Billing/>
                         </div>
                         <div className='col-12 col-md-6'>
-                            <Shipping />
+                            <Shipping/>
                         </div>
 
                     </div>

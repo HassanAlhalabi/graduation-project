@@ -8,15 +8,6 @@ import OrderTotal from './OrderTotal'
 
 class OrderReview extends Component {
 
-    constructor(){
-        super();
-
-        this.state = {
-            shipping: 0,
-        }
-
-    }
-
     // Remove product function
     removeProduct = id => this.props.removeProductFromCart(id)
 
@@ -36,7 +27,8 @@ class OrderReview extends Component {
 
     render(){
 
-        let {productsInCart} = this.props; 
+        let {productsInCart,shippingMethod} = this.props; 
+        let shippingValue = shippingMethod === 'free' ? 0 : 4;
         
         if(productsInCart.length > 0) { 
         
@@ -83,8 +75,8 @@ class OrderReview extends Component {
                         </table>
                     </div>
                     <OrderTotal 
-                                subtotal={this.getSubtotal()} shippingDesc={'Free Shipping'} 
-                                total={(this.getSubtotal()*1 + this.state.shipping)}/>
+                                subtotal={this.getSubtotal()} shippingDesc={shippingMethod === 'free' ? 'Free' : 'Standard'} 
+                                total={(this.getSubtotal()*1 + shippingValue)}/>
                 </div>
             </div>
 
@@ -95,7 +87,7 @@ class OrderReview extends Component {
                     <div className='container'>
                         <SectionTitle title={'Order Review'}/>
                         <div>
-                            <p className='alert alert-orange rounded-0'>No Products Ordrs In Cart !!</p>
+                            <p className='alert alert-orange rounded-0'>No Products In Cart !!</p>
                         </div>
                     </div>
                 </div>        
@@ -107,6 +99,7 @@ class OrderReview extends Component {
 const mapStateToProps = state => {
     return({
         productsInCart : state.products.productsInCart,
+        shippingMethod : state.products.shippingMethod,
         loading : state.products.loading
     })
 }

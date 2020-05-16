@@ -69,6 +69,7 @@ const initialState = {
   product: [],
   userProducts: sampleProducts,
   productsInCart: [],
+  shippingMethod: 'free',
   loading: true
 };
 
@@ -80,7 +81,8 @@ const CLEAR_USER_PRODUCTS = 'CLEAR_USER_PRODUCTS';
 const SET_LOADING = 'SET_LOADING';
 const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 const UPDATE_PRODUCT_IN_CART_QUANTITY = 'UPDATE_PRODUCT_IN_CART_QUANTITY';
-const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART'
+const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART';
+const CHANGE_SHIPPING_METHOD = 'CHANGE_SHIPPING_METHOD';
 const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT'; 
 const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 const DELETE_PRODUCT = 'DELETE_PRODUCT';
@@ -176,6 +178,12 @@ export default (state = initialState, action) => {
             {...product,quantity :  action.payload.newQuantity} : product)
         })
       }
+
+    case CHANGE_SHIPPING_METHOD:  
+      return({
+        ...state,
+        shippingMethod: action.payload
+      })
 
     case ADD_NEW_PRODUCT:
       return({
@@ -282,6 +290,17 @@ export const productInCartDispatch = dispatch => {
             newQuantity : newQuantity
         }
     })} 
+  })
+}
+
+export const changeShippingMethodDispatch = dispatch => {
+  return({
+    changeShippingMethod : method => {
+      dispatch({
+        type: CHANGE_SHIPPING_METHOD,
+        payload: method
+      })
+    }
   })
 }
 

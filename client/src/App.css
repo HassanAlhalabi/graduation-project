@@ -887,6 +887,8 @@ footer input[type='email']:focus {
     height: 100px;
 }
 
+.order-review table tbody td.pricing .pre_price {text-decoration: line-through;}
+
 .order-review table tbody td.quantity {
   width: 150px;
 }

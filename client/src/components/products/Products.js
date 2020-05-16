@@ -51,7 +51,7 @@ class Products extends Component {
                         
                         
                         ).map(product => 
-                            <div className='col-12 col-md-6 col-lg-4'>
+                            <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
                                 <ProductCard key={product._id} product={product} />
                             </div>    
                     )
@@ -69,16 +69,14 @@ class Products extends Component {
                 <div className='container mt-5  mb-5'>
                     <div className='row'>
                         {/* Filter Box */}
-                        <div className='col-12 col-md-3'>
+                        <div className='col-12 col-md-3 mb-3'>
                             <FilterBox 
                                         filterParams={ this.getFilterParameters } 
                             />
                         </div>
                         {/* Products Show */}
-                        <div className='col-12 col-sm-6 col-md-9'>
-                            <div className='row m-0'>
-                                {productContent}
-                            </div>
+                        <div className='col-12 col-md-9'>
+                            {productContent}
                         </div>
                     </div>    
                 </div>
