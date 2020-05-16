@@ -72,7 +72,7 @@ class Products extends Component {
                         <div className='col-12 col-md-3'>
                             <FilterBox 
                                         filterParams={ this.getFilterParameters } 
-                                        availableColors={this.state.colors}/>
+                            />
                         </div>
                         {/* Products Show */}
                         <div className='col-12 col-sm-6 col-md-9'>
