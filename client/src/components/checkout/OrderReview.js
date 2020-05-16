@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import {connect} from 'react-redux';
-import {updateProductInCartQuantityDispatch,removeProductFromCartDispatch} from '../../redux/reducers/productsReducer'
+import {productInCartDispatch} from '../../redux/reducers/productsReducer'
 import SectionTitle from  '../common/SectionTitle';
 
 import Order from './Order';
@@ -8,11 +8,10 @@ import OrderTotal from './OrderTotal'
 
 class OrderReview extends Component {
 
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
 
         this.state = {
-            productsInCart : this.props.productsInCart,
             shipping: 0,
         }
 
@@ -31,17 +30,19 @@ class OrderReview extends Component {
 
     getSubtotal = () => {
         let subtotal = 0;
-        this.state.productsInCart.map( product => subtotal += ( product.price * product.quantity ))
+        this.props.productsInCart.map( product => subtotal += ( product.price * product.quantity ))
         return(subtotal.toFixed(2))
     }
 
     render(){
-        console.log(this.state.productsInCart)
-        if(this.state.productsInCart.length > 0) { 
+
+        let {productsInCart} = this.props; 
+        
+        if(productsInCart.length > 0) { 
         
             return (
 
-                <div className='order-review'>
+                <div className='order-review mb-5'>
                     <div className='container'>
                         
                         <SectionTitle title={'Order Review'}/>
@@ -58,7 +59,7 @@ class OrderReview extends Component {
                                 <tbody>
                                     {  
                     
-                                        this.state.productsInCart.map(product => {
+                                        productsInCart.map(product => {
                                             
                                                 return(
                                                     <Order 
@@ -112,4 +113,4 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps,removeProductFromCartDispatch)(OrderReview);
+export default connect(mapStateToProps,productInCartDispatch)(OrderReview);

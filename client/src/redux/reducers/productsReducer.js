@@ -166,12 +166,15 @@ export default (state = initialState, action) => {
     case UPDATE_PRODUCT_IN_CART_QUANTITY:
       let updatedProduct = state.productsInCart.filter(product => product.id === action.payload.id)
       let avaQuantity = updatedProduct[0].availableQuantity
-      console.log('updatedProduct : ', updatedProduct)
-      console.log('available quantity', avaQuantity)
       if(action.payload.newQuantity > avaQuantity || action.payload.newQuantity === 0) {
         alert('Unavailable Quantity!! Minimum Quantity is 0 and Maximum Quantity is '+availableQuantity)
       } else {
-        console.log('updating quantity')  
+        return({
+          ...state,
+          productsInCart : state.productsInCart.map(product =>
+            product.id === action.payload.id ? 
+            {...product,quantity :  action.payload.newQuantity} : product)
+        })
       }
 
     case ADD_NEW_PRODUCT:
@@ -263,27 +266,22 @@ export const addProductToCartDispatch = dispatch => {
   })
 }
 
-export const removeProductFromCartDispatch = dispatch => {
+export const productInCartDispatch = dispatch => {
   console.log('remove product from cart dispatch')
   return({
     removeProductFromCart : id => {
           dispatch({
               type: REMOVE_PRODUCT_FROM_CART,
               payload: id
-          })
-      }
-  })
-}
-
-export const updateProductInCartQuantityDispatch = dispatch => {
-  return({
-      updateProduct: (id,newQuantity) => {dispatch({
-          type :  UPDATE_PRODUCT_IN_CART_QUANTITY,
-          payload: {
-              id : id,
-              newQuantity : newQuantity
-          }
-      })}
+          })      
+      } ,
+    updateProduct: (id,newQuantity) => {dispatch({
+        type :  UPDATE_PRODUCT_IN_CART_QUANTITY,
+        payload: {
+            id : id,
+            newQuantity : newQuantity
+        }
+    })} 
   })
 }
 
