@@ -14,11 +14,10 @@ class MyProducts extends Component {
     constructor(props){
         super(props)
         this.state = {
-            myProducts: this.props.myProducts,
-            loading: this.props.loading,
             searchInput : '',
         }
     }
+
 
     handleSearchInput = () => {
         let searchInput = document.getElementById('search').value;
@@ -51,8 +50,7 @@ class MyProducts extends Component {
 
     render(){
 
-        const { loading , myProducts }  = this.state;
-        
+        const { loading , myProducts }  = this.props;
 
         let productContent = loading ? <Spinner /> : // Loading is true => show spinner
                                                      // Loading is false => show products container
