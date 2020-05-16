@@ -111,6 +111,8 @@ const MyProductView = ({product,handleDelete}) => {
     }
 
     return(
+        <div>
+            {product.pending ? <div className='pending-tag p-2'>Pending</div> : null}
             <div className='my-product-view mb-4 p-2'>
                 <div className='row'>
                     <div className='col-6 col-lg-2'>
@@ -185,7 +187,7 @@ const MyProductView = ({product,handleDelete}) => {
                     </div>
                 </div>
             </div>
-
+        </div>
     )        
 }
 export default MyProductView;    

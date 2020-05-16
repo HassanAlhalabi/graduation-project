@@ -44,7 +44,7 @@ const sampleProducts = [{
       color: '#e2e2e2',
       description: 'Lorem ipsum, or lipsum as it is sometimes known.',
       image: 'https://picsum.photos/200',
-      pending: false
+      pending: true
 },
 {
       id: 3,
@@ -59,7 +59,7 @@ const sampleProducts = [{
       color: '#123456',
       description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero De Finibus Bonorum et Malorum for use in a type specimen book.',
       image: 'https://picsum.photos/200',
-      pending: false
+      pending: true
 },
 ]
 

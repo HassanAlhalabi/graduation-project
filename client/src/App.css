@@ -1132,3 +1132,9 @@ footer button:focus {
 .my-product-view hr {
   border-top-color : #F8694A
 }
+
+.pending-tag {
+  color: #FFF;
+  background-color: #F8694A;
+  display: inline-block;
+}
