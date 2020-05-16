@@ -6,7 +6,7 @@ const sampleProducts = [{
       name: 'black jeans',
       price: 4,
       prevPrice: 5,
-      category: 'men clothes',
+      category: 'Men Clothing',
       offer: true,
       availableQuantity: 10,
       brand: 'nike',
@@ -21,7 +21,7 @@ const sampleProducts = [{
       name: 'bag',
       price: 12,
       prevPrice: 19,
-      category: 'women clothes',
+      category: 'women clothing',
       offer: true,
       availableQuantity: 6,
       brand: 'prada',
@@ -83,6 +83,7 @@ const UPDATE_PRODUCT_IN_CART_QUANTITY = 'UPDATE_PRODUCT_IN_CART_QUANTITY';
 const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART'
 const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT'; 
 const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+const DELETE_PRODUCT = 'DELETE_PRODUCT';
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -186,6 +187,16 @@ export default (state = initialState, action) => {
         ...state,
         userProducts : [...updatedProductsList,action.payload]
       })
+
+    case  DELETE_PRODUCT:
+      let delete_pid =  action.payload
+      let newProductsList = state.userProducts.filter(product => product.id !== delete_pid);
+      alert('are you sure!!')
+      return({
+        ...state,
+        userProducts: newProductsList
+      })
+
     default:
       return state;
   }
@@ -293,6 +304,17 @@ export const updateProductDispatch = dispatch => {
       dispatch({
         type: UPDATE_PRODUCT,
         payload: product,
+      })
+    } 
+  })
+}
+
+export const deleteProductDispatch = dispatch => {
+  return({
+    deleteProduct : pid => {
+      dispatch({
+        type: DELETE_PRODUCT,
+        payload: pid,
       })
     } 
   })

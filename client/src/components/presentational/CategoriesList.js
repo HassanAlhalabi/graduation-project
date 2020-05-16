@@ -6,27 +6,27 @@ class CategoriesList extends Component {
         return(
             <ul className='list-inline upper-text category-list m-0'>
                 <li className='pl-0 pr-0'>
-                    <Link to="/products/products-categories/women's-clothing">
+                    <Link to="/products/products-categories/women clothing">
                         women's clothing
                     </Link>
                 </li>
                 <li className='pl-0 pr-0'>
-                    <Link to="/products/products-categories/men's-clothing">
+                    <Link to="/products/products-categories/men clothing">
                         men's clothing
                     </Link>
                 </li>
                 <li className='pl-0 pr-0'>
-                    <Link to='/products/products-categories/phones-&-accessories'>
+                    <Link to='/products/products-categories/phones & accessories'>
                         phones & accessories
                     </Link>
                 </li>
                 <li className='pl-0 pr-0'>
-                    <Link to='/products/products-categories/computer-&-office'>
+                    <Link to='/products/products-categories/computer & office'>
                         computer & office
                     </Link>
                 </li>
                 <li className='pl-0 pr-0'>
-                    <Link to='/products/products-categories/consumer-electronics'>
+                    <Link to='/products/products-categories/consumer electronics'>
                         consumer electronics
                     </Link>
                 </li>

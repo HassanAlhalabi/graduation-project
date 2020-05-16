@@ -9,6 +9,7 @@ import CategoriesBar from '../common/CategoriesBar';
 import Breadcrumb from '../common/Breadcrumb';
 import Catgory from './Category';
 import ProductCard from '../product/ProductCard';
+import FilterBox from '../common/FilterBox';
 
 import MenImage from '../common/img/men-category.jpg';
 import womenImage from '../common/img/women-category.jpg';
@@ -19,8 +20,9 @@ import JewlsWatchesImage from '../common/img/jewls-watches-category.jpg';
 
 class ProductsCategories extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+
         this.state = {
             categories : [
                 {
@@ -53,7 +55,9 @@ class ProductsCategories extends Component {
                     cName: 'jewlery & watches',
                     cImage: JewlsWatchesImage
                 },
-            ]
+            ],
+            products :  this.props.products,
+            loading : this.props.loading
         }
     }
 
@@ -61,9 +65,8 @@ class ProductsCategories extends Component {
 
         let category = this.props.match.params.category;
         category = category ? category : 'all' ;
-        let loading = this.props.loading;
-        let productsOfCategory = this.props.products.filter(product => product.category === category)
-        
+        let loading = this.state.loading;
+        let productsOfCategory = this.state.products.filter(product => product.category.toLowerCase() === category.toLowerCase())
         let productsCategoriesContent = category === 'all' ?
 
             <div className='row'>
@@ -79,16 +82,21 @@ class ProductsCategories extends Component {
             : loading ? <Spinner /> : 
                 productsOfCategory.length > 0 ?
                     <div className='row'> 
+                        <div className='col-12 col-md-3'>
+                            <FilterBox />
+                        </div>
+                        <div className='col-12 col-md-9'>
                         {productsOfCategory.map(product => 
-                            
-                            <div className='col-12 col-md-4 col-lg-3'>
-                                <ProductCard key={product._id} product={product} />
+                            <div className='row'> 
+                                <div className='col-12 col-md-4'>
+                                    <ProductCard key={product._id} product={product} />
+                                </div>
                             </div>
-
                         )}
+                        </div>
                     </div> 
                 : <div className='mt-5'>
-                        <p className='alert alert-orange'>No Such A Category !!!</p>
+                        <p className='alert alert-orange'>No Products !!!</p>
                     </div>;
 
         category = category ? category.split('-').join(' ') : 'All';                    
@@ -98,8 +106,8 @@ class ProductsCategories extends Component {
                 <CategoriesBar />
                 <Breadcrumb page={'Products / Products-Categories / ' + category }/>
 
-                <div className='container mt-4'> 
-                      {productsCategoriesContent}
+                <div className='container mt-4'>        
+                    {productsCategoriesContent}      
                 </div>
             </div>
         );
@@ -115,9 +123,9 @@ ProductsCategories.propTypes = {
 
 const mapStateToProps = state => {
     return({
-        products: state.products.products,
+        products: state.products.userProducts,
         loading: state.products.loading 
     });
 }
 
-export default connect(mapStateToProps, getProducts )(ProductsCategories);
+export default connect(mapStateToProps, null )(ProductsCategories);

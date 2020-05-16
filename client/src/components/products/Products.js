@@ -66,7 +66,7 @@ class Products extends Component {
             <div className='products'>
                 <CategoriesBar />
                 <Breadcrumb page='Products'/>
-                <div className='container mt-5'>
+                <div className='container mt-5  mb-5'>
                     <div className='row'>
                         {/* Filter Box */}
                         <div className='col-12 col-md-3'>

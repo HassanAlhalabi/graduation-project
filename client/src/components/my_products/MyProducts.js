@@ -7,6 +7,8 @@ import CategoriesBar from '../common/CategoriesBar';
 import MyProductView from './MyProductView';
 import Spinner from '../common/Spinner';
 
+import {deleteProductDispatch} from '../../redux/reducers/productsReducer';
+
 class MyProducts extends Component {
 
     constructor(props){
@@ -44,7 +46,7 @@ class MyProducts extends Component {
     }
 
     handleDelete = id => {
-        alert('Are you sure you want to delete this product '+ id)
+        this.props.deleteProduct(id)
     }
 
     render(){
@@ -119,4 +121,4 @@ const mapStateToProps = state => {
     })
 }
 
-export default connect(mapStateToProps,null)(MyProducts);
+export default connect(mapStateToProps,deleteProductDispatch)(MyProducts);
