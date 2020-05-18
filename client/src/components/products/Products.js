@@ -17,14 +17,10 @@ class Products extends Component {
         this.state = {
             filterParams: {
                 price : 1000,
-                colors: [],
+                category: 'all',
                 brand : 'all',
                 size  : 'all',
             },
-            // colors: this.props.products.map(product =>
-            //     product.color
-            // )
-            colors : ['RED']
         }
     }
 
@@ -34,9 +30,10 @@ class Products extends Component {
     
     
     render() {
-
-        const { loading , products }  = this.props;
+        const loading = false;
+        const { products }  = this.props;
         console.log(products)
+        console.log(this.state.filterParams)
 
         let productContent = loading ? <Spinner /> : // Loading is true => show spinner
                                                      // Loading is false => show products container
@@ -47,8 +44,25 @@ class Products extends Component {
                     products.filter( product => 
                         
                         // Filter Parameters
-                        product.price <= this.state.filterParams.price
+                        (product.price <= this.state.filterParams.price )
+
+                        &&
+
+                        (this.state.filterParams.category === 'all' ? true : 
                         
+                        (product.category == this.state.filterParams.category))
+
+                        &&
+
+                        (this.state.filterParams.brand === 'all' ? true : 
+                        
+                        (product.brand == this.state.filterParams.brand))
+
+                        &&
+
+                        (this.state.filterParams.size === 'all' ? true : 
+                        
+                        (product.size == this.state.filterParams.size))
                         
                         ).map(product => 
                             <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
@@ -99,4 +113,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, getProducts )(Products);
+export default connect(mapStateToProps,null )(Products);

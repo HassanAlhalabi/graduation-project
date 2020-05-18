@@ -6,7 +6,7 @@ const sampleProducts = [{
       name: 'black jeans',
       price: 4,
       prevPrice: 5,
-      category: 'Men Clothing',
+      category: 'men clothing',
       offer: true,
       availableQuantity: 10,
       brand: 'nike',
@@ -33,7 +33,7 @@ const sampleProducts = [{
 },
 {
       id: 4,
-      name: 'Smart watch',
+      name: 'Smart Satch',
       price: 90,
       prevPrice: 99.99,
       category: 'jewlery & watches',
@@ -65,8 +65,8 @@ const sampleProducts = [{
 
 //Define initial state value
 const initialState = {
-  products: [],
-  product: [],
+  products: sampleProducts,
+  product: [],//Why!!!
   userProducts: sampleProducts,
   productsInCart: [],
   shippingMethod: 'free',

@@ -29,23 +29,14 @@ class FilterBox extends Component {
     handleFilterChange = () => {
 
        let priceParam = document.querySelector('.filter-box form input#range').value;
-       const checkboxes = document.querySelectorAll("input[type='checkbox']")
-       let colors = [];
-       checkboxes.forEach( checkbox => {
-           if(checkbox.checked) {
-               colors.push(checkbox.value)
-               checkbox.parentElement.parentElement.parentElement.classList.add('checked')
-           } else {
-               checkbox.parentElement.parentElement.parentElement.classList.remove('checked')
-           }
-           
-       });
        let brandParam = document.querySelector('.filter-box form #brand').value;
+       let categoryParam = document.querySelector('.filter-box form #category').value;
        let sizeParam = document.querySelector('.filter-box form #size').value;
        let filterParameters = {
            price : priceParam,
-           brand : brandParam,
-           size  : sizeParam,
+           category: categoryParam.toLowerCase(),
+           brand : brandParam.toLowerCase(),
+           size  : sizeParam.toLowerCase(),
        }
 
        this.props.filterParams(filterParameters);
@@ -78,6 +69,20 @@ class FilterBox extends Component {
                                 <span className='max-number' ref={this.max}>$1000</span>
                         </div>
                         </div> 
+                    </div>
+                    <div>
+                        <h5 className='orange-color mb-3'>Filter By Category:</h5>
+                        <div className='category-filter mb-5'>
+                            <select className='form-control rounded-0'id='category'>
+                                <option value='all'>All</option>
+                                <option value='men clothing'>Men Clothing</option>
+                                <option value='Women Clothing'>Women Clothing</option>
+                                <option value='phones & accessories'>Phones & Accessories</option>
+                                <option value='computer & office'>Computer & Office</option>
+                                <option value='consumer electronics'>Consumer Electronics</option>
+                                <option value='jewlery & watches'>Jewlery & Watches</option>
+                            </select>
+                        </div>
                     </div>
                     <div>
                         <h5 className='orange-color mb-3'>Filter By Brand:</h5>
