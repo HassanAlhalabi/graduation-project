@@ -10,6 +10,15 @@ class Productcard extends Component {
 
   render() {
     const { product } = this.props;
+    let ratingFull = [];
+    let ratingEmpty = [];
+
+    for (let index = 0; index < product.rating; index++) {
+        ratingFull.push(<li><i className='fa fa-star'></i></li>)
+    }
+    for (let index = 0; index < (5 - product.rating); index++) {
+        ratingEmpty.push(<li><i className='far fa-star empty'></i></li>)
+    } 
     return (
         <div className="product-grid7">
           <div className="product-image7">
@@ -30,20 +39,19 @@ class Productcard extends Component {
                 </button>
               </li>
             </ul>
-            <span className="product-new-label">New</span>
+            <div className="product-new-label text-center">
+              <div className='new'>New</div>
+              <div className='discount'>-{100 - Math.ceil(( product.price / product.prevPrice) * 100) }%</div>
+            </div>
           </div>
           <div className="product-content">
             <div className='d-flex justify-content-between'>
               <div className="price">
                 ${product.price.toFixed(2)}
-                <span>$20.00</span>
+                <span>${product.prevPrice.toFixed(2)}</span>
               </div>
-              <ul className="rating">
-                <li className="fa fa-star" />
-                <li className="fa fa-star" />
-                <li className="fa fa-star" />
-                <li className="fa fa-star" />
-                <li className="fa fa-star" />
+              <ul className="rating list-inline d-flex">
+                {ratingFull}{ratingEmpty}
               </ul>
             </div>    
             <h3 className="title">

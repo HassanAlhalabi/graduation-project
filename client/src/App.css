@@ -592,13 +592,22 @@ footer input[type='email']:focus {
 .product-grid7 .product-new-label {
   color: #fff;
   background-color: #333;
-  padding: 5px 10px;
-  display: block;
   position: absolute;
   top: 10px;
   left: 10px;
   font-size: 14px;
+  font-weight: 700;
 }
+
+.product-grid7 .product-new-label .new {
+  padding: 2px 10px;
+}
+
+.product-grid7 .product-new-label .discount {
+  padding: 2px 10px;
+  background-color: #F8694A;
+}
+
 .product-grid7 .product-content {
   text-align: center;
   padding: 20px 0 0;

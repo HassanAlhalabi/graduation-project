@@ -65,7 +65,7 @@ class Products extends Component {
                         (product.size == this.state.filterParams.size))
                         
                         ).map(product => 
-                            <div className='col-12 col-sm-6 col-md-6 col-lg-4'>
+                            <div className='col-12 col-sm-6 col-md-6 col-lg-4 mb-3'>
                                 <ProductCard key={product._id} product={product} />
                             </div>    
                     )

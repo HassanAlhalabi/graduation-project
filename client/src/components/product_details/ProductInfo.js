@@ -69,7 +69,7 @@ const ProductInfo = ({info,addProductToCart}) => {
                                 <span className='font-weight-bold span-fw'>Color: </span>
                                 <span style={{backgroundColor:info.color}}></span>
                             </div>
-                            <div className='quantity mt-4 d-flex'>
+                            <div className='quantity mt-4'>
                                 <div className='row'>
                                     <div className='col-12 col-sm-6 mb-4'>
                                         <span className='font-weight-bold span-fw'>Quantity:</span>
