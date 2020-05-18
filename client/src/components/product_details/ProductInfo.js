@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {addProductToCartDispatch} from '../../redux/reducers/productsReducer';
  
 const ProductInfo = ({info,addProductToCart}) => {
-    
+
     const handleAddToCart = () => {
         // ...... Create Product ......... //
         //Get quantity
@@ -43,7 +43,7 @@ const ProductInfo = ({info,addProductToCart}) => {
                                     ${info.price.toFixed(2)}
                                 </span>
                                 <span className='pre-price'>
-                                    ${info.pre_price.toFixed(2)}
+                                    {/* ${info.prevPrice.toFixed(2)} */}
                                 </span>
                             </div>
                             <div className='rating mt-2'>
@@ -98,4 +98,4 @@ const ProductInfo = ({info,addProductToCart}) => {
 
 
 
-export default connect(null,addProductToCartDispatch)(ProductInfo)
+export default connect(null ,addProductToCartDispatch)(ProductInfo)

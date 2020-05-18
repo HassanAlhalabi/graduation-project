@@ -4,6 +4,7 @@ import axios from 'axios';
 const sampleProducts = [{
       id: 1,
       name: 'black jeans',
+      availability: 1,
       price: 4,
       prevPrice: 5,
       category: 'men clothing',
@@ -19,6 +20,7 @@ const sampleProducts = [{
 {
       id: 2,
       name: 'bag',
+      availability: 1,
       price: 12,
       prevPrice: 19,
       category: 'women clothing',
@@ -34,6 +36,7 @@ const sampleProducts = [{
 {
       id: 4,
       name: 'Smart Satch',
+      availability: 1,
       price: 90,
       prevPrice: 99.99,
       category: 'jewlery & watches',
@@ -49,6 +52,7 @@ const sampleProducts = [{
 {
       id: 3,
       name: 'asus laptop',
+      availability: 1,
       price: 600,
       prevPrice: 850,
       category: 'computer & office',
@@ -95,13 +99,13 @@ export default (state = initialState, action) => {
         ...state,
         loading: true
       };
-    case GET_PRODUCTS:
-      console.log('get products reducer');
-      return {
-        ...state,
-        products: action.payload,
-        loading: false
-      };
+    // case GET_PRODUCTS:
+    //   console.log('get products reducer');
+    //   return {
+    //     ...state,
+    //     products: action.payload,
+    //     loading: false
+    //   };
     case GET_PRODUCT:
       console.log('get product reducer');
       return {

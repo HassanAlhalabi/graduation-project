@@ -25,7 +25,7 @@ class Productcard extends Component {
             </Link>
             <ul className="social">
               <li>
-                <button className='btn btn-primary font-weight-bold ml-auto' onClick={() => this.handleAddToCart(product)}>
+                <button className='btn btn-primary font-weight-bold ml-auto' onClick={() => this.handleAddToCart({...product,quantity:1})}>
                   <i className='fas fa-shopping-cart'></i>
                 </button>
               </li>

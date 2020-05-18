@@ -56,12 +56,12 @@ class OrderReview extends Component {
                                                 return(
                                                     <Order 
                                                         id                = {product.id}
-                                                        name              = {product.title}
+                                                        name              = {product.name}
                                                         image             = {product.image}
                                                         size              = {product.size}
                                                         color             = {product.color}
                                                         price             = {product.price}
-                                                        pre_price         = {product.pre_price}
+                                                        prevPrice         = {product.prevPrice}
                                                         availableQuantity = {product.availableQuantity}
                                                         quantity          = {product.quantity}
                                                         updateQuantity    = {() => this.updateQuantity(product.id)}

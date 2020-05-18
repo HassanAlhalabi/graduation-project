@@ -7,7 +7,7 @@ const Order = ({
         size,
         color,
         price,
-        pre_price,
+        prevPrice,
         availableQuantity,
         quantity,
         removeProduct,
@@ -31,7 +31,7 @@ const Order = ({
         </td>
         <td className='pricing'>
             <h5 className='price'>$ {price.toFixed(2)}</h5>
-            <p className='pre_price default-color'>$ {pre_price.toFixed(2)}</p>
+            <p className='pre_price default-color'>$ {prevPrice.toFixed(2)}</p>
         </td>
         <td className='quantity'>
             <div className='form-group'>

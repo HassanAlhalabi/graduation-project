@@ -57,7 +57,7 @@ class ProductsCategories extends Component {
                 },
             ],
             products :  this.props.products,
-            loading : this.props.loading
+            loading : false
         }
     }
 
@@ -72,7 +72,7 @@ class ProductsCategories extends Component {
             <div className='row'>
                 {
                     this.state.categories.map(category => 
-                        <div className='col-12 col-md-4 mb-4' key={category.cid}>
+                        <div className='col-12 col-md-3 mb-4' key={category.cid}>
                             <Catgory name={category.cName} image={category.cImage}/>
                         </div>
                     )  
@@ -81,19 +81,14 @@ class ProductsCategories extends Component {
         
             : loading ? <Spinner /> : 
                 productsOfCategory.length > 0 ?
-                    <div className='row'> 
-                        <div className='col-12 col-md-3'>
-                            <FilterBox />
-                        </div>
-                        <div className='col-12 col-md-9'>
+                    <div> 
                         {productsOfCategory.map(product => 
                             <div className='row'> 
-                                <div className='col-12 col-md-4'>
+                                <div className='col-12 col-sm-6 col-md-4 col-lg-3'>
                                     <ProductCard key={product._id} product={product} />
                                 </div>
                             </div>
                         )}
-                        </div>
                     </div> 
                 : <div className='mt-5'>
                         <p className='alert alert-orange'>No Products !!!</p>
@@ -114,12 +109,6 @@ class ProductsCategories extends Component {
     }
 
 }
-
-ProductsCategories.propTypes = {
-    products: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired,
-    getProducts: PropTypes.func.isRequired
-};
 
 const mapStateToProps = state => {
     return({

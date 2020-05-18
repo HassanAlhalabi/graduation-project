@@ -1,7 +1,6 @@
 import React , {Component} from 'react';
 
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { getProducts } from '../../redux/reducers/productsReducer';
 
 import Breadcrumb from '../common/Breadcrumb';
@@ -17,53 +16,7 @@ class ProductDetails extends Component {
 
         this.state = {
             index: 0,
-            products : [
-                {
-                    id: 1,
-                    title: 'Product name 1',
-                    image: 'https://via.placeholder.com/450',
-                    price: 5.4,
-                    pre_price: 10,
-                    category: 'menclothing',
-                    rating: 4,
-                    availability: 1,
-                    availableQuantity: 1,
-                    brand: 'brand',
-                    size: 'xl',
-                    color: 'red',
-                    description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum  lorem ipsum dolor sit amet lorem ipsum lorem ipsum dolor sit amet lorem ipsum lorem ipsum dolor sit amet lorem ipsum lorem ipsum dolor sit amet lorem ipsum lorem ipsum dolor sit amet lorem ipsum lorem ipsum dolor sit amet lorem ipsum '
-                },
-                {
-                    id: 2,
-                    title: 'Product name 2',
-                    image: 'https://via.placeholder.com/400',
-                    price: 15.4,
-                    pre_price: 20,
-                    category: 'menclothing',
-                    rating: 3,
-                    availability: 1,
-                    availableQuantity: 5,
-                    brand: 'brand',
-                    size: 'lg',
-                    color: 'blue',
-                    description: 'lorem ipsum dolor lorem ipsum dolor  sit amet lorem ipsum dolor sit amet'
-                },
-                {
-                    id: 3,
-                    title: 'Product name 3',
-                    image: 'https://via.placeholder.com/500',
-                    price: 54,
-                    pre_price: 60,
-                    category: 'menclothing',
-                    rating: 3,
-                    availability: 1,
-                    availableQuantity: 3,
-                    brand: 'brand',
-                    size: 'sm',
-                    color: 'green',
-                    description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet'
-                },
-            ]
+            products: this.props.products
         }
 
     }
@@ -123,22 +76,16 @@ class ProductDetails extends Component {
                     </div>
                     <ProductReviews />
                 </div>
-                <PickedForYou products={this.state.products}/>   
+                <PickedForYou />   
             </div>
         );
 
     }
 }
 
-ProductDetails.propTypes = {
-    products: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired,
-    getProducts: PropTypes.func.isRequired
-};
-
 const mapStateToProps = state => ({
-products: state.products.products,
-loading: state.products.loading
+    products: state.products.products,
+    loading: state.products.loading
 });
 
 export default connect(mapStateToProps,getProducts)(ProductDetails);
