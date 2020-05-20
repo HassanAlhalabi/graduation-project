@@ -127,6 +127,7 @@ const sampleProducts = [{
 const initialState = {
   products: sampleProducts,
   product: [],//Why!!!
+  reviews: [],
   userProducts: sampleProducts,
   productsInCart: [],
   shippingMethod: 'free',
