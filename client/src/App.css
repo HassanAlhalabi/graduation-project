@@ -355,9 +355,29 @@ footer input[type='email']:focus {
 
 /* ************* DealsOfTheDay Style ************ */
 
-.pointers .point i {
-  cursor: pointer;
-  color: #F8694A;
+.slick-container {
+  margin: 0px -15px;
+}
+
+.slick-slider .slick-arrow {
+  display:  none !important;
+}
+
+.slick-slider .slick-dots  {
+  top: -40px;
+  right: 8px;
+  display: inline-block;
+  height: 1px;
+  text-align: end;
+}
+
+.slick-slider .slick-dots li button::before {
+  font-size: 12px;
+  color: #F8694A !important;
+}
+
+.slick-slider .slick-slide {
+  padding: 0 15px;
 }
 
 .latest-products .deals-collection-link {

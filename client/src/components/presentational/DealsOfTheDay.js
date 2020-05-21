@@ -5,6 +5,7 @@ import ProductCard from '../product/ProductCard';
 import {Link} from 'react-router-dom';
 import DealsOfTheDayImage from '../common/img/banner14.jpg';
 import Spinner from '../common/Spinner';
+import Slider from 'react-slick';
 
 class DealsOfTheDay extends Component {
 
@@ -19,45 +20,41 @@ class DealsOfTheDay extends Component {
         this.setState({ products: this.props.products})
     }
 
-    componentDidMount() {
-
-        let productContainerWidthOffset = document.querySelector('.latest-products-container').offsetWidth
-        let hiddenElements = [...document.querySelectorAll('.latest-products-container > div')].filter(element => {
-            return element.offsetLeft >= productContainerWidthOffset
-        })
-        let hiddenElementsNumber = hiddenElements.length
-        window.onresize = () => {
-            productContainerWidthOffset = document.querySelector('.latest-products-container').offsetWidth
-            let visibleElements = [...document.querySelectorAll('.latest-products-container > div')].filter(element => {
-                return element.offsetLeft < productContainerWidthOffset
-            })
-    
-            hiddenElements = [...document.querySelectorAll('.latest-products-container > div')].filter(element => {
-                return element.offsetLeft >= productContainerWidthOffset
-            })
-            console.log(visibleElements)
-            hiddenElementsNumber = hiddenElements.length
-        }
-        
-    }
-
     render(){
 
         const products = this.state.products;
+        var settings = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            initialSlide: 0,
+            responsive: [
+              {
+                breakpoint: 1200,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 3,
+                  infinite: true,
+                  dots: true
+                }
+              },
+              {
+                breakpoint: 992,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+              }
+            ]
+          };
 
         return( 
 
-            <div className='latest-products pt-5 pb-5'>
+            <div className='latest-products pt-5 pb-5 overflow-hidden'>
                 <div className='container'>
                     <SectionTitle title={"deals of the day"}/>
-                    <div className='pointers d-flex justify-content-end pb-2'>
-                        <div className='point pl-1'>
-                            <i className='fas fa-circle'></i>
-                        </div>
-                        <div className='point pl-1'>
-                            <i className='fas fa-circle'></i>
-                        </div>
-                    </div>
                     <div className='row h-100'>
                         <div className='col-6 col-lg-3 mb-3'>
                             <div className='position-relative'>
@@ -73,14 +70,16 @@ class DealsOfTheDay extends Component {
                             </div>
                         </div>
                         <div className='col-6 col-lg-9 mb-3'>
-                            <div className='row flex-nowrap overflow-auto latest-products-container'>
+                            <div className='slick-container'>
+                                <Slider {...settings}>
                                 {products.length > 0
                                     ? products.map(product => (
-                                        <div className='col-12 col-lg-4 mb-3' key={product._id}>
+                                        <div key={product._id}>
                                             <ProductCard key={product._id} product={product} />
                                         </div>
                                         ))
                                 : <div className='col-12 col-md-6 col-lg-9 mb-3'><Spinner /></div>}
+                                </Slider>    
                             </div>    
                         </div>
                     </div>
