@@ -355,6 +355,11 @@ footer input[type='email']:focus {
 
 /* ************* DealsOfTheDay Style ************ */
 
+.pointers .point i {
+  cursor: pointer;
+  color: #F8694A;
+}
+
 .latest-products .deals-collection-link {
   bottom: 30px;
   left: 10px;
@@ -425,7 +430,7 @@ footer input[type='email']:focus {
   font-weight: bold;
 }
 
-
+/* SlickSlider style */
 
 /* ************* Section title style ************ */
 
@@ -433,6 +438,10 @@ footer input[type='email']:focus {
   color: #333333;
   font-size: 32px;
   text-transform: uppercase;
+}
+
+.sectiontitle .title-container h3.small {
+  font-size: 24px;
 }
 
 .sectiontitle .title-container:after {

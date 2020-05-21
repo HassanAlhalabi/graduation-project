@@ -11,7 +11,6 @@ class Shipping extends Component {
 
 
     shippingChange = shippingMethod => {
-        this.setState({shipping: shippingMethod})
         this.props. changeShippingMethod(shippingMethod)
     }
 
@@ -48,6 +47,15 @@ class Shipping extends Component {
                             />
                     </Form>
                 </div>
+                
+                <div>
+                <SectionTitle title={this.props.shippingMethod + ' Shipping'} headerClass={'small'}/>
+                    {this.props.shippingMethod === 'free' ?
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempnim id est laborum. free</p>
+                    : <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. laboris nisi llum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non ollit anim id est laborum.</p>
+                    }
+                </div>
+                
             </div>
 
         );

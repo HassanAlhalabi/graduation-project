@@ -81,13 +81,13 @@ class ProductsCategories extends Component {
         
             : loading ? <Spinner /> : 
                 productsOfCategory.length > 0 ?
-                    <div> 
+                    <div className='row'> 
                         {productsOfCategory.map(product => 
-                            <div className='row'> 
+                            
                                 <div className='col-12 col-sm-6 col-md-4 col-lg-3'>
                                     <ProductCard key={product._id} product={product} />
                                 </div>
-                            </div>
+                            
                         )}
                     </div> 
                 : <div className='mt-5'>
@@ -112,7 +112,7 @@ class ProductsCategories extends Component {
 
 const mapStateToProps = state => {
     return({
-        products: state.products.userProducts,
+        products: state.products.products,
         loading: state.products.loading 
     });
 }
