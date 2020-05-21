@@ -1,8 +1,22 @@
-import React , {Component} from 'react';
+import React , {useEffect,useState} from 'react';
 import {connect} from 'react-redux';
 import {addProductToCartDispatch} from '../../redux/reducers/productsReducer';
  
 const ProductInfo = ({info,addProductToCart}) => {
+
+    const [productImagePosition, setPosition] = useState();
+
+    useEffect(() => {
+        let product_image = document.querySelector('.product-img'); 
+        product_image.onmousemove = e => {
+            setPosition('-'+(e.clientX-product_image.getBoundingClientRect().x)+'px -'+(e.clientY-product_image.getBoundingClientRect().y+'px'));
+            product_image.style.backgroundSize = 'auto';
+        }
+        product_image.onmouseleave= e => {
+            product_image.style.backgroundSize = '100% 100%';
+            setPosition('0px 0px');
+        }
+    })
 
     const handleAddToCart = () => {
         // ...... Create Product ......... //
@@ -22,9 +36,12 @@ const ProductInfo = ({info,addProductToCart}) => {
                 
         infoContnet = <div className='row'>
             {/* Product Img */}
-            <div className='col-12 col-md-6'>
-                <div className='product-img mb-3'>
-                    <img src={info.image} alt='product-img' className='img-fluid'/>
+            <div className='col-12 col-lg-6'>
+                <div className='product-img mb-3' style={{
+                                                        backgroundImage: 'url('+info.image+')',
+                                                        backgroundPosition: productImagePosition
+                                                    }}>
+                    
                 </div>
             </div>
             {/* Product Details */}

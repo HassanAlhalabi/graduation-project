@@ -54,12 +54,14 @@ class Productcard extends Component {
                 {ratingFull}{ratingEmpty}
               </ul>
             </div>    
-            <h3 className="title">
+            <div className="title">
               {/* <ProductModal product={product} /> */}
               <Link to={'productdetails/'+product.id}>
-                {product.name}
+                <button className='btn btn-primary'>
+                  {product.name}
+                </button>
               </Link>
-            </h3>
+            </div>
             
           </div>
         </div>
