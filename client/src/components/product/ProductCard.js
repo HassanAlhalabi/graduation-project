@@ -55,7 +55,10 @@ class Productcard extends Component {
               </ul>
             </div>    
             <h3 className="title">
-              <ProductModal product={product} />
+              {/* <ProductModal product={product} /> */}
+              <Link to={'productdetails/'+product.id}>
+                {product.name}
+              </Link>
             </h3>
             
           </div>

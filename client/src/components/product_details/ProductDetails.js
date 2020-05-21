@@ -60,12 +60,18 @@ class ProductDetails extends Component {
 
     render(){
 
+        let pid = this.props.match.params.pid;
+        let info = pid !== undefined ?
+        this.state.products.filter(product => product.id === pid*1)[0]
+        :this.state.products[this.state.index]
+
         return(
             <div className='product-details'>
                 <CategoriesBar />
                 <Breadcrumb page='Product Details'/>
-                <ProductInfo info={this.state.products[this.state.index]}/>
+                <ProductInfo info={info}/>
                 <div className='container'>
+                    { pid === undefined ?
                     <div className='prev-next-product text-center pt-4 d-flex justify-content-between'>
                         <button className='prev-product-btn btn btn-primary disabled' onClick={() => this.getPrevProduct()}>
                             <i className='fas fa-arrow-left'></i>
@@ -74,6 +80,7 @@ class ProductDetails extends Component {
                             <i className='fas fa-arrow-right'></i>
                         </button>
                     </div>
+                    : null }
                     <ProductReviews />
                 </div>
                 <PickedForYou />   

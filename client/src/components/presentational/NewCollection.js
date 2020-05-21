@@ -14,7 +14,9 @@ const Newcollection = () =>
                     <div className=' position-relative'>
                         <img src={Banner10} alt='collection-img' className='img-fluid'/>
                         <div className='link-text position-absolute'>
-                            <Link className="nav-link px-2 bg-primary text-white rounded" to="/products">New Collection</Link>
+                            <Link className="nav-link px-2 bg-primary text-white rounded" to="/products">
+                                <div>New</div><div>Collection</div>
+                            </Link>
                         </div>
                     </div>
                 </div>  
@@ -22,7 +24,9 @@ const Newcollection = () =>
                     <div className=' position-relative'>
                         <img src={Banner11} alt='collection-img' className='img-fluid'/>
                         <div className='link-text position-absolute'>
-                            <Link className="nav-link px-2 bg-primary text-white rounded" to="/products">New Collection</Link>
+                            <Link className="nav-link px-2 bg-primary text-white rounded" to="/products">
+                                <div>New</div><div>Collection</div>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -30,7 +34,9 @@ const Newcollection = () =>
                     <div className=' position-relative'>
                         <img src={Banner12} alt='collection-img' className='img-fluid'/>
                         <div className='link-text position-absolute'>
-                            <Link className="nav-link px-2 bg-primary text-white rounded" to="/products">New Collection</Link>
+                            <Link className="nav-link px-2 bg-primary text-white rounded" to="/products">
+                                <div>New</div><div>Collection</div>
+                            </Link>
                         </div>
                     </div>
                 </div>

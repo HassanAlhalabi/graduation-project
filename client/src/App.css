@@ -4,10 +4,6 @@ body {
   height: 100vh;
   font-family: 'Hind', sans-serif; 
   transform-origin: center ;
-  -webkit-perspective: 1000;
-  -moz-perspective: 1000;
-  -o-perspective: 1000;
-  perspective: 1000;
 }
 
 /********** Scroll bar style  ***********/
@@ -302,6 +298,10 @@ footer input[type='email']:focus {
 }
 
 /* ************* slider Style ************ */
+
+.slide .carousel-item {
+  transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+}
 
 .slide .carousel-caption {
   display: flex;
@@ -763,6 +763,7 @@ footer input[type='email']:focus {
 .category .category-inner .category-holder {
   height: 300px;
   overflow: hidden;
+  perspective: 1000;
 }
 
 .category .category-inner .category-image img {
@@ -772,8 +773,8 @@ footer input[type='email']:focus {
   transition: .5s;
 } 
 
-.category:hover .category-inner .category-image img{
-  transform: translateZ(20px) translateY(-20px) scale(1.1)
+.category:hover .category-inner .category-image img {
+  transform: translateZ(20px) translateY(-20px) scale(1.2)
 }
 
 .category .category-inner .category-content {
