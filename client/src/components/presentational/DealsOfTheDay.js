@@ -22,7 +22,13 @@ class DealsOfTheDay extends Component {
 
     render(){
 
-        const products = this.state.products;
+        const products = this.state.products.filter(product => {
+            return(
+                product.pending === false &&
+                product.offer === true
+            )
+        });
+
         var settings = {
             dots: true,
             infinite: false,

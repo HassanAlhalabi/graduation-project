@@ -38,7 +38,7 @@ class LatestProducts extends Component {
 
         return( 
 
-            <div className='latest-products mt-5 mb-5'>
+            <div className='latest-products pt-5 pb-5'>
                 <div className='container'>
                     <SectionTitle title={"latest products"}/>
                      <div className='row'>

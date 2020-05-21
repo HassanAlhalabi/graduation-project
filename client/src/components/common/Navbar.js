@@ -81,7 +81,7 @@ class Navbar extends Component {
       </React.Fragment>
     ) : (
       <React.Fragment>
-        <li className="nav-item">
+        <li className="nav-item ml-auto">
           <Login />
         </li>
       </React.Fragment>
@@ -90,13 +90,13 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark main-navbar p-2">
         <div className="container">
-          <div className='row w-100'>
+          <div className='row'>
 
             <Link className="navbar-brand col-12 col-md-5 col-lg-3 m-0" to="/">
               <span>E</span>-SHOP
             </Link>
 
-            <div className='col-12 col-md-7 col-lg-5 pl-lg-1 mt-4 mt-md-0'>
+            <div className='col-12 col-md-7 p-lg-0 col-lg-5 mt-4 mt-md-0'>
               <SearchBox />
             </div>
             

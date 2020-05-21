@@ -22,7 +22,7 @@ export class Login extends Component {
       <div>
         <Button color="primary" onClick={this.toggle} className='login-signup-btn'>
           {this.props.buttonLabel}
-          Signup or Login
+           Login
         </Button>
         <Modal
           isOpen={this.state.modal}

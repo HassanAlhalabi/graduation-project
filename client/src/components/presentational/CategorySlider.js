@@ -10,7 +10,7 @@ const CategorySlider = () =>
                 <div className='d-none d-md-block col-md-3'>
                     <CategoriesList />
                 </div>
-                <div className='col-12 col-md-9 pl-0 pr-0'>
+                <div className='carousel-holder col-12 col-md-9 pl-0 pr-0'>
                     <Slider />
                 </div>
             </div>

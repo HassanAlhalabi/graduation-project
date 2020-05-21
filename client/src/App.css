@@ -124,6 +124,10 @@ a:hover {
 
 /* ************* navbar Style ************ */
 
+.navbar>.container {
+  display: block;
+}
+
 .navbar-brand,.navbar-brand:hover {
   color: #333 !important;
   font-weight: bold !important;
@@ -329,6 +333,12 @@ footer input[type='email']:focus {
   }
 }
 
+@media (min-width: 576px) {
+  .carousel-holder {
+    padding-right: 15px !important;
+  }
+}
+
 .slide .carousel-caption h3 {
   margin: 0;
   color: #F8694A;
@@ -350,6 +360,35 @@ footer input[type='email']:focus {
 
 .slide .carousel-control-prev,
 .slide .carousel-control-next {
+  z-index: 10;
+  opacity: 1;
+}
+
+.slide .carousel-control-prev span,
+.slide .carousel-control-next span {
+  display: none;
+}
+
+.slide .carousel-control-prev:before,
+.slide .carousel-control-next:after {
+  color: #FFF;
+  padding: 6px 12px;
+  background-color: #30323a;
+  font-size: larger;
+  position: absolute;
+}
+
+.slide .carousel-control-prev:before {
+  content: '←';
+  left: 30px;
+}
+
+.slide .carousel-control-next:after {
+  content: '→';
+  right: 30px;
+}
+
+.carousel-indicators  {
   display: none;
 }
 

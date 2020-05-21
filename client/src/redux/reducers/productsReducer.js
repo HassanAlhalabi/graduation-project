@@ -50,11 +50,11 @@ const sampleProducts = [{
   rating: 3,
   description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero De Finibus Bonorum et Malorum for use in a type specimen book.',
   image: 'https://picsum.photos/200',
-  pending: true
+  pending: false
 },
 {
   id: 4,
-  name: 'Smart Satch',
+  name: 'Smart Watch',
   availability: 1,
   price: 90,
   prevPrice: 99.99,
@@ -67,12 +67,12 @@ const sampleProducts = [{
   rating: 3,
   description: 'Lorem ipsum, or lipsum as it is sometimes known.',
   image: 'https://picsum.photos/200',
-  pending: true
+  pending: false
 },
 
 {
   id: 5,
-  name: 'Smart Satch',
+  name: 'Smart Watch',
   availability: 1,
   price: 90,
   prevPrice: 99.99,
@@ -89,7 +89,7 @@ const sampleProducts = [{
 },
 {
   id: 6,
-  name: 'Smart Satch',
+  name: 'Smart Watch',
   availability: 1,
   price: 90,
   prevPrice: 99.99,
@@ -106,7 +106,7 @@ const sampleProducts = [{
 },
 {
   id: 7,
-  name: 'Smart Satch',
+  name: 'Smart Watch',
   availability: 1,
   price: 90,
   prevPrice: 99.99,
