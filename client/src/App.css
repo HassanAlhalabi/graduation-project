@@ -509,6 +509,11 @@ footer input[type='email']:focus {
   font-size: 24px;
 }
 
+
+.sectiontitle .title-container h3.smaller {
+  font-size: 21px;
+}
+
 .sectiontitle .title-container:after {
   content: '';
   width: 90px;

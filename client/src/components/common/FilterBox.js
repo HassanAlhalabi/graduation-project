@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import SectionTitle from './SectionTitle';
 
 
 class FilterBox extends Component {
@@ -50,7 +50,7 @@ class FilterBox extends Component {
             <div className='filter-box'>
                 <form name='filterForm'onChange={this.handleFilterChange}>
                     <div>
-                    <h5 className='orange-color mb-3'>Filter By Price:</h5>
+                    <SectionTitle title='Filter By Price:' headerClass='smaller'/>
                     <div className='price-filter mb-5 d-flex justify-content-between'>
                         <div className='pl-1 pr-1'>
                                 <span className=''>$1</span>
@@ -71,7 +71,7 @@ class FilterBox extends Component {
                         </div> 
                     </div>
                     <div>
-                        <h5 className='orange-color mb-3'>Filter By Category:</h5>
+                        <SectionTitle title='Filter By Category:' headerClass='smaller'/>
                         <div className='category-filter mb-5'>
                             <select className='form-control rounded-0'id='category'>
                                 <option value='all'>All</option>
@@ -85,7 +85,7 @@ class FilterBox extends Component {
                         </div>
                     </div>
                     <div>
-                        <h5 className='orange-color mb-3'>Filter By Brand:</h5>
+                        <SectionTitle title='Filter By Brand:' headerClass='smaller'/> 
                         <div className='brand-filter mb-5'>
                             <select className='form-control rounded-0'id='brand'>
                                 <option value='all'>All</option>
@@ -98,7 +98,7 @@ class FilterBox extends Component {
                         </div>
                     </div>
                     <div>
-                        <h5 className='orange-color mb-3'>Filter By Size:</h5>
+                        <SectionTitle title='Filter By Size:' headerClass='smaller'/>
                         <div className='brand-filter mb-5'>
                             <select className='form-control rounded-0'id='size'>
                                 <option value='all'>All</option>
