@@ -8,6 +8,8 @@ class Productcard extends Component {
 
   handleAddToCart = product => this.props.addProductToCart(product)
 
+  addToWishList = () => console.log('Add To Wish List')
+
   render() {
     const { product } = this.props;
     let ratingFull = [];
@@ -32,13 +34,6 @@ class Productcard extends Component {
                 src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-2.jpg"
               />
             </Link>
-            <ul className="social">
-              <li>
-                <button className='btn btn-primary font-weight-bold ml-auto' onClick={() => this.handleAddToCart({...product,quantity:1})}>
-                  <i className='fas fa-shopping-cart'></i>
-                </button>
-              </li>
-            </ul>
             <div className="product-new-label text-center">
               <div className='new'>New</div>
               <div className='discount'>-{100 - Math.ceil(( product.price / product.prevPrice) * 100) }%</div>
@@ -54,15 +49,26 @@ class Productcard extends Component {
                 {ratingFull}{ratingEmpty}
               </ul>
             </div>    
-            <div className="title">
+            <div className="title text-left">
               {/* <ProductModal product={product} /> */}
-              <Link to={'productdetails/'+product.id}>
-                <button className='btn btn-primary'>
+              <h4 className='font-weight-bold'>
+                <Link to={'productdetails/'+product.id}> 
                   {product.name}
-                </button>
-              </Link>
+                </Link>
+              </h4>  
             </div>
             
+            <div className='product-options d-flex pt-1 pb-1'>
+              <div className='wish-list mr-2' onClick={() => this.addToWishList()}>
+                <i className='fas fa-heart'></i>
+              </div>
+              <div className='add-to-cart '>
+                <button className='btn btn-primary' onClick={() => this.handleAddToCart({...product,quantity:1})}>
+                  <i className='fas fa-shopping-cart'></i> Add ToCart
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
     );

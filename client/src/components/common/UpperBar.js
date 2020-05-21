@@ -19,6 +19,9 @@ const UpperBar = () =>
                                 <Link to='/products'>Store</Link>
                             </li>
                             <li className='list-item ml-3'>
+                                <Link to='/About'>About</Link> 
+                            </li>
+                            <li className='list-item ml-3'>
                                 <a href='#news-letter'>Newsletter</a>
                             </li>
                         </ul>

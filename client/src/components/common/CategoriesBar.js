@@ -50,9 +50,6 @@ class CategoriesBar extends Component {
                                             <Link to='/Checkout'>
                                                 <li className='list-group-item'>Checkout</li>
                                             </Link>
-                                            <Link to='/About'>
-                                                <li className='list-group-item'>About</li>
-                                            </Link> 
                                         </ul>
                                     </div>
                                 </li>

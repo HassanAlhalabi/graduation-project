@@ -140,7 +140,7 @@ a:hover {
   border-color: transparent;
   background-color: transparent;
   color: #999;
-  transition: .6s
+  transition: .5s !important
 }
 
 .main-navbar .search-box button a {
@@ -152,6 +152,10 @@ a:hover {
 footer input[type='email']:focus {
   box-shadow: 0 0 0 0.2rem rgba(248,105,74,.25);
   border-color: #dd4b39;
+}
+
+.main-navbar .search-box .voice-search button:hover i {
+  color: #F8694A;
 }
 
 .main-navbar .search-box .img-search {
@@ -448,8 +452,10 @@ footer input[type='email']:focus {
   align-self: center;
   text-align: center;
   width: 100%;
-  font-size: 2.6vw;
+  font-size: 2.5vw;
+  font-weight: bold;
   border-radius: 0 !important;
+  text-transform: uppercase;
 }
 
 @media (max-width: 576px) {
@@ -596,7 +602,14 @@ footer input[type='email']:focus {
 .product-grid7 {
   position: relative;
   z-index: 1;
+  transition: .2s;
 }
+
+.product-grid7:hover{
+  transform: translateY(-10px);
+  box-shadow: 0px 6px 10px -6px rgba(0, 0, 0, 0.175)
+}
+
 .product-grid7 .product-image7 {
   border: 1px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -627,41 +640,12 @@ footer input[type='email']:focus {
   opacity: 1;
   transform: rotateY(0);
 }
-.product-grid7 .social {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  position: absolute;
-  bottom: 15px;
-  left: -22%;
-  z-index: 1;
-  transition: all 0.5s ease 0s;
-}
-.product-grid7:hover .social {
-  left: 17px;
-}
-.product-grid7 .social li a {
-  color: #f8694a !important;
-  background-color: #333;
-  font-size: 16px;
-  line-height: 40px;
-  text-align: center;
-  height: 40px;
-  width: 40px;
-  margin: 15px 0;
-  border-radius: 50%;
-  display: block;
-  transition: all 0.5s ease-in-out;
-}
-.product-grid7 .social li a:hover {
-  color: #333 !important;
-  background-color: #F8694A;
-}
+
 .product-grid7 .product-new-label {
   color: #fff;
   background-color: #333;
   position: absolute;
-  top: 10px;
+  top: 16px;
   left: 10px;
   font-size: 14px;
   font-weight: 700;
@@ -678,7 +662,7 @@ footer input[type='email']:focus {
 
 .product-grid7 .product-content {
   text-align: center;
-  padding: 20px 0 0;
+  padding: 10px;
 }
 .product-grid7 .title {
   font-size: 15px;
@@ -702,7 +686,7 @@ footer input[type='email']:focus {
   color: #FFB656;
   font-size: 12px;
   padding: 0;
-  margin: 0 0 10px;
+  margin: 0;
   list-style: none;
 }
 
@@ -715,7 +699,6 @@ footer input[type='email']:focus {
   color: #333;
   font-size: 21px;
   font-weight: 700;
-  margin-bottom: 8px;
   text-align: center;
   transition: all 0.3s;
 }
@@ -731,6 +714,29 @@ footer input[type='email']:focus {
   .product-grid7 {
     margin-bottom: 30px;
   }
+}
+
+.product-grid7 .product-options {
+  opacity: 0;
+  transition: .2s;
+}
+
+.product-grid7:hover .product-options {
+  opacity: 1;
+}
+
+.product-grid7 .product-options .wish-list {
+  padding: 5px 15px;
+  border: 1px solid #333;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 0px #F8694A ;
+  transition: .3s;
+}
+
+.product-grid7 .product-options .wish-list:hover {
+  color: #F8694A;
+  border-color: #F8694A;
+  box-shadow: 0px 0px 0px 7px #F8694A00
 }
 
 /*Upload box*/
@@ -1038,6 +1044,7 @@ footer input[type='email']:focus {
   background-color: #F8694A;
   z-index: 1000;
   border-radius: 50%;
+  border: 1px solid #FFF;
 }
 
 .fixed-cart .fixed-cart-inner {

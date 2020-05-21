@@ -41,7 +41,7 @@ class SearchBox extends Component {
                         </div> 
                     </form>
                 </div>           
-                <div>
+                <div className='voice-search'>
                     <button className='rounded-0 h-100'>
                         <i className='fas fa-microphone'></i>
                     </button>

@@ -26,7 +26,7 @@ class MyProducts extends Component {
 
     sortAZ = () => {
         this.setState({
-            myProducts: this.state.myProducts.sort( (a,b) => {
+            myProducts: this.props.myProducts.sort( (a,b) => {
                 if(a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
                 if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
                 return 0;
@@ -36,7 +36,7 @@ class MyProducts extends Component {
     
     sortZA = () => {
         this.setState({
-            myProducts: this.state.myProducts.sort( (a,b) => {
+            myProducts: this.props.myProducts.sort( (a,b) => {
                 if(a.name.toLowerCase() < b.name.toLowerCase()) { return 1; }
                 if(a.name.toLowerCase() > b.name.toLowerCase()) { return -1; }
                 return 0;
