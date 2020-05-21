@@ -15,7 +15,7 @@ const sampleProducts = [{
       color: '#333333',
       rating: 3,
       description: 'Lorem ipsum or lipsum as text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thoue Finibus Bonorum et Malorum for use in a type specimen book',
-      image: 'https://picsum.photos/1000',
+      image: 'https://picsum.photos/500',
       pending: false
 },
 {
@@ -32,7 +32,7 @@ const sampleProducts = [{
       color: '#fa34aa',
       rating: 3,
       description: 'Lorem ipsum, or lipsum as it o have scramb Finibus Bonorum et Malorum for use in a type specimen book.',
-      image: 'https://picsum.photos/1000',
+      image: 'https://picsum.photos/300',
       pending: false
 },
 {
@@ -49,7 +49,7 @@ const sampleProducts = [{
   color: '#123456',
   rating: 3,
   description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero De Finibus Bonorum et Malorum for use in a type specimen book.',
-  image: 'https://picsum.photos/1000',
+  image: 'https://picsum.photos/700',
   pending: false
 },
 {
@@ -66,7 +66,7 @@ const sampleProducts = [{
   color: '#e2e2e2',
   rating: 3,
   description: 'Lorem ipsum, or lipsum as it is sometimes known.',
-  image: 'https://picsum.photos/1000',
+  image: 'https://picsum.photos/200',
   pending: false
 },
 
@@ -84,7 +84,7 @@ const sampleProducts = [{
   color: '#e2e2e2',
   rating: 3,
   description: 'Lorem ipsum, or lipsum as it is sometimes known.',
-  image: 'https://picsum.photos/1000',
+  image: 'https://picsum.photos/450',
   pending: true
 },
 {
@@ -101,7 +101,7 @@ const sampleProducts = [{
   color: '#e2e2e2',
   rating: 3,
   description: 'Lorem ipsum, or lipsum as it is sometimes known.',
-  image: 'https://picsum.photos/1000',
+  image: 'https://picsum.photos/320',
   pending: true
 },
 {
@@ -118,7 +118,7 @@ const sampleProducts = [{
   color: '#e2e2e2',
   rating: 3,
   description: 'Lorem ipsum, or lipsum as it is sometimes known.',
-  image: 'https://picsum.photos/1000',
+  image: 'https://picsum.photos/600',
   pending: true
 },
 ]

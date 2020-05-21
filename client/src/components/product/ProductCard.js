@@ -24,7 +24,7 @@ class Productcard extends Component {
     return (
         <div className="product-grid7">
           <div className="product-image7">
-            <Link to="/">
+            {/* <Link to="/">
               <img
                 className="pic-1"
                 src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-1.jpg"
@@ -33,7 +33,11 @@ class Productcard extends Component {
                 className="pic-2"
                 src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-2.jpg"
               />
-            </Link>
+            </Link> */}
+            <img
+                className="pic-1"
+                src={product.image}
+              />
             <div className="product-new-label text-center">
               <div className='new'>New</div>
               <div className='discount'>-{100 - Math.ceil(( product.price / product.prevPrice) * 100) }%</div>
