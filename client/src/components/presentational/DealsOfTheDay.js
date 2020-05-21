@@ -57,9 +57,9 @@ class DealsOfTheDay extends Component {
                     <SectionTitle title={"deals of the day"}/>
                     <div className='row h-100'>
                         <div className='col-6 col-lg-3 mb-3'>
-                            <div className='position-relative'>
-                                <div>
-                                    <img src={DealsOfTheDayImage} alt='deals-of-the-day image' className='img-fluid w-100'/>
+                            <div className='position-relative h-100'>
+                                <div className='h-100'> 
+                                    <img src={DealsOfTheDayImage} alt='deals-of-the-day image' className='img-fluid w-100 h-100'/>
                                 </div>
                                 <div className='position-absolute deals-collection-link'>
                                     <h3>New Collection</h3>

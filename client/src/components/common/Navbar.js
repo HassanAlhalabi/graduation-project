@@ -96,7 +96,7 @@ class Navbar extends Component {
               <span>E</span>-SHOP
             </Link>
 
-            <div className='col-12 col-md-7 col-lg-5 pl-lg-0 mt-4 mt-md-0'>
+            <div className='col-12 col-md-7 col-lg-5 pl-lg-1 mt-4 mt-md-0'>
               <SearchBox />
             </div>
             

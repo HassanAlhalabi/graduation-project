@@ -11,9 +11,9 @@ const HotDeal = () =>
     <div className='hot-deal mb-5 mt-5'>
         <div className='container'>
             <div className='row'>
-                 <div className='col-12 col-sm-12 mb-sm-2 mb-md-0 col-md-8'>
+                 <div className='col-12 col-sm-12 mb-sm-2 mb-md-0 col-md-8 mb-3'>
                     <div className='position-relative'>
-                        <img src={Banner12} alt='hot-deal-img' className='img-fluid'/>
+                        <img src={Banner12} alt='hot-deal-img' className='img-fluid w-100'/>
                         <div className='position-absolute text-content d-flex'>
                             <div className='text-center align-self-center w-100'>
                                 <h3>Hot Deal</h3>
