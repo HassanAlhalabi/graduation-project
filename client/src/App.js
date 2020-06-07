@@ -9,15 +9,21 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+
 import PrivateRoute from './components/common/PrivateRoute';
 
 import Navbar from './components/layout/Navbar';
 import Login from './components/layout/Login';
 import Home from './components/presentational/Home';
 import Dashboard from './components/dashboard/Dashboard';
+import Products from './components/products/Products';
+import Checkout from './components/checkout/Checkout';
 import About from './components/about/About';
 import Cart from './components/product/Cart';
 import ProductForm from './components/product/ProductForm';
+
+import FixedCart from './components/layout/FixedCart';
+import Footer from './components/layout/Footer';
 
 class App extends Component {
   render() {
@@ -25,10 +31,12 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
+            <FixedCart NumberOfProductsInCart={3}/>
             <Navbar />
-            <div className="container">
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/products" component={Products} />
+              <Route exact path="/checkout" component={Checkout} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/login" component={Login} />
               <Switch>
@@ -41,7 +49,7 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
-            </div>
+            <Footer />  
           </div>
         </Router>
       </Provider>
