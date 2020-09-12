@@ -131,7 +131,8 @@ const initialState = {
   userProducts: sampleProducts,
   productsInCart: [],
   shippingMethod: 'free',
-  loading: true
+  loading: true,
+  pendingOrders: []
 };
 
 //Define action types
