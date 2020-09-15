@@ -179,6 +179,7 @@ export class ProductForm extends Component {
     //if there is no errors:
     if(Object.keys(errors).length === 0) {
       this.props.addNewProduct(productProps)
+      alert('New product has been added successfully!')
     }
   }
 

@@ -204,7 +204,8 @@ export class ProductForm extends Component {
 
     //if there is no errors:
     if(Object.keys(errors).length === 0) {
-      this.props.updateProduct(productProps)
+      this.props.updateProduct(productProps);
+     alert("Prouct has been updated successfuly!!")
     }
   }
 
